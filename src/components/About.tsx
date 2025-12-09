@@ -1,70 +1,63 @@
-import { CheckCircle } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
 
-const About = () => {
-  const highlights = [
-    'Licensed freight forwarding company',
-    'Expert team with decades of experience',
-    'Global network spanning 50+ countries',
-    'Competitive rates with no hidden charges',
-  ];
-
+const Hero = () => {
   return (
-    <section id="about" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        {/* Main Grid Container for Image and Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          
-          {/* Left Column: Image */}
-          {/* Since the image is in the /public folder, reference it directly with root path / */}
-          <div className="relative animate-fade-in">
-            <img 
-              src="/About01.png" 
-              alt="About One Global Consolidators" 
-              className="w-full h-auto object-cover rounded-lg shadow-xl z-10 relative"
-            />
-            {/* Optional decorative background element behind image */}
-            <div className="absolute -bottom-4 -left-4 w-full h-full bg-accent/10 rounded-lg -z-10 hidden md:block"></div>
-          </div>
+    <section id="home" className="relative h-[600px] md:h-[700px] overflow-hidden">
 
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat drop-shadow-[0_0_25px_rgba(0,102,255,0.6)]"
+        style={{ backgroundImage: `url('/Hero01.jpg')` }}
+      >
+        {/* Dark Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-navy-dark/90 via-navy/70 to-transparent" />
+      </div>
 
-          {/* Right Column: Text Content */}
-          <div>
-            <div className="text-center lg:text-left mb-8">
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mb-4">
-                ABOUT US
-              </h2>
-              {/* Changed mx-auto to lg:mx-0 for left alignment on desktop */}
-              <div className="w-20 h-1 bg-accent mx-auto lg:mx-0 mb-6" />
-            </div>
+      {/* Content */}
+      <div className="relative container mx-auto px-4 h-full flex items-center">
+        <div className="max-w-2xl text-left">
+          <p className="font-body text-accent font-semibold mb-4 animate-fade-in tracking-wider">
+            TRUSTED LOGISTICS PARTNER
+          </p>
 
-            {/* Removed mx-auto and text-center to allow left alignment in grid */}
-            <div className="text-center lg:text-left">
-              <p className="font-body text-lg text-muted-foreground leading-relaxed mb-8">
-                One Global Consolidators (OGC) is a licensed freight forwarding company. OGC is known worldwide for operating a fully fledged container services across the globe. Our team is backed by decades of experience in the freight forwarding and logistics industry, ensuring that we deliver exceptional service to every customer.
-              </p>
-              <p className="font-body text-lg text-muted-foreground leading-relaxed mb-10">
-                We specialize in providing comprehensive logistics solutions tailored to meet the unique needs of businesses worldwide. Our commitment to excellence and customer satisfaction has made us a trusted partner for companies seeking reliable freight management services.
-              </p>
+          {/* Main Heading */}
+          <h1
+            className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white animate-slide-in-left"
+            style={{ animationDelay: '0.2s' }}
+          >
+            Get the Best Logistics
+            <span className="text-accent"> Service </span>
+            with One Global Consolidators
+          </h1>
 
-              {/* Changed grid structure slightly for better fit in the column */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {highlights.map((item, index) => (
-                  <div 
-                    key={index}
-                    className="flex items-center gap-3 p-4 bg-secondary rounded-lg animate-fade-in text-left"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  >
-                    <CheckCircle className="w-5 h-5 text-accent flex-shrink-0" />
-                    <span className="font-body text-foreground">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+          {/* Subtext */}
+          <p
+            className="font-body text-lg md:text-xl text-gray-100 mb-8 animate-slide-in-left"
+            style={{ animationDelay: '0.4s' }}
+          >
+            Your trusted partner for sea and air freight solutions. We deliver excellence across borders with reliability and precision.
+          </p>
+
+          <div className="flex flex-wrap gap-4 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+            <Button size="lg" className="bg-accent hover:bg-red-hover text-accent-foreground font-body font-semibold px-8">
+              Our Services
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+
+            <Button 
+              size="lg"
+              variant="outline"
+              className="border-white text-black hover:bg-white hover:text-black font-body transition-colors"
+            >
+              Contact Us
+            </Button>
           </div>
         </div>
       </div>
+
     </section>
   );
 };
 
-export default About;
+export default Hero;
