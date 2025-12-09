@@ -3,10 +3,6 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 
 const Hero = () => {
-  // Define custom Tailwind colors as variables for clarity in the class names,
-  // although they should be configured in tailwind.config.js for actual use.
-  // Assuming 'navy-dark', 'navy', 'accent', 'red-hover' are configured.
-
   return (
     // Section ID for navigation and defined height
     <section id="home" className="relative h-[600px] md:h-[700px] overflow-hidden">
@@ -17,7 +13,6 @@ const Hero = () => {
         style={{ backgroundImage: `url(${heroImage})` }}
       >
         {/* Dark Gradient Overlay for content visibility */}
-        {/* Ensure 'navy-dark' and 'navy' are defined in Tailwind config */}
         <div className="absolute inset-0 bg-gradient-to-r from-navy-dark/90 via-navy/70 to-transparent" />
       </div>
 
@@ -31,7 +26,6 @@ const Hero = () => {
           </p>
           
           {/* Main Heading */}
-          {/* The inline style for animation delay is a common practice with custom CSS animations */}
           <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white animate-slide-in-left" style={{ animationDelay: '0.2s' }}>
             Get the Best Logistics
             <span className="text-accent"> Service </span>
@@ -47,12 +41,15 @@ const Hero = () => {
           <div className="flex flex-wrap gap-4 animate-fade-in" style={{ animationDelay: '0.6s' }}>
             
             {/* Primary Button */}
-            <Button size="lg" className="bg-accent hover:bg-red-hover text-accent-foreground font-body font-semibold px-8">
+            <Button 
+              size="lg" 
+              className="bg-accent hover:bg-red-hover text-accent-foreground font-body font-semibold px-8"
+            >
               Our Services
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             
-            {/* Secondary/Contact Button - FIX: Changed 'text-Black' to 'text-white' for initial state */}
+            {/* Secondary/Contact Button - CORRECTED: text-white for initial state */}
             <Button 
               size="lg" 
               variant="outline" 
@@ -65,7 +62,6 @@ const Hero = () => {
       </div>
 
       {/* Decorative Gradient Fade-Out at the bottom */}
-      {/* Ensure 'background' is defined in Tailwind config */}
       <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-background to-transparent" />
     </section>
   );
