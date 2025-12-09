@@ -21,14 +21,14 @@ const Hero = () => {
             TRUSTED LOGISTICS PARTNER
           </p>
           
-          {/* Main Heading changed to White */}
+          {/* Main Heading (White) */}
           <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white animate-slide-in-left" style={{ animationDelay: '0.2s' }}>
             Get the Best Logistics
             <span className="text-accent"> Service </span>
             with One Global Consolidators
           </h1>
           
-          {/* Subtext changed to White/Light Gray */}
+          {/* Subtext (White/Light Gray) */}
           <p className="font-body text-lg md:text-xl text-gray-100 mb-8 animate-slide-in-left" style={{ animationDelay: '0.4s' }}>
             Your trusted partner for sea and air freight solutions. We deliver excellence across borders with reliability and precision.
           </p>
@@ -39,11 +39,13 @@ const Hero = () => {
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             
-            {/* Contact Button updated to White */}
+            {/* Contact Button */}
+            {/* CHANGED: Added 'text-white border-white' for the state before hover */}
+            {/* Added 'hover:bg-white hover:text-black' for a clean hover effect */}
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-white text-white hover:bg-white/10 font-body"
+              className="border-white text-white hover:bg-white hover:text-black font-body transition-colors"
             >
               Contact Us
             </Button>
