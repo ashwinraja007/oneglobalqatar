@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, User, Users, Locate, Ship } from 'lucide-react';
 
-// --- Component for Wider Navigation CTA Buttons ---
+// --- Component for Long & Sleek Navigation Bar ---
 const HeroNavButtons = () => {
   const buttons = [
     { icon: User, label: 'Customer Portal', href: '/customer-portal' },
@@ -11,40 +11,38 @@ const HeroNavButtons = () => {
   ];
 
   return (
-    <div className="absolute bottom-8 left-0 right-0 z-20 hidden md:block px-8">
-      {/* Main Container - Controls the overall max width of the bar */}
-      <div className="max-w-6xl mx-auto">
+    // Positioned at the bottom, overlapping the hero image slightly
+    <div className="absolute bottom-10 left-0 right-0 z-20 hidden md:block">
+      <div className="container mx-auto px-4">
         
-        {/* The Glass Bar itself */}
-        {/* bg-navy-dark/80 makes it darker like the image. rounded-2xl clips the corners. */}
-        <div className="flex w-full bg-navy-dark/80 backdrop-blur-lg border border-white/15 rounded-3xl overflow-hidden shadow-2xl">
+        {/* The Bar Container: Spans full width of container, but keeps height sleek */}
+        <div className="w-full bg-navy-dark/90 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden shadow-2xl">
           
-          {buttons.map((button, index) => (
-            <a
-              key={index}
-              href={button.href}
-              className={`
-                // 'flex-1' makes them all grow equally to fill the width
-                flex-1 relative h-[90px] flex items-center justify-center space-x-4
-                transition-all duration-300 ease-in-out
-                // Hover effect for the whole block
-                hover:bg-white/10 group cursor-pointer
-                // Add a right border to create dividers, except for the very last item
-                ${index !== buttons.length - 1 ? 'border-r border-white/15' : ''}
-              `}
-            >
-              {/* Icon Wrapper */}
-              <div className="flex items-center justify-center w-10 h-10 rounded-full bg-white/5 text-gray-300 group-hover:bg-accent group-hover:text-white transition-colors duration-300">
-                <button.icon className="w-5 h-5" />
-              </div>
+          <div className="flex flex-row items-center h-16"> {/* Fixed sleek height (h-16 = 64px) */}
+            
+            {buttons.map((button, index) => (
+              <a
+                key={index}
+                href={button.href}
+                className={`
+                  flex-1 flex items-center justify-center space-x-3 h-full
+                  transition-all duration-300 ease-in-out
+                  hover:bg-white/10 group cursor-pointer
+                  // Add subtle vertical dividers
+                  ${index !== buttons.length - 1 ? 'border-r border-white/10' : ''}
+                `}
+              >
+                {/* Icon - Scaled down slightly to fit the sleek bar */}
+                <button.icon className="w-5 h-5 text-gray-400 group-hover:text-accent transition-colors duration-300" />
 
-              {/* Text Label */}
-              <span className="text-white font-body font-semibold text-lg tracking-wider">
-                {button.label}
-              </span>
-            </a>
-          ))}
+                {/* Text - Adjusted size for better proportion */}
+                <span className="text-white font-body font-medium text-sm md:text-base tracking-wide group-hover:text-white transition-colors">
+                  {button.label}
+                </span>
+              </a>
+            ))}
 
+          </div>
         </div>
       </div>
     </div>
@@ -54,21 +52,18 @@ const HeroNavButtons = () => {
 // --- Main Hero Component ---
 const Hero = () => {
   return (
-    // Increased height slightly to accommodate larger bottom bar
-    <section id="home" className="relative h-[650px] md:h-[800px] overflow-hidden">
+    <section id="home" className="relative h-[600px] md:h-[750px] overflow-hidden">
 
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url('/Hero01.jpg')` }}
       >
-        {/* Dark Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-navy-dark/95 via-navy/80 to-navy/30" />
       </div>
 
       {/* Content */}
-      {/* Added extra padding-bottom (pb-32) so main content doesn't overlap the new bigger bar */}
-      <div className="relative container mx-auto px-4 h-full flex items-center pb-32">
+      <div className="relative container mx-auto px-4 h-full flex items-center pb-24">
         <div className="max-w-2xl text-left">
           <p className="font-body text-accent font-semibold mb-4 animate-fade-in tracking-wider">
             TRUSTED LOGISTICS PARTNER
@@ -107,7 +102,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Render the new wider navigation bar */}
+      {/* Navigation Buttons */}
       <HeroNavButtons />
 
     </section>
