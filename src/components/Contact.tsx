@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 
-// Fallback import (works 100% even if public path fails)
+// Using about-bg.webp directly as background (no white overlay)
 import bgImage from '/about-bg.webp';
 
 const Contact = () => {
@@ -69,28 +69,26 @@ const Contact = () => {
       id="contact"
       className="relative py-20 overflow-hidden min-h-[600px]"
     >
-      {/* Background Image + Overlay */}
+      {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src={bgImage} // guaranteed working
+          src={bgImage}
           alt="Background"
           className="w-full h-full object-cover"
           onError={(e) => {
-            // fallback in case webp fails
             (e.target as HTMLImageElement).src = "/about-bg.jpg";
           }}
         />
-        <div className="absolute inset-0 bg-white/90" />
       </div>
 
       {/* Main Content */}
       <div className="relative z-10 container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mb-4">
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mb-4 drop-shadow-md">
             CONTACT US
           </h2>
           <div className="w-20 h-1 bg-accent mx-auto mb-6" />
-          <p className="font-body text-muted-foreground max-w-2xl mx-auto">
+          <p className="font-body text-muted-foreground max-w-2xl mx-auto drop-shadow-md">
             Get in touch with our team for inquiries, quotes, or any questions
             about our services.
           </p>
@@ -98,7 +96,7 @@ const Contact = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Form */}
-          <div className="bg-background p-8 rounded-xl shadow-md animate-slide-in-left">
+          <div className="bg-white/90 p-8 rounded-xl shadow-md backdrop-blur-sm animate-slide-in-left">
             <h3 className="font-heading text-xl font-bold text-primary mb-6">
               Send us a Message
             </h3>
@@ -153,7 +151,7 @@ const Contact = () => {
 
           {/* Contact Info */}
           <div className="animate-slide-in-right">
-            <h3 className="font-heading text-xl font-bold text-primary mb-6">
+            <h3 className="font-heading text-xl font-bold text-primary mb-6 drop-shadow-md">
               Our Office
             </h3>
 
@@ -162,7 +160,7 @@ const Contact = () => {
                 const Icon = info.icon;
 
                 return (
-                  <div key={index} className="flex gap-4">
+                  <div key={index} className="flex gap-4 bg-white/80 p-4 rounded-xl backdrop-blur-sm shadow-sm">
                     <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
                       <Icon className="w-5 h-5 text-primary-foreground" />
                     </div>
