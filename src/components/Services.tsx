@@ -14,9 +14,8 @@ import {
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 /* ======================================================
-   OLD SECTION – KEY FEATURES (UNCHANGED STYLE)
+   OLD SECTION – KEY FEATURES
 ====================================================== */
-
 const KeyFeatures = () => {
   const features = [
     {
@@ -107,7 +106,6 @@ const KeyFeatures = () => {
 /* ======================================================
    CARD COMPONENT
 ====================================================== */
-
 const OneGlobalCard = ({ image, title, points, icon }) => {
   return (
     <motion.div
@@ -116,11 +114,7 @@ const OneGlobalCard = ({ image, title, points, icon }) => {
       className="bg-white rounded-xl shadow-md hover:shadow-xl overflow-hidden"
     >
       <AspectRatio ratio={16 / 9}>
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-full object-cover"
-        />
+        <img src={image} alt={title} className="w-full h-full object-cover" />
       </AspectRatio>
 
       <div className="p-5">
@@ -140,9 +134,8 @@ const OneGlobalCard = ({ image, title, points, icon }) => {
 };
 
 /* ======================================================
-   NEW SECTION – SCROLLABLE SERVICES
+   NEW SECTION – GRID SERVICES
 ====================================================== */
-
 const ServicesScroll = () => {
   const services = [
     {
@@ -208,35 +201,24 @@ const ServicesScroll = () => {
   ];
 
   return (
-    <section className="bg-[#0E3A45] py-24 overflow-hidden">
+    <section className="bg-[#0E3A45] py-24">
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-14 text-white">
           <span className="text-sm uppercase tracking-widest text-orange-400">
             What We Offer
           </span>
-          <h2 className="text-4xl font-bold mt-2">
-            Explore Our Services
-          </h2>
+          <h2 className="text-4xl font-bold mt-2">Explore Our Services</h2>
           <p className="text-gray-300 text-sm mt-3 max-w-xl mx-auto">
             Reliable, scalable and technology-driven logistics solutions.
           </p>
         </div>
 
-        {/* Horizontal Scroll */}
-        <div className="flex gap-8 overflow-x-auto snap-x snap-mandatory pb-8 scrollbar-hide">
+        {/* Grid Layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div
-              key={index}
-              className="min-w-[300px] sm:min-w-[340px] lg:min-w-[360px] snap-center"
-            >
-              <OneGlobalCard {...service} />
-            </div>
+            <OneGlobalCard key={index} {...service} />
           ))}
-        </div>
-
-        <div className="text-center text-gray-300 text-sm mt-6">
-          ← Scroll to explore all services →
         </div>
       </div>
     </section>
@@ -246,7 +228,6 @@ const ServicesScroll = () => {
 /* ======================================================
    FINAL PAGE EXPORT
 ====================================================== */
-
 const Services = () => {
   const location = useLocation();
   useEffect(() => window.scrollTo(0, 0), [location.pathname]);
