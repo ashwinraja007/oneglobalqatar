@@ -46,7 +46,6 @@ const KeyFeatures = () => {
 
   return (
     <section className="py-24 bg-background relative overflow-hidden">
-      {/* Curved dashed line */}
       <svg
         className="absolute top-1/2 left-0 w-full -translate-y-1/2"
         height="140"
@@ -55,7 +54,7 @@ const KeyFeatures = () => {
       >
         <path
           d="M 0 100 C 300 20, 600 180, 900 100 S 1200 20, 1400 100"
-          stroke="#0E3A45"
+          stroke="#3d5548"
           strokeWidth="4"
           strokeDasharray="10 12"
           className="opacity-40"
@@ -131,7 +130,7 @@ const OneGlobalCard = ({ image, title, points, icon }) => {
 };
 
 /* ======================================================
-   NEW SECTION – GRID SERVICES (BLUE GRADIENT)
+   NEW SECTION – GRID SERVICES (NEW BLUE GRADIENT)
 ====================================================== */
 const ServicesScroll = () => {
   const services = [
@@ -198,9 +197,8 @@ const ServicesScroll = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-b from-transparent to-[#0E3A45]">
+    <section className="py-24 bg-gradient-to-b from-transparent to-[#152C55]">
       <div className="max-w-7xl mx-auto px-4">
-        {/* Header */}
         <div className="text-center mb-14">
           <span className="text-sm uppercase tracking-widest text-orange-400">
             What We Offer
@@ -213,7 +211,6 @@ const ServicesScroll = () => {
           </p>
         </div>
 
-        {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <OneGlobalCard key={index} {...service} />
