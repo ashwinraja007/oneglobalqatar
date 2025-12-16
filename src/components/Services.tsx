@@ -167,4 +167,73 @@ const ServicesScroll = () => {
     {
       image: "/lovable-uploads/cc.jpg",
       title: "Customs Clearance",
-      icon: <Package size={16
+      icon: <Package size={16} />,
+      points: [
+        "Import & export documentation",
+        "Free zone & mainland clearance",
+        "Compliance support",
+      ],
+    },
+    {
+      image: "/warhouseh1.png",
+      title: "Warehousing",
+      icon: <Warehouse size={16} />,
+      points: [
+        "Bonded & non-bonded facilities",
+        "Inventory management",
+        "Value-added services",
+      ],
+    },
+    {
+      image: "/h4.png",
+      title: "Project Logistics",
+      icon: <Boxes size={16} />,
+      points: [
+        "Planning & coordination",
+        "Heavy & OOG cargo",
+        "End-to-end execution",
+      ],
+    },
+  ];
+
+  return (
+    <section className="py-24 bg-gradient-to-b from-transparent to-[#0b2a4a]">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="text-center mb-14">
+          <span className="text-sm uppercase tracking-widest text-orange-400">
+            What We Offer
+          </span>
+          <h2 className="text-4xl font-bold mt-2 text-white">
+            Explore Our Services
+          </h2>
+          <p className="text-gray-200 text-sm mt-3 max-w-xl mx-auto">
+            Reliable, scalable and technology-driven logistics solutions.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <OneGlobalCard key={index} {...service} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+/* ======================================================
+   FINAL PAGE EXPORT
+====================================================== */
+const Services = () => {
+  const location = useLocation();
+  useEffect(() => window.scrollTo(0, 0), [location.pathname]);
+
+  return (
+    <>
+      <KeyFeatures />
+      <ServicesScroll />
+    </>
+  );
+};
+
+export default Services;
