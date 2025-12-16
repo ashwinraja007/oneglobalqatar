@@ -22,11 +22,11 @@ const Header = () => {
           <div className="flex items-center gap-6">
             <a href="tel:+974123456" className="flex items-center gap-2 hover:text-accent transition-colors">
               <Phone className="w-4 h-4" />
-              <span className="hidden sm:inline">+974 1234 5678</span>
+              <span className="hidden sm:inline">+974 558 558 36 </span>
             </a>
             <a href="mailto:info@oneglobal.com" className="flex items-center gap-2 hover:text-accent transition-colors">
               <Mail className="w-4 h-4" />
-              <span className="hidden sm:inline">info@oneglobal.com</span>
+              <span className="hidden sm:inline">info@oneglobalqatar.com</span>
             </a>
           </div>
           <div className="flex items-center gap-3">
