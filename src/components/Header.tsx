@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, X, Phone, Mail, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { Menu, X, Phone, Mail, Facebook, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Header = () => {
@@ -20,18 +20,34 @@ const Header = () => {
       <div className="bg-primary py-2 px-4">
         <div className="container mx-auto flex justify-between items-center text-primary-foreground text-sm">
           <div className="flex items-center gap-6">
-            <a href="tel:+974123456" className="flex items-center gap-2 hover:text-accent transition-colors">
+            <a href="tel:+97455855836" className="flex items-center gap-2 hover:text-accent transition-colors">
               <Phone className="w-4 h-4" />
-              <span className="hidden sm:inline">+974 558 558 36 </span>
+              <span className="hidden sm:inline">+974 558 558 36</span>
             </a>
-            <a href="mailto:info@oneglobal.com" className="flex items-center gap-2 hover:text-accent transition-colors">
+            <a href="mailto:info@oneglobalqatar.com" className="flex items-center gap-2 hover:text-accent transition-colors">
               <Mail className="w-4 h-4" />
               <span className="hidden sm:inline">info@oneglobalqatar.com</span>
             </a>
           </div>
           <div className="flex items-center gap-3">
-            <a href="#" className="hover:text-accent transition-colors"><Facebook className="w-4 h-4" /></https://www.facebook.com/oneglobalqatar>
-            <a href="#" className="hover:text-accent transition-colors"><Linkedin className="w-4 h-4" /></https://www.linkedin.com/company/onegloballogistics/?viewAsMember=true>
+            <a 
+              href="https://www.facebook.com/oneglobalqatar" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              aria-label="Visit our Facebook page"
+              className="hover:text-accent transition-colors"
+            >
+              <Facebook className="w-4 h-4" />
+            </a>
+            <a 
+              href="https://www.linkedin.com/company/onegloballogistics/?viewAsMember=true" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              aria-label="Visit our LinkedIn page"
+              className="hover:text-accent transition-colors"
+            >
+              <Linkedin className="w-4 h-4" />
+            </a>
           </div>
         </div>
       </div>
@@ -45,7 +61,7 @@ const Header = () => {
               <img 
                 src="/onegloballogo.png" 
                 alt="One Global Consolidators Logo" 
-                // CHANGE: Further reduced width to w-16 (mobile) and w-24 (desktop)
+                // Reduced width: w-16 (mobile) and w-24 (desktop)
                 className="w-16 md:w-24 h-auto" 
               />
             </a>
