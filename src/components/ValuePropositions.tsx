@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 const ValuePropositions = () => {
   const propositions = [
     {
-      icon: online booking,
+      icon: OnlineBooking,
       title: 'On-line Booking',
     },
     {
