@@ -4,19 +4,16 @@ import { Button } from '@/components/ui/button';
 const ValuePropositions = () => {
   const propositions = [
     {
-      icon: Truck,
-      title: 'End-to-End Solutions',
-      description: 'Complete logistics management from pickup to final delivery.',
+      icon: online booking,
+      title: 'On-line Booking',
     },
     {
-      icon: BarChart3,
-      title: 'Optimized for Your Business',
-      description: 'Tailored solutions that maximize efficiency and reduce costs.',
+      icon: Alert,
+      title: 'Auto-alerts with milestone updates for shipments to customers',
     },
     {
-      icon: Globe2,
-      title: 'Always on Global Coverage',
-      description: 'Round-the-clock support with worldwide service availability.',
+      icon: Document,
+      title: 'KPI reports with dashboard facility',
     },
   ];
 
