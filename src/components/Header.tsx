@@ -14,9 +14,6 @@ const Header = () => {
   ];
 
   return (
-    /* CHANGE 1: Added 'sticky top-0 z-50' to the main header wrapper.
-       Added 'shadow-md' here so the shadow appears below the whole block.
-    */
     <header className="w-full sticky top-0 z-50 shadow-md">
       
       {/* Top Bar */}
@@ -42,16 +39,16 @@ const Header = () => {
       </div>
 
       {/* Main Navigation */}
-      {/* CHANGE 2: Removed 'sticky top-0 z-50 shadow-md' from here */}
       <nav className="bg-background">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center py-4">
             {/* Logo */}
             <a href="#home" className="flex items-center">
-              <div className="flex flex-col">
-                <span className="font-heading font-bold text-2xl text-primary tracking-wide">ONE</span>
-                <span className="font-heading text-xs text-muted-foreground tracking-widest">GLOBAL CONSOLIDATORS</span>
-              </div>
+              <img 
+                src="/onegloballogo.png" 
+                alt="One Global Consolidators Logo" 
+                className="w-40 md:w-52 h-auto" // Adjusted width for responsiveness
+              />
             </a>
 
             {/* Desktop Navigation */}
