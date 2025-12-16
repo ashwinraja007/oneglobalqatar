@@ -2,10 +2,64 @@ import React from 'react';
 
 const CoreValues = () => {
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="py-24 bg-gray-50 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         
-        {/* Header Section */}
+        {/* Hero Section with Image and Content */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-32">
+          {/* Left Side - Image */}
+          <div className="relative">
+            <img 
+              src="/cargo-ship.jpg" 
+              alt="Cargo Ship" 
+              className="w-full h-auto rounded-3xl shadow-2xl"
+            />
+          </div>
+
+          {/* Right Side - Content */}
+          <div className="space-y-8">
+            <div>
+              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                Drive Your Business Forward with LogiHub
+              </h1>
+              
+              <p className="text-gray-600 text-lg leading-relaxed mb-4">
+                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
+              </p>
+              
+              <p className="text-gray-600 text-lg leading-relaxed mb-8">
+                Contrary to popular belief, Lorem Ipsum is not simply random text.
+              </p>
+            </div>
+
+            {/* Services Grid */}
+            <div className="grid grid-cols-2 gap-4 mb-8">
+              {[
+                "Freight Forwarding",
+                "Warehousing & Delivery",
+                "Warehousing & Delivery",
+                "Customs Clearance",
+                "Customs Clearance",
+                "Freight Forwarding"
+              ].map((service, index) => (
+                <div key={index} className="flex items-center space-x-3">
+                  <div className="w-6 h-6 rounded-full bg-red-500 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <span className="text-gray-700 font-medium">{service}</span>
+                </div>
+              ))}
+            </div>
+
+            <button className="bg-red-500 hover:bg-red-600 text-white font-bold py-4 px-10 rounded-full transition-colors duration-300 shadow-lg">
+              Read More
+            </button>
+          </div>
+        </div>
+
+        {/* Digital Logistics Section */}
         <div className="mb-20 text-center max-w-3xl mx-auto">
           <span className="block text-orange-500 font-bold tracking-wider text-sm mb-4 uppercase">
             Digital Logistics Solutions
@@ -52,7 +106,6 @@ const CoreValues = () => {
           {/* Card 1 */}
           <div className="group bg-white border border-gray-200 rounded-[2.5rem] p-10 flex flex-col items-center justify-center min-h-[280px] hover:bg-gray-900 transition-all duration-300 cursor-default">
             <div className="w-16 h-16 mb-6 text-gray-900 group-hover:text-white transition-colors duration-300">
-               {/* Simple Icon Representation */}
                <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
                </svg>
@@ -62,7 +115,7 @@ const CoreValues = () => {
             </h4>
           </div>
 
-          {/* Card 2 - Active Style (simulated with hover on others, or default dark here) */}
+          {/* Card 2 */}
           <div className="group bg-white border border-gray-200 rounded-[2.5rem] p-10 flex flex-col items-center justify-center min-h-[280px] hover:bg-gray-900 transition-all duration-300 cursor-default">
             <div className="w-16 h-16 mb-6 text-gray-900 group-hover:text-white transition-colors duration-300">
                <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
