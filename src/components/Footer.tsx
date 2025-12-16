@@ -25,7 +25,7 @@ const Footer = () => {
       {/* LOGO TOP */}
       <div className="pt-8 flex justify-center">
         <img
-          src="/logo.png"
+          src="/onegloballogo.png"
           alt="One Global Logistics"
           className="h-14 w-auto object-contain"
         />
