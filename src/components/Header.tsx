@@ -31,9 +31,7 @@ const Header = () => {
           </div>
           <div className="flex items-center gap-3">
             <a href="#" className="hover:text-accent transition-colors"><Facebook className="w-4 h-4" /></https://www.facebook.com/oneglobalqatar>
-            <a href="#" className="hover:text-accent transition-colors"><Twitter className="w-4 h-4" /></a>
             <a href="#" className="hover:text-accent transition-colors"><Linkedin className="w-4 h-4" /></https://www.linkedin.com/company/onegloballogistics/?viewAsMember=true>
-            <a href="#" className="hover:text-accent transition-colors"><Instagram className="w-4 h-4" /></a>
           </div>
         </div>
       </div>
