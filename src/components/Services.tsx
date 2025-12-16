@@ -55,7 +55,7 @@ const KeyFeatures = () => {
       >
         <path
           d="M 0 100 C 300 20, 600 180, 900 100 S 1200 20, 1400 100"
-          stroke="#3d5548"
+          stroke="#0E3A45"
           strokeWidth="4"
           strokeDasharray="10 12"
           className="opacity-40"
