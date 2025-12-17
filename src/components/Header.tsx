@@ -78,9 +78,6 @@ const Header = () => {
                   <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-accent transition-all group-hover:w-3/4" />
                 </a>
               ))}
-              <Button className="ml-4 bg-accent hover:bg-red-hover text-accent-foreground font-body">
-                Get a Quote
-              </Button>
             </div>
 
             {/* Mobile Menu Button */}
