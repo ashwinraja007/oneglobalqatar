@@ -28,14 +28,20 @@ const KeyFeatures = () => {
     <section
       id="services"
       className="py-24 relative overflow-hidden"
-      style={{
-        backgroundImage: "url('/team-v3-shape1.png')",
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
-      }}
     >
-      <div className="container mx-auto px-4">
+      {/* Background Image Layer */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: "url('/team-v3-shape1.png')",
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'right center',
+          backgroundSize: '15%',
+          opacity: 0.15,
+        }}
+      />
+
+      <div className="container mx-auto px-4 relative z-10">
         {/* Heading */}
         <div className="text-center mb-20">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mb-4">
@@ -49,12 +55,9 @@ const KeyFeatures = () => {
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
-              <div
-                key={index}
-                className="relative text-center group"
-              >
+              <div key={index} className="relative text-center group">
                 {/* Icon */}
-                <div className="mx-auto w-20 h-20 bg-white shadow-lg rounded-full flex items-center justify-center border border-gray-200 relative z-10">
+                <div className="mx-auto w-20 h-20 bg-white shadow-lg rounded-full flex items-center justify-center border border-gray-200">
                   <Icon className="w-8 h-8 text-primary" />
                 </div>
 
@@ -68,15 +71,12 @@ const KeyFeatures = () => {
                   </p>
                 </div>
 
-                {/* Step Number Hover Effect */}
+                {/* Step Number Hover */}
                 <div
                   className="
                     absolute -bottom-12 left-1/2 -translate-x-1/2
-                    text-6xl font-bold
-                    text-gray-200
-                    opacity-40
-                    select-none
-                    transition-all duration-300
+                    text-6xl font-bold text-gray-200 opacity-40
+                    transition-all duration-300 select-none
                     group-hover:text-gray-700
                     group-hover:opacity-90
                     group-hover:scale-110
