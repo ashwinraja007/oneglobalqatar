@@ -1,60 +1,83 @@
 import React from 'react';
+import {
+  Award,
+  BookOpenCheck,
+  Handshake,
+  Lightbulb
+} from 'lucide-react';
 
 const CoreValues = () => {
-  // Data for the top section bullet points
   const bulletPoints = [
     "Integrated multi logistics platforms",
     "Live end to end supply chain visibility",
     "Customized portals to customer communications",
     "Tools to automate customer communications",
-    "Real time business intelligence and reporting"
+    "Real time business intelligence and reporting",
   ];
 
   const values = [
-    'Strive for excellence',
-    'Adapt, learn & assimilate the best industry practices',
-    'Open & honest relationship with communications',
-    'Embrace innovation',
+    {
+      title: 'Strive for excellence',
+      icon: Award,
+    },
+    {
+      title: 'Adapt, learn & assimilate the best industry practices',
+      icon: BookOpenCheck,
+    },
+    {
+      title: 'Open & honest relationship with communications',
+      icon: Handshake,
+    },
+    {
+      title: 'Embrace innovation',
+      icon: Lightbulb,
+    },
   ];
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
-        
-        {/* --- TOP SECTION: Text & Map Image (Unchanged) --- */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
-          {/* Left: Text Content */}
+
+        {/* TOP SECTION */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
           <div className="space-y-6">
-            <h3 className="text-lg font-bold text-gray-800">OGL - Digital Logistics</h3>
+            <h3 className="text-lg font-semibold text-blue-900">
+              OGL - Digital Logistics
+            </h3>
+
             <p className="text-gray-600 leading-relaxed">
-              It's our solution-based logistics services couple with the best
-              technology that makes us standout. We believe in providing the
+              It's our solution-based logistics services coupled with the best
+              technology that makes us stand out. We believe in providing the
               right services using the right tools at the right time.
             </p>
+
             <ul className="space-y-3 mt-4">
               {bulletPoints.map((point, idx) => (
-                <li key={idx} className="flex items-center text-gray-700">
-                  <span className="w-1.5 h-1.5 bg-gray-600 rounded-full mr-3 flex-shrink-0" />
+                <li key={idx} className="flex items-start text-gray-700">
+                  <span className="mt-2 w-2 h-2 bg-blue-800 rounded-full mr-3 flex-shrink-0" />
                   {point}
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Right: Map Image */}
-          <div className="rounded-lg overflow-hidden shadow-lg">
-            <img 
-              src="/port.jpg" 
-              alt="Global Logistics Network" 
+          <div className="rounded-xl overflow-hidden shadow-lg">
+            <img
+              src="/port.jpg"
+              alt="Global Logistics Network"
               className="w-full h-full object-cover"
             />
           </div>
         </div>
 
-        {/* --- BOTTOM SECTION: Grid of 4 Cards (Image removed) --- */}
+        {/* CORE VALUES */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {values.map((title, index) => (
-             <ValueCard key={index} title={title} />
+          {values.map((item, index) => (
+            <ValueCard
+              key={index}
+              title={item.title}
+              Icon={item.icon}
+            />
           ))}
         </div>
 
@@ -63,30 +86,27 @@ const CoreValues = () => {
   );
 };
 
-// --- Custom Icon Component (Unchanged) ---
-const CompanyLogoIcon = () => (
-  <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="50" cy="50" r="45" stroke="#1e3a8a" strokeWidth="6" />
-    <path 
-      d="M65 35 L45 35 L35 50 L45 65 L65 65" 
-      stroke="#e11d48" 
-      strokeWidth="8" 
-      strokeLinecap="round" 
-      strokeLinejoin="round"
-      fill="none"
-    />
-    <path d="M65 35 L70 42" stroke="#e11d48" strokeWidth="8" strokeLinecap="round" />
-     <path d="M65 65 L70 58" stroke="#e11d48" strokeWidth="8" strokeLinecap="round" />
-  </svg>
-);
+// VALUE CARD
+const ValueCard = ({
+  title,
+  Icon,
+}: {
+  title: string;
+  Icon: React.ElementType;
+}) => (
+  <div className="group bg-white border border-gray-100 rounded-2xl p-10 flex flex-col items-center text-center min-h-[260px]
+                  shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
 
-// --- Reusable Card Component ---
-const ValueCard = ({ title }: { title: string }) => (
-  <div className="bg-white border-2 border-gray-100 rounded-xl p-8 flex flex-col items-center text-center justify-center shadow-sm hover:shadow-md transition-shadow duration-300 py-12 min-h-[250px]">
-    <div className="mb-6">
-      <CompanyLogoIcon />
+    <div className="mb-6 w-16 h-16 rounded-full border-2 border-blue-900
+                    flex items-center justify-center
+                    group-hover:bg-blue-900 transition-colors duration-300">
+      <Icon
+        size={28}
+        className="text-rose-600 group-hover:text-white transition-colors duration-300"
+      />
     </div>
-    <h3 className="font-bold text-gray-800 text-lg leading-tight px-4">
+
+    <h3 className="font-semibold text-gray-800 text-lg leading-snug px-2">
       {title}
     </h3>
   </div>
