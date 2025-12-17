@@ -1,17 +1,50 @@
 import { useState } from 'react';
 import { Menu, X, Phone, Mail, Facebook, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About Us', href: '#about' },
-    { name: 'Our Services', href: '#services' },
-    { name: 'Vision & Mission', href: '#vision' },
-    { name: 'Contact Us', href: '#contact' },
+    { name: 'Home', href: '#home', isPage: false },
+    { name: 'About Us', href: '#about', isPage: false },
+    { name: 'Our Services', href: '/services', isPage: true },
+    { name: 'Vision & Mission', href: '#vision', isPage: false },
+    { name: 'Contact Us', href: '#contact', isPage: false },
   ];
+
+  const scrollToSection = (sectionId: string) => {
+    // If not on home page, navigate to home first then scroll
+    if (location.pathname !== '/') {
+      navigate('/');
+      // Wait for navigation to complete, then scroll
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  };
+
+  const handleNavClick = (link: typeof navLinks[0]) => {
+    setIsMenuOpen(false);
+    
+    if (link.isPage) {
+      navigate(link.href);
+    } else {
+      const sectionId = link.href.replace('#', '');
+      scrollToSection(sectionId);
+    }
+  };
 
   return (
     <header className="w-full sticky top-0 z-50 shadow-md">
@@ -57,26 +90,25 @@ const Header = () => {
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center py-4">
             {/* Logo */}
-            <a href="#home" className="flex items-center">
+            <Link to="/" className="flex items-center">
               <img 
                 src="/onegloballogo.png" 
                 alt="One Global Consolidators Logo" 
-                // Reduced width: w-16 (mobile) and w-24 (desktop)
                 className="w-16 md:w-24 h-auto" 
               />
-            </a>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-1">
               {navLinks.map((link) => (
-                <a
+                <button
                   key={link.name}
-                  href={link.href}
+                  onClick={() => handleNavClick(link)}
                   className="px-4 py-2 font-body text-sm font-medium text-foreground hover:text-accent transition-colors relative group"
                 >
                   {link.name}
                   <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-accent transition-all group-hover:w-3/4" />
-                </a>
+                </button>
               ))}
             </div>
 
@@ -94,16 +126,21 @@ const Header = () => {
           {isMenuOpen && (
             <div className="lg:hidden pb-4 animate-fade-in">
               {navLinks.map((link) => (
-                <a
+                <button
                   key={link.name}
-                  href={link.href}
-                  className="block px-4 py-3 font-body text-foreground hover:bg-secondary hover:text-accent transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => handleNavClick(link)}
+                  className="block w-full text-left px-4 py-3 font-body text-foreground hover:bg-secondary hover:text-accent transition-colors"
                 >
                   {link.name}
-                </a>
+                </button>
               ))}
-              <Button className="w-full mt-2 bg-accent hover:bg-red-hover text-accent-foreground font-body">
+              <Button 
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  scrollToSection('contact');
+                }}
+                className="w-full mt-2 bg-accent hover:bg-red-hover text-accent-foreground font-body"
+              >
                 Get a Quote
               </Button>
             </div>

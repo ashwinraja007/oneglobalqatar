@@ -5,24 +5,45 @@ import {
   Phone,
   Mail,
 } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Footer = () => {
-  const scrollToSection = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const scrollToSection = (sectionId: string) => {
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
   };
 
   const quickLinks = [
-    { name: "Home", id: "home" },
-    { name: "About Us", id: "about" },
-    { name: "Key Features", id: "services" },
-    { name: "Vision & Mission", id: "vision" },
-    { name: "Contact Us", id: "contact" },
+    { name: "Home", id: "home", isPage: false },
+    { name: "About Us", id: "about", isPage: false },
+    { name: "Our Services", id: "/services", isPage: true },
+    { name: "Vision & Mission", id: "vision", isPage: false },
+    { name: "Contact Us", id: "contact", isPage: false },
   ];
 
-  // ONLY Facebook and LinkedIn are included here
+  const handleLinkClick = (link: typeof quickLinks[0]) => {
+    if (link.isPage) {
+      navigate(link.id);
+    } else {
+      scrollToSection(link.id);
+    }
+  };
+
   const socialLinks = [
     {
       icon: Facebook,
@@ -66,7 +87,7 @@ const Footer = () => {
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <button
-                    onClick={() => scrollToSection(link.id)}
+                    onClick={() => handleLinkClick(link)}
                     className="group flex items-center gap-2 text-sm text-primary-foreground/75 hover:text-accent transition"
                   >
                     <span className="text-accent opacity-0 group-hover:opacity-100 transition">
@@ -131,8 +152,8 @@ const Footer = () => {
                 <a
                   key={social.label}
                   href={social.href}
-                  target="_blank"             // Opens in new tab
-                  rel="noopener noreferrer"   // Security best practice
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={`Visit our ${social.label} page`}
                   className="hover:text-accent transition-colors"
                 >

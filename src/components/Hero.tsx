@@ -90,15 +90,21 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-wrap gap-4 animate-fade-in" style={{ animationDelay: '0.6s' }}>
-            <Button size="lg" className="bg-accent hover:bg-red-hover text-accent-foreground font-body font-semibold px-8">
-              Our Services
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
+            <a href="/services">
+              <Button size="lg" className="bg-accent hover:bg-red-hover text-accent-foreground font-body font-semibold px-8">
+                Our Services
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </a>
 
             <Button 
               size="lg"
               variant="outline"
               className="border-white text-black hover:bg-white hover:text-black font-body transition-colors"
+              onClick={() => {
+                const el = document.getElementById('contact');
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }}
             >
               Contact Us
             </Button>

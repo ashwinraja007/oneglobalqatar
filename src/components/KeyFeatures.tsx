@@ -25,7 +25,7 @@ const KeyFeatures = () => {
   ];
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section id="services" className="py-24 bg-white relative overflow-hidden">
       <div className="container mx-auto px-4">
 
         {/* Heading */}
