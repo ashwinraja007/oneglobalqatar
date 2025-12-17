@@ -1,8 +1,6 @@
 import {
   Facebook,
-  Twitter,
   Linkedin,
-  Instagram,
   MapPin,
   Phone,
   Mail,
@@ -24,7 +22,7 @@ const Footer = () => {
     { name: "Contact Us", id: "contact" },
   ];
 
-  // defined social links here to avoid the mapping error
+  // ONLY Facebook and LinkedIn are included here
   const socialLinks = [
     {
       icon: Facebook,
@@ -53,7 +51,8 @@ const Footer = () => {
 
             <h3 className="font-heading font-bold text-base mb-3">About Us</h3>
             <p className="text-sm text-primary-foreground/75 leading-6">
-              One Global Logistics services W.L.L is a Qatar based global NVOCC (Non-vessel owned common carrier) operator providing LCL consolidation services worldwide markets.
+              One Global Logistics Services W.L.L is a Qatar based global NVOCC
+              operator providing LCL consolidation services worldwide.
             </p>
           </div>
 
@@ -132,8 +131,8 @@ const Footer = () => {
                 <a
                   key={social.label}
                   href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target="_blank"             // Opens in new tab
+                  rel="noopener noreferrer"   // Security best practice
                   aria-label={`Visit our ${social.label} page`}
                   className="hover:text-accent transition-colors"
                 >
