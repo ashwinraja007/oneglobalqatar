@@ -25,7 +25,9 @@ const KeyFeatures = () => {
   ];
 
   return (
-        <div className="container mx-auto px-4">
+    <section className="py-24 bg-white relative overflow-hidden">
+      <div className="container mx-auto px-4">
+
         {/* Heading */}
         <div className="text-center mb-20">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mb-4">
@@ -67,7 +69,7 @@ const KeyFeatures = () => {
                     opacity-40
                     select-none
                     transition-all duration-300
-                    group-hover:text-gray-700
+                    group-hover:text-gray-800
                     group-hover:opacity-90
                     group-hover:scale-110
                   "
@@ -88,6 +90,7 @@ const KeyFeatures = () => {
             View All Services
           </a>
         </div>
+
       </div>
     </section>
   );
