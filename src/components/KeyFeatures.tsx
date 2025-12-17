@@ -25,58 +25,76 @@ const KeyFeatures = () => {
   ];
 
   return (
-    <section id="services" className="py-24 bg-background relative overflow-hidden">
-      {/* Curved Dashed Line */}
+    <section
+      id="services"
+      className="py-24 bg-background relative overflow-hidden"
+    >
+      {/* ================= DESKTOP CURVED DOTTED LINE ================= */}
       <svg
-        className="absolute top-1/2 left-0 w-full -translate-y-1/2"
-        height="140"
+        className="hidden md:block absolute top-1/2 left-0 w-full -translate-y-1/2"
         viewBox="0 0 1200 200"
         fill="none"
       >
         <path
           d="M 0 100 C 300 20, 600 180, 900 100 S 1200 20, 1400 100"
           stroke="#3d5548"
-          strokeWidth="4"
-          strokeDasharray="10 12"
-          className="opacity-50"
+          strokeWidth="3"
+          strokeDasharray="8 10"
+          opacity="0.5"
+        />
+      </svg>
+
+      {/* ================= MOBILE VERTICAL DOTTED LINE ================= */}
+      <svg
+        className="md:hidden absolute top-0 left-1/2 -translate-x-1/2 h-full"
+        width="4"
+        viewBox="0 0 4 800"
+        fill="none"
+      >
+        <path
+          d="M 2 0 L 2 800"
+          stroke="#3d5548"
+          strokeWidth="3"
+          strokeDasharray="8 10"
+          opacity="0.5"
         />
       </svg>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
+        {/* Heading */}
+        <div className="text-center mb-20">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mb-4">
             SEA (LCL & FCL) / AIR FREIGHT - KEY FEATURES
           </h2>
           <div className="w-20 h-1 bg-accent mx-auto" />
         </div>
 
-        {/* Features */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pt-10">
+        {/* ================= FEATURES ================= */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 relative">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
               <div
                 key={index}
-                className="relative text-center animate-fade-in"
-                style={{ animationDelay: `${index * 0.2}s` }}
+                className="relative text-center"
               >
-                {/* Floating Icon Bubble */}
-                <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 bg-white shadow-lg rounded-full flex items-center justify-center border border-gray-200">
+                {/* Icon Bubble */}
+                <div className="mx-auto w-20 h-20 bg-white shadow-lg rounded-full flex items-center justify-center border border-gray-200 relative z-10">
                   <Icon className="w-8 h-8 text-primary" />
                 </div>
 
-                {/* Text Content */}
-                <div className="pt-14">
+                {/* Content */}
+                <div className="pt-6">
                   <h3 className="font-heading font-bold text-xl text-primary mb-3">
                     {feature.title}
                   </h3>
-                  <p className="font-body text-muted-foreground text-sm leading-relaxed">
+                  <p className="font-body text-muted-foreground text-sm leading-relaxed max-w-xs mx-auto">
                     {feature.description}
                   </p>
                 </div>
 
                 {/* Step Number */}
-                <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-6xl font-bold text-gray-200 opacity-40 select-none">
+                <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 text-6xl font-bold text-gray-200 opacity-30 select-none">
                   {`0${index + 1}`}
                 </div>
               </div>
@@ -84,8 +102,8 @@ const KeyFeatures = () => {
           })}
         </div>
 
-        {/* CTA Button */}
-        <div className="mt-24 text-center">
+        {/* ================= CTA ================= */}
+        <div className="mt-28 text-center">
           <a
             href="/Services"
             className="inline-flex items-center justify-center px-10 py-4 text-base font-semibold text-white rounded-full bg-primary hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl"
