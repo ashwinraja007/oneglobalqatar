@@ -37,9 +37,9 @@ const Contact = () => {
       icon: MapPin,
       title: 'Address',
       lines: [
-        'One Global Logistics Services WLL',
-        'Al Nasr Tower A',
-        'Al Corniche Street',
+        'One Global Logistics Services W.L.L',
+        'Office no: 48, 2nd Floor',
+        'Al matar Centre, Old Airport Road',
         'Doha, Qatar',
       ],
     },
@@ -47,15 +47,18 @@ const Contact = () => {
       icon: Phone,
       title: 'Phone',
       lines: [
-        'International: +974 4000 1234',
-        'Freight Services: +974 4000 5678',
-        'Customer Support: +974 4000 9012',
+        'International: +974 558 558 36, 446 79 444, 446 79 400'
       ],
     },
     {
       icon: Mail,
       title: 'Email',
-      lines: ['info@oneglobal.com', 'support@oneglobal.com'],
+      lines: ['info@oneglobalqatar.com'],
+    },
+    {
+      icon: Website,
+      title: 'Website',
+      lines: ['www.oneglobalqatar.com'],
     },
     {
       icon: Clock,
