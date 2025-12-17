@@ -9,7 +9,6 @@ import {
 } from "lucide-react";
 
 const Footer = () => {
-
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
@@ -25,13 +24,25 @@ const Footer = () => {
     { name: "Contact Us", id: "contact" },
   ];
 
+  // defined social links here to avoid the mapping error
+  const socialLinks = [
+    {
+      icon: Facebook,
+      href: "https://www.facebook.com/oneglobalqatar",
+      label: "Facebook",
+    },
+    {
+      icon: Linkedin,
+      href: "https://www.linkedin.com/company/onegloballogistics/?viewAsMember=true",
+      label: "LinkedIn",
+    },
+  ];
+
   return (
     <footer className="bg-primary text-primary-foreground">
-
       {/* MAIN FOOTER */}
       <div className="container mx-auto px-6 py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-
           {/* ABOUT + LOGO */}
           <div>
             <img
@@ -40,9 +51,7 @@ const Footer = () => {
               className="h-14 mb-4"
             />
 
-            <h3 className="font-heading font-bold text-base mb-3">
-              About Us
-            </h3>
+            <h3 className="font-heading font-bold text-base mb-3">About Us</h3>
             <p className="text-sm text-primary-foreground/75 leading-6">
               One Global Logistics Services W.L.L is a Qatar based global NVOCC
               operator providing LCL consolidation services worldwide.
@@ -107,7 +116,6 @@ const Footer = () => {
               </div>
             </div>
           </div>
-
         </div>
       </div>
 
@@ -119,30 +127,24 @@ const Footer = () => {
           </p>
 
           <div className="flex gap-3">
-            {[Facebook, Twitter, Linkedin, Instagram].map((Icon, i) => (
-                <a 
-              href="https://www.facebook.com/oneglobalqatar" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              aria-label="Visit our Facebook page"
-              className="hover:text-accent transition-colors"
-            >
-              <Facebook className="w-4 h-4" />
-            </a>
-            <a 
-              href="https://www.linkedin.com/company/onegloballogistics/?viewAsMember=true" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              aria-label="Visit our LinkedIn page"
-              className="hover:text-accent transition-colors"
-            >
-                <Icon className="w-4 h-4" />
-              </a>
-            ))}
+            {socialLinks.map((social) => {
+              const Icon = social.icon;
+              return (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit our ${social.label} page`}
+                  className="hover:text-accent transition-colors"
+                >
+                  <Icon className="w-4 h-4" />
+                </a>
+              );
+            })}
           </div>
         </div>
       </div>
-
     </footer>
   );
 };
