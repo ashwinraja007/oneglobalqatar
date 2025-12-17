@@ -105,13 +105,6 @@ const Hero = () => {
             </AnimatePresence>
           </div>
 
-          <p
-            className="font-body text-lg md:text-xl text-gray-100 mb-8 animate-slide-in-left"
-            style={{ animationDelay: '0.4s' }}
-          >
-            Your trusted partner for sea and air freight solutions. We deliver excellence across borders with reliability and precision.
-          </p>
-
           <div className="flex flex-wrap gap-4 animate-fade-in" style={{ animationDelay: '0.6s' }}>
             <a href="/services">
               <Button size="lg" className="bg-accent hover:bg-red-hover text-accent-foreground font-body font-semibold px-8">
