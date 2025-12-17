@@ -10,35 +10,35 @@ import {
 
 const Footer = () => {
   const quickLinks = [
-    { name: "Home", href: "/#home" },
-    { name: "About Us", href: "/#about" },
-    { name: "Global Network", href: "/#global" },
-    { name: "Key Features", href: "/#services" },
-    { name: "Vision & Mission", href: "/#vision" },
-    { name: "Core Values", href: "/#core" },
-    { name: "Value Propositions", href: "/#value" },
-    { name: "Contact Us", href: "/#contact" },
+    { name: "Home", href: "#home" },
+    { name: "About Us", href: "#about" },
+    { name: "Global Network", href: "#global" },
+    { name: "Key Features", href: "#services" },
+    { name: "Vision & Mission", href: "#vision" },
+    { name: "Core Values", href: "#core" },
+    { name: "Value Propositions", href: "#value" },
+    { name: "Contact Us", href: "#contact" },
   ];
 
   return (
     <footer className="bg-primary text-primary-foreground">
 
-      {/* LOGO ABOVE CONTENT */}
-      <div className="flex justify-center py-4">
-        <img
-          src="/onegloballogo.png"
-          alt="One Global Logistics"
-          className="h-14 w-auto object-contain"
-        />
-      </div>
-
       {/* MAIN FOOTER CONTENT */}
-      <div className="container mx-auto px-6 pb-8">
+      <div className="container mx-auto px-6 py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-          {/* ABOUT */}
+          {/* ABOUT + LOGO */}
           <div>
-            <h3 className="font-heading font-bold text-base mb-3">About Us</h3>
+            {/* LOGO ABOVE ABOUT */}
+            <img
+              src="/onegloballogo.png"
+              alt="One Global Logistics"
+              className="h-14 w-auto object-contain mb-4"
+            />
+
+            <h3 className="font-heading font-bold text-base mb-3">
+              About Us
+            </h3>
             <p className="text-sm text-primary-foreground/75 leading-6">
               One Global Logistics Services W.L.L is a Qatar based global NVOCC
               operator providing LCL consolidation services worldwide.
@@ -47,7 +47,9 @@ const Footer = () => {
 
           {/* QUICK LINKS */}
           <div className="md:pl-8">
-            <h3 className="font-heading font-bold text-base mb-3">Quick Links</h3>
+            <h3 className="font-heading font-bold text-base mb-3">
+              Quick Links
+            </h3>
             <ul className="space-y-1.5">
               {quickLinks.map((link) => (
                 <li key={link.name}>
@@ -67,7 +69,9 @@ const Footer = () => {
 
           {/* OFFICE */}
           <div>
-            <h3 className="font-heading font-bold text-base mb-3">Our Office</h3>
+            <h3 className="font-heading font-bold text-base mb-3">
+              Our Office
+            </h3>
 
             <div className="space-y-3 text-sm text-primary-foreground/75">
               <div className="flex gap-2">
