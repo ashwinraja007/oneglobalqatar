@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from '@/components/Header';
-import Footer from '@/components/layout/Footer';
+import Footer from '@/components/Footer';
 import MapContainer from '@/components/MapContainer';
 import Sidebar from '@/components/Sidebar';
 import { useIsMobile } from '@/hooks/use-mobile';
