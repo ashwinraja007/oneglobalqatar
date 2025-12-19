@@ -5,7 +5,7 @@ import MapContainer from '@/components/MapContainer';
 import Sidebar from '@/components/Sidebar';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { motion } from 'framer-motion';
-import SEO from '@/components/SEO';
+
 
 const GlobalPresence = () => {
   const isMobile = useIsMobile();
@@ -26,14 +26,7 @@ const GlobalPresence = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-amber-50/30 to-white">
       {/* ✅ Page SEO */}
-      <SEO
-        title="Global Presence – GGL Australia | Worldwide Logistics Network"
-        description="Explore GGL Australia's extensive global network of offices and partners. Our worldwide presence ensures seamless logistics solutions tailored to your business needs, wherever you are."
-        keywords="GGL Australia, global logistics network, worldwide presence, international shipping, logistics solutions, freight forwarding, global partners, supply chain management"
-        url="https://www.gglaustralia.com/global-presence"
-        canonical="https://www.gglaustralia.com/global-presence"
-        image="https://www.gglaustralia.com/lovable-uploads/ggl-logo.png"
-      />
+     
 
       <Header />
 
