@@ -6,14 +6,13 @@ import Sidebar from '@/components/Sidebar';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { motion } from 'framer-motion';
 
-
 const GlobalPresence = () => {
   const isMobile = useIsMobile();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [showMap, setShowMap] = useState(true);
 
   useEffect(() => {
-    // For mobile, initially show sidebar instead of map
+    // Mobile: show sidebar first, Desktop: show both
     if (isMobile) {
       setShowMap(false);
       setIsSidebarOpen(true);
@@ -25,52 +24,51 @@ const GlobalPresence = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-amber-50/30 to-white">
-      {/* ✅ Page SEO */}
-     
-
       <Header />
 
+      {/* MAIN CONTENT – NO EXTRA SPACE */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className="flex flex-1 relative overflow-hidden mx-0 my-[80px]"
+        transition={{ duration: 0.4 }}
+        className="flex flex-1 relative overflow-hidden pt-[80px]" 
+        // pt-[80px] = header height, no margin used
       >
-        {/* Page title for mobile */}
+        {/* Mobile page title */}
         {isMobile && (
-          <div className="fixed top-20 left-0 right-0 z-30 bg-gradient-to-r from-amber-500 to-amber-400 p-3 text-white text-center shadow-md">
+          <div className="fixed top-[80px] left-0 right-0 z-30 bg-gradient-to-r from-amber-500 to-amber-400 p-3 text-white text-center shadow-md">
             <h1 className="text-lg font-bold">Global Presence</h1>
           </div>
         )}
 
-        {/* Main content with map - 60% on desktop, full on mobile when active */}
+        {/* MAP SECTION */}
         {(!isMobile || (isMobile && showMap)) && (
           <motion.main
             initial={isMobile ? { x: '100%' } : { opacity: 0 }}
             animate={isMobile ? { x: 0 } : { opacity: 1 }}
             exit={isMobile ? { x: '100%' } : { opacity: 0 }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            className={`transition-all duration-300 ease-in-out ${isMobile ? 'w-full' : 'w-[60%]'}`}
+            className={`h-full ${isMobile ? 'w-full' : 'w-[65%]'}`}
           >
             <MapContainer />
           </motion.main>
         )}
 
-        {/* Sidebar for locations - 35% on desktop, full width on mobile when active */}
+        {/* SIDEBAR SECTION */}
         {(!isMobile || (isMobile && !showMap)) && (
-          <motion.div
+          <motion.aside
             initial={isMobile ? { x: '-100%' } : { opacity: 0 }}
             animate={isMobile ? { x: 0 } : { opacity: 1 }}
             exit={isMobile ? { x: '-100%' } : { opacity: 0 }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            className={`transition-all duration-300 ease-in-out ${isMobile ? 'w-full pt-12' : 'w-[35%]'}`}
+            className={`h-full bg-white ${isMobile ? 'w-full pt-14' : 'w-[35%]'}`}
           >
-            <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
-          </motion.div>
+            <Sidebar
+              isOpen={isSidebarOpen}
+              onClose={() => setIsSidebarOpen(false)}
+            />
+          </motion.aside>
         )}
-
-        {/* Mobile toggle buttons (kept intentionally empty per your layout) */}
-        {isMobile && <div className="fixed bottom-4 right-4 z-50 flex gap-2"></div>}
       </motion.div>
 
       <Footer />
