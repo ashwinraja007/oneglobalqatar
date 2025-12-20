@@ -12,6 +12,7 @@ const Header = () => {
     { name: 'About Us', href: '#about', isPage: false },
     { name: 'Our Services', href: '/services', isPage: true },
     { name: 'Vision & Mission', href: '#vision', isPage: false },
+    { name: 'Global Presence', href: '/global-presence', isPage: true },
     { name: 'Contact Us', href: '#contact', isPage: false },
   ];
 
