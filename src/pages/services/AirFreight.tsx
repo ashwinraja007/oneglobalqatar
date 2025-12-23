@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Clock, Plane, Globe, Timer, FileCheck } from 'lucide-react';
+import { Clock, Plane, Package, Timer, FileCheck } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
 
 const features = [
   {
@@ -12,12 +13,12 @@ const features = [
     description: 'Flexible options including next-flight-out, express, and deferred services to meet critical timelines.',
   },
   {
-    icon: Plane,
+    icon: Package,
     title: 'Cargo Consolidation',
     description: 'Efficient consolidation services to optimize costs and reduce handling time.',
   },
   {
-    icon: Globe,
+    icon: Plane,
     title: 'Specialized Handling',
     description: 'Capabilities to manage high-value, sensitive, or perishable cargo with care and compliance.',
   },
@@ -33,23 +34,9 @@ const features = [
   },
 ];
 
-const solutions = [
-  {
-    title: 'Import & Export Shipments',
-    description: 'Handling shipments to and from major international destinations.',
-  },
-  {
-    title: 'Express Services',
-    description: 'Fast-track options for time-sensitive deliveries.',
-  },
-  {
-    title: 'Consolidation Services',
-    description: 'Combining smaller shipments to optimize costs and efficiency.',
-  },
-];
-
 const AirFreight = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   useEffect(() => window.scrollTo(0, 0), [location.pathname]);
 
   return (
@@ -57,23 +44,30 @@ const AirFreight = () => {
       <Header />
       <main>
         {/* Hero Section */}
-        <section className="relative h-[300px] md:h-[400px] overflow-hidden">
+        <section className="relative h-[400px] md:h-[500px] overflow-hidden">
           <img 
             src="/airfreight.jpg" 
             alt="Air Freight Services" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary/40 flex items-center">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/50 flex items-center">
             <div className="container mx-auto px-4">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
+                className="max-w-2xl"
               >
-                <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">Air Freight</h1>
-                <p className="text-white/90 text-lg max-w-xl">
-                  Fast and reliable air cargo solutions for time-sensitive shipments
+                <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">Air Freight Solutions</h1>
+                <p className="text-white/90 text-lg md:text-xl mb-8">
+                  Tailored air freight solutions to meet your unique requirements
                 </p>
+                <Button 
+                  onClick={() => navigate('/contact')}
+                  className="bg-accent hover:bg-accent/90 text-white px-8 py-3 text-lg"
+                >
+                  Get a Quote
+                </Button>
               </motion.div>
             </div>
           </div>
@@ -81,32 +75,61 @@ const AirFreight = () => {
 
         {/* Content Section */}
         <section className="py-16 md:py-24">
-          <div className="container mx-auto px-4 max-w-4xl">
-            <div className="text-center mb-12">
-              <h2 className="text-2xl md:text-4xl font-bold text-primary mb-4">
-                Comprehensive Air Freight Services
-              </h2>
-              <div className="w-20 h-1 bg-accent mx-auto mb-8" />
-            </div>
+          <div className="container mx-auto px-4">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <h2 className="text-2xl md:text-4xl font-bold text-primary mb-6">
+                  Comprehensive Air Freight Services
+                </h2>
+                <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
+                  <p>
+                    At <strong className="text-primary">One Global Logistics</strong>, we offer a comprehensive range of air freight services designed to meet all your shipping needs. Our expert air freight teams provide seamless air import, export, and express options, all on a convenient door-to-door basis.
+                  </p>
 
-            <div className="prose prose-lg max-w-none text-muted-foreground mb-12">
-              <p>
-                At <strong className="text-primary">One Global Logistics</strong>, we offer a comprehensive range of air freight services designed to meet all your shipping needs. Our expert air freight teams provide seamless air import, export, and express options, all on a convenient door-to-door basis.
-              </p>
+                  <p>
+                    <strong className="text-primary">Global Reach with Strategic Hubs:</strong> With a strong presence in key transshipment hubs such as Singapore, Malaysia, Sri Lanka, and Dubai, One Global Logistics ensures direct weekly sailings to all major destinations worldwide. This strategic network allows us to offer reliable and timely air freight services to and from India.
+                  </p>
 
-              <h3 className="text-xl font-bold text-primary mt-8 mb-4">Global Reach with Strategic Hubs:</h3>
-              <p>
-                With a strong presence in key transshipment hubs such as Singapore, Malaysia, Sri Lanka, and Dubai, One Global Logistics ensures direct weekly sailings to all major destinations worldwide. This strategic network allows us to offer reliable and timely air freight services to and from India.
-              </p>
+                  <div className="mt-6">
+                    <h3 className="text-xl font-bold text-primary mb-4">Comprehensive Air Freight Solutions:</h3>
+                    <ul className="space-y-3 list-none pl-0">
+                      <li className="flex items-start gap-3">
+                        <span className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></span>
+                        <span><strong className="text-primary">Import & Export Shipments:</strong> Handling shipments to and from major international destinations.</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></span>
+                        <span><strong className="text-primary">Express Services:</strong> Fast-track options for time-sensitive deliveries.</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></span>
+                        <span><strong className="text-primary">Consolidation Services:</strong> Combining smaller shipments to optimize costs and efficiency.</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </motion.div>
 
-              <h3 className="text-xl font-bold text-primary mt-8 mb-4">Comprehensive Air Freight Solutions:</h3>
-              <ul className="space-y-3">
-                {solutions.map((solution, index) => (
-                  <li key={index}>
-                    <strong className="text-primary">{solution.title}:</strong> {solution.description}
-                  </li>
-                ))}
-              </ul>
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="relative"
+              >
+                <img 
+                  src="/airfreight.jpg" 
+                  alt="Air Freight Service" 
+                  className="rounded-2xl shadow-2xl w-full"
+                />
+                <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-accent/20 rounded-2xl -z-10"></div>
+                <div className="absolute -top-6 -right-6 w-24 h-24 bg-primary/20 rounded-2xl -z-10"></div>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -124,7 +147,7 @@ const AirFreight = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow"
+                    className="bg-card rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-border"
                   >
                     <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4">
                       <Icon className="w-6 h-6 text-accent" />
@@ -135,6 +158,30 @@ const AirFreight = () => {
                 );
               })}
             </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-16 md:py-24 bg-primary">
+          <div className="container mx-auto px-4 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">
+                Ready to Ship with Us?
+              </h2>
+              <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
+                Contact our team today for tailored air freight solutions.
+              </p>
+              <Button 
+                onClick={() => navigate('/contact')}
+                className="bg-accent hover:bg-accent/90 text-white px-8 py-3 text-lg"
+              >
+                Get a Quote
+              </Button>
+            </motion.div>
           </div>
         </section>
       </main>
