@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   Plane,
@@ -10,8 +10,10 @@ import {
   Warehouse,
   FileCheck,
   DollarSign,
+  ArrowRight,
 } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { Button } from "@/components/ui/button";
 
 /* ======================================================
    OLD SECTION – KEY FEATURES
@@ -102,28 +104,45 @@ const KeyFeatures = () => {
 /* ======================================================
    CARD COMPONENT
 ====================================================== */
-const OneGlobalCard = ({ image, title, points, icon }) => {
+const OneGlobalCard = ({ image, title, points, icon, link }: { 
+  image: string; 
+  title: string; 
+  points: string[]; 
+  icon: React.ReactNode;
+  link: string;
+}) => {
+  const navigate = useNavigate();
+  
   return (
     <motion.div
       whileHover={{ y: -6 }}
       transition={{ type: "spring", stiffness: 220, damping: 20 }}
-      className="bg-white rounded-xl shadow-md hover:shadow-xl overflow-hidden"
+      className="bg-white rounded-xl shadow-md hover:shadow-xl overflow-hidden group cursor-pointer"
+      onClick={() => navigate(link)}
     >
       <AspectRatio ratio={16 / 9}>
-        <img src={image} alt={title} className="w-full h-full object-cover" />
+        <img src={image} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
       </AspectRatio>
 
       <div className="p-5">
-        <div className="flex items-center gap-2 font-semibold text-[#0B1739] mb-2">
+        <div className="flex items-center gap-2 font-semibold text-primary mb-2">
           {icon}
           <h3>{title}</h3>
         </div>
 
-        <ul className="list-disc pl-5 text-sm text-gray-600 space-y-1">
+        <ul className="list-disc pl-5 text-sm text-muted-foreground space-y-1 mb-4">
           {points.map((pt, i) => (
             <li key={i}>{pt}</li>
           ))}
         </ul>
+
+        <Button 
+          variant="ghost" 
+          className="text-accent hover:text-accent/80 p-0 h-auto font-medium group/btn"
+        >
+          Learn More 
+          <ArrowRight className="w-4 h-4 ml-1 group-hover/btn:translate-x-1 transition-transform" />
+        </Button>
       </div>
     </motion.div>
   );
@@ -138,6 +157,7 @@ const ServicesScroll = () => {
       image: "/airfreight.jpg",
       title: "Air Freight",
       icon: <Plane size={16} />,
+      link: "/services/air-freight",
       points: [
         "Express & deferred services",
         "Airport-to-airport & door-to-door",
@@ -148,6 +168,7 @@ const ServicesScroll = () => {
       image: "/seafreight.jpg",
       title: "Sea Freight",
       icon: <Ship size={16} />,
+      link: "/services/ocean-freight",
       points: [
         "FCL & LCL solutions",
         "Breakbulk & Ro-Ro cargo",
@@ -158,6 +179,7 @@ const ServicesScroll = () => {
       image: "/roadfreight.jpg",
       title: "Road Freight",
       icon: <Truck size={16} />,
+      link: "/services/road-freight",
       points: [
         "GCC distribution",
         "Cross-border trucking",
@@ -168,6 +190,7 @@ const ServicesScroll = () => {
       image: "/Customsclearance.jpg",
       title: "Customs Clearance",
       icon: <Package size={16} />,
+      link: "/services/customs-clearance",
       points: [
         "Import & export documentation",
         "Free zone & mainland clearance",
@@ -178,6 +201,7 @@ const ServicesScroll = () => {
       image: "/Warehousing.jpg",
       title: "Warehousing",
       icon: <Warehouse size={16} />,
+      link: "/services/warehousing",
       points: [
         "Bonded & non-bonded facilities",
         "Inventory management",
@@ -188,6 +212,7 @@ const ServicesScroll = () => {
       image: "/Projectlogistics.jpg",
       title: "Project Logistics",
       icon: <Boxes size={16} />,
+      link: "/services/project-logistics",
       points: [
         "Planning & coordination",
         "Heavy & OOG cargo",

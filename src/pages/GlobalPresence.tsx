@@ -51,7 +51,7 @@ const GlobalPresence = () => {
             transition={{ type: 'spring', stiffness: 260, damping: 28 }}
             className={`h-full bg-white ${isMobile ? 'w-full' : 'w-[35%]'}`}
           >
-            <Sidebar />
+            <Sidebar isOpen={true} onClose={() => {}} />
           </motion.aside>
         )}
       </motion.div>
