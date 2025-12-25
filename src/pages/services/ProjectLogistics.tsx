@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Cog, FileText, Wrench, Eye, Package, Settings, ClipboardCheck, Shield } from 'lucide-react';
+import { Package, Settings, ClipboardCheck, Shield } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 
@@ -104,13 +104,20 @@ const ProjectLogistics = () => {
               <h3 className="text-xl font-bold text-primary mb-4">Our Project Logistics Capabilities</h3>
               <ul className="space-y-3">
                 {capabilities.map((cap, index) => (
-                  <li key={index} className="flex items-start gap-3">
+                  <motion.li
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="flex items-start gap-3"
+                  >
                     <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
                     <div>
                       <span className="font-semibold text-primary">{cap.title}:</span>{' '}
                       <span className="text-muted-foreground">{cap.description}</span>
                     </div>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
             </div>
@@ -194,8 +201,8 @@ const ProjectLogistics = () => {
                     transition={{ delay: index * 0.1 }}
                     className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow text-center"
                   >
-                    <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4 mx-auto">
-                      <Icon className="w-6 h-6 text-accent" />
+                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4 mx-auto">
+                      <Icon className="w-6 h-6 text-primary" />
                     </div>
                     <h3 className="font-bold text-primary mb-2">{feature.title}</h3>
                     <p className="text-sm text-muted-foreground">{feature.description}</p>

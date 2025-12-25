@@ -1,28 +1,26 @@
 import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { FileCheck, Shield, MessageCircle, Globe } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
 
 const mainServices = [
   {
     icon: FileCheck,
     title: 'Documentation Expertise',
     description: 'Our team ensures all your customs documentation is accurate, complete, and submitted correctly, preventing delays and ensuring compliance with international regulations.',
-    color: 'bg-blue-500',
   },
   {
     icon: Shield,
     title: 'Regulatory Compliance',
     description: 'Stay compliant with constantly evolving international trade regulations. We keep up-to-date with changes to ensure your shipments meet all legal requirements.',
-    color: 'bg-green-500',
   },
   {
     icon: MessageCircle,
     title: 'Expert Consultation',
     description: 'Our customs experts provide guidance on duty and tax implications, helping you make informed decisions and optimize your international shipping strategy.',
-    color: 'bg-orange-500',
   },
 ];
 
@@ -42,6 +40,7 @@ const exportServices = [
 
 const CustomsClearance = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   useEffect(() => window.scrollTo(0, 0), [location.pathname]);
 
   return (
@@ -62,10 +61,16 @@ const CustomsClearance = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">Customs Clearance</h1>
-                <p className="text-white/90 text-lg max-w-xl">
-                  Expert customs brokerage and compliance solutions
+                <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">Customs Clearance Services</h1>
+                <p className="text-white/90 text-lg max-w-xl mb-6">
+                  Expert solutions for seamless border crossings
                 </p>
+                <Button 
+                  onClick={() => navigate('/#contact')}
+                  className="bg-accent hover:bg-accent/90 text-white"
+                >
+                  Get a Quote
+                </Button>
               </motion.div>
             </div>
           </div>
@@ -95,7 +100,7 @@ const CustomsClearance = () => {
         {/* Main Services Cards */}
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
               {mainServices.map((service, index) => {
                 const Icon = service.icon;
                 return (
@@ -105,15 +110,13 @@ const CustomsClearance = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow"
+                    className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow"
                   >
-                    <div className={`${service.color} h-32 flex items-center justify-center`}>
-                      <Icon className="w-12 h-12 text-white" />
+                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                      <Icon className="w-6 h-6 text-primary" />
                     </div>
-                    <div className="p-6">
-                      <h3 className="font-bold text-primary text-lg mb-3">{service.title}</h3>
-                      <p className="text-sm text-muted-foreground">{service.description}</p>
-                    </div>
+                    <h3 className="font-bold text-primary text-lg mb-3">{service.title}</h3>
+                    <p className="text-sm text-muted-foreground">{service.description}</p>
                   </motion.div>
                 );
               })}
@@ -124,13 +127,13 @@ const CustomsClearance = () => {
         {/* Import/Export Services */}
         <section className="py-16">
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {/* Import Clearance */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-xl p-6 shadow-md"
+                className="bg-blue-50 rounded-xl p-6"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <Globe className="w-6 h-6 text-primary" />
@@ -154,7 +157,7 @@ const CustomsClearance = () => {
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-xl p-6 shadow-md"
+                className="bg-blue-50 rounded-xl p-6"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <Globe className="w-6 h-6 text-primary" />
@@ -173,6 +176,21 @@ const CustomsClearance = () => {
                 </ul>
               </motion.div>
             </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-16 bg-primary">
+          <div className="container mx-auto px-4 text-center">
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Need Customs Clearance Assistance?</h3>
+            <p className="text-white/80 mb-6">Contact our team today for expert customs solutions.</p>
+            <Button 
+              onClick={() => navigate('/#contact')}
+              variant="outline"
+              className="bg-transparent border-white text-white hover:bg-white hover:text-primary"
+            >
+              Get a Quote
+            </Button>
           </div>
         </section>
       </main>

@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Warehouse, Thermometer, Package, ClipboardList } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
 
 const storageTypes = [
   {
@@ -27,8 +28,16 @@ const valueAddedServices = [
   { title: 'Order Processing', description: 'Streamlined handling of orders from receipt to dispatch.' },
 ];
 
+const features = [
+  { icon: Warehouse, title: 'Secure Facilities', desc: '24/7 security and surveillance' },
+  { icon: Thermometer, title: 'Temperature Control', desc: 'Climate-controlled storage' },
+  { icon: Package, title: 'Flexible Space', desc: 'Scalable storage solutions' },
+  { icon: ClipboardList, title: 'Real-Time Tracking', desc: 'Advanced inventory systems' },
+];
+
 const WarehousingPage = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   useEffect(() => window.scrollTo(0, 0), [location.pathname]);
 
   return (
@@ -49,10 +58,16 @@ const WarehousingPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">Warehousing</h1>
-                <p className="text-white/90 text-lg max-w-xl">
-                  Secure storage and value-added logistics services
+                <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">Warehousing Solutions</h1>
+                <p className="text-white/90 text-lg max-w-xl mb-6">
+                  At One Global Logistics, we offer comprehensive warehousing services designed to streamline your supply chain operations
                 </p>
+                <Button 
+                  onClick={() => navigate('/#contact')}
+                  className="bg-accent hover:bg-accent/90 text-white"
+                >
+                  Get a Quote
+                </Button>
               </motion.div>
             </div>
           </div>
@@ -68,7 +83,7 @@ const WarehousingPage = () => {
               <div className="w-20 h-1 bg-accent mx-auto mb-8" />
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-4">
               {storageTypes.map((type, index) => (
                 <motion.div
                   key={index}
@@ -76,13 +91,10 @@ const WarehousingPage = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="flex items-start gap-4"
+                  className="bg-blue-50 border-l-4 border-primary p-4 rounded-r-lg"
                 >
-                  <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
-                  <div>
-                    <span className="font-bold text-primary">{type.title}:</span>{' '}
-                    <span className="text-muted-foreground">{type.description}</span>
-                  </div>
+                  <span className="font-bold text-primary">{type.title}:</span>{' '}
+                  <span className="text-muted-foreground">{type.description}</span>
                 </motion.div>
               ))}
             </div>
@@ -121,12 +133,7 @@ const WarehousingPage = () => {
         <section className="py-16">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                { icon: Warehouse, title: 'Secure Facilities', desc: '24/7 security and surveillance' },
-                { icon: Thermometer, title: 'Temperature Control', desc: 'Climate-controlled storage' },
-                { icon: Package, title: 'Flexible Space', desc: 'Scalable storage solutions' },
-                { icon: ClipboardList, title: 'Real-Time Tracking', desc: 'Advanced inventory systems' },
-              ].map((feature, index) => {
+              {features.map((feature, index) => {
                 const Icon = feature.icon;
                 return (
                   <motion.div
@@ -146,6 +153,21 @@ const WarehousingPage = () => {
                 );
               })}
             </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-16 bg-primary">
+          <div className="container mx-auto px-4 text-center">
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to Optimize Your Storage?</h3>
+            <p className="text-white/80 mb-6">Contact our team today for tailored warehousing solutions.</p>
+            <Button 
+              onClick={() => navigate('/#contact')}
+              variant="outline"
+              className="bg-transparent border-white text-white hover:bg-white hover:text-primary"
+            >
+              Get a Quote
+            </Button>
           </div>
         </section>
       </main>

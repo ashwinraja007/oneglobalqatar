@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Ship, Container, Package, Globe } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
 
 const services = [
   {
@@ -16,8 +17,16 @@ const services = [
   },
 ];
 
+const features = [
+  { icon: Ship, title: 'Global Network', desc: 'Extensive carrier partnerships worldwide' },
+  { icon: Container, title: 'FCL & LCL Options', desc: 'Flexible container solutions' },
+  { icon: Package, title: 'Breakbulk Cargo', desc: 'Specialized heavy cargo handling' },
+  { icon: Globe, title: 'Door-to-Door', desc: 'Complete logistics coverage' },
+];
+
 const OceanFreight = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   useEffect(() => window.scrollTo(0, 0), [location.pathname]);
 
   return (
@@ -38,10 +47,16 @@ const OceanFreight = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">Ocean Freight</h1>
-                <p className="text-white/90 text-lg max-w-xl">
-                  Reliable and cost-effective sea cargo solutions worldwide
+                <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">Ocean Freight Solutions</h1>
+                <p className="text-white/90 text-lg max-w-xl mb-6">
+                  Connecting you globally with comprehensive ocean freight services
                 </p>
+                <Button 
+                  onClick={() => navigate('/#contact')}
+                  className="bg-accent hover:bg-accent/90 text-white"
+                >
+                  Get a Quote
+                </Button>
               </motion.div>
             </div>
           </div>
@@ -86,12 +101,7 @@ const OceanFreight = () => {
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                { icon: Ship, title: 'Global Network', desc: 'Extensive carrier partnerships worldwide' },
-                { icon: Container, title: 'FCL & LCL Options', desc: 'Flexible container solutions' },
-                { icon: Package, title: 'Breakbulk Cargo', desc: 'Specialized heavy cargo handling' },
-                { icon: Globe, title: 'Door-to-Door', desc: 'Complete logistics coverage' },
-              ].map((feature, index) => {
+              {features.map((feature, index) => {
                 const Icon = feature.icon;
                 return (
                   <motion.div
@@ -111,6 +121,21 @@ const OceanFreight = () => {
                 );
               })}
             </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-16 bg-primary">
+          <div className="container mx-auto px-4 text-center">
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to Ship Your Cargo?</h3>
+            <p className="text-white/80 mb-6">Contact our team today for tailored ocean freight solutions.</p>
+            <Button 
+              onClick={() => navigate('/#contact')}
+              variant="outline"
+              className="bg-transparent border-white text-white hover:bg-white hover:text-primary"
+            >
+              Get a Quote
+            </Button>
           </div>
         </section>
       </main>
