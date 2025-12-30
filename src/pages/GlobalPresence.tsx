@@ -19,16 +19,17 @@ const GlobalPresence = () => {
   }, [isMobile]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
-      {/* HEADER (normal flow – NOT fixed) */}
+    <div className="min-h-screen flex flex-col bg-background">
+      {/* HEADER */}
       <Header />
 
-      {/* MAIN CONTENT – NO TOP GAP */}
+      {/* MAIN CONTENT – NO GAP */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.3 }}
-        className="flex flex-1 w-full overflow-hidden"
+        className="flex flex-1 w-full"
+        style={{ minHeight: 0 }}
       >
         {/* MAP */}
         {(!isMobile || showMap) && (
@@ -36,9 +37,9 @@ const GlobalPresence = () => {
             initial={isMobile ? { x: '100%' } : false}
             animate={isMobile ? { x: 0 } : false}
             transition={{ type: 'spring', stiffness: 260, damping: 28 }}
-            className={`h-full ${isMobile ? 'w-full' : 'w-[65%]'}`}
+            className={`${isMobile ? 'w-full' : 'w-[65%]'}`}
+            style={{ display: 'block' }}
           >
-            {/* IMPORTANT: no padding / margin wrapper */}
             <MapContainer />
           </motion.main>
         )}
@@ -49,7 +50,7 @@ const GlobalPresence = () => {
             initial={isMobile ? { x: '-100%' } : false}
             animate={isMobile ? { x: 0 } : false}
             transition={{ type: 'spring', stiffness: 260, damping: 28 }}
-            className={`h-full bg-white ${isMobile ? 'w-full' : 'w-[35%]'}`}
+            className={`bg-card ${isMobile ? 'w-full' : 'w-[35%]'}`}
           >
             <Sidebar isOpen={true} onClose={() => {}} />
           </motion.aside>

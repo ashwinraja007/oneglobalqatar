@@ -1,8 +1,10 @@
 import React from 'react';
-import { CheckCircle } from 'lucide-react';
+import { CheckCircle, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const About = () => {
+  const navigate = useNavigate();
   const features = [
     'Global NVOCC Operator',
     'LCL Consolidation Experts',
@@ -13,11 +15,11 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-white overflow-hidden">
+    <section id="about" className="py-20 bg-background overflow-hidden">
       
       <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
 
-        {/* IMAGE – FULL BLEED LEFT (NO WHITE SPACE) */}
+        {/* IMAGE – FULL BLEED LEFT */}
         <motion.div
           initial={{ x: -120, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
@@ -37,29 +39,33 @@ const About = () => {
 
         {/* TEXT – CONTAINED RIGHT */}
         <div className="container mx-auto px-6 lg:px-12">
-          <h2 className="font-heading text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+          <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
             Drive Your Business <br />
-            Forward with <span className="text-red-700">OGL</span>
+            Forward with <span className="text-accent">OGL</span>
           </h2>
 
-          <p className="font-body text-base md:text-lg text-gray-600 leading-relaxed mb-6">
-          One Global Logistics services W.L.L is a Qatar based global NVOCC (Non-vessel owned common carrier) operator providing LCL consolidation services worldwide markets. We at OGL has a well experienced and established team with relevant experience in their own dedicated trade lanes supports our customers with all their special requirements with complete dedication and transparency.Our commitment to honest, transparent business practice and pricing, backed by a network of experienced and trusted agents, from around the world, makes us  one of the fast-growing consolidators based at Qatar.
+          <p className="font-body text-base md:text-lg text-muted-foreground leading-relaxed mb-6">
+            One Global Logistics services W.L.L is a Qatar based global NVOCC operator providing LCL consolidation services worldwide. Our commitment to transparent business practice makes us one of the fast-growing consolidators based in Qatar.
           </p>
 
-          <p className="font-body text-base md:text-lg text-gray-600 leading-relaxed mb-8">
-            We are well positioned to manage your LCL business with full attention. We aimed at providing the secured end to end LCL services to the Freight Forwarding /Logistics Companies in Qatar, whereas we ensure to maintain the trust and not entertain direct customer business.
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 mb-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 mb-8">
             {features.map((item, index) => (
               <div key={index} className="flex items-center gap-3">
-                <CheckCircle className="w-5 h-5 text-red-600 fill-red-50" />
-                <span className="font-body text-gray-700 font-medium">
+                <CheckCircle className="w-5 h-5 text-accent fill-accent/10" />
+                <span className="font-body text-foreground font-medium">
                   {item}
                 </span>
               </div>
             ))}
           </div>
+
+          <button
+            onClick={() => navigate('/about')}
+            className="inline-flex items-center gap-2 px-6 py-3 bg-accent hover:bg-accent/90 text-white font-semibold rounded-lg transition-colors"
+          >
+            Read More
+            <ArrowRight className="w-4 h-4" />
+          </button>
         </div>
 
       </div>

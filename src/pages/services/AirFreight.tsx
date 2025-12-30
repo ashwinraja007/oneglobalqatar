@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import ServiceSidebar from '@/components/ServiceSidebar';
 import { Clock, Plane, Package, Timer, FileCheck } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -73,15 +74,17 @@ const AirFreight = () => {
           </div>
         </section>
 
-        {/* Content Section */}
+        {/* Content Section with Sidebar */}
         <section className="py-16 md:py-24">
           <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="grid lg:grid-cols-3 gap-12">
+              {/* Main Content - 2/3 width */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
+                className="lg:col-span-2"
               >
                 <h2 className="text-2xl md:text-4xl font-bold text-primary mb-6">
                   Comprehensive Air Freight Services
@@ -115,21 +118,11 @@ const AirFreight = () => {
                 </div>
               </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="relative"
-              >
-                <img 
-                  src="/airfreight.jpg" 
-                  alt="Air Freight Service" 
-                  className="rounded-2xl shadow-2xl w-full"
-                />
-                <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-accent/20 rounded-2xl -z-10"></div>
-                <div className="absolute -top-6 -right-6 w-24 h-24 bg-primary/20 rounded-2xl -z-10"></div>
-              </motion.div>
+              {/* Sidebar - 1/3 width */}
+              <ServiceSidebar 
+                image="/airfreight.jpg" 
+                imageAlt="Air Freight Service" 
+              />
             </div>
           </div>
         </section>

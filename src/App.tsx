@@ -7,12 +7,14 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Services from "./pages/Services";
 import GlobalPresence from "./pages/GlobalPresence";
+import AboutPage from "./pages/AboutPage";
 import AirFreight from "./pages/services/AirFreight";
 import OceanFreight from "./pages/services/OceanFreight";
 import RoadFreight from "./pages/services/RoadFreight";
 import CustomsClearance from "./pages/services/CustomsClearance";
 import Warehousing from "./pages/services/Warehousing";
 import ProjectLogistics from "./pages/services/ProjectLogistics";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -22,9 +24,11 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/services" element={<Services />} />
           <Route path="/" element={<Index />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/global-presence" element={<GlobalPresence />} />
           {/* Service detail pages */}
           <Route path="/services/air-freight" element={<AirFreight />} />
