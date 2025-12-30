@@ -180,8 +180,7 @@ const AboutPage = () => {
                 </h3>
                 <div className="text-muted-foreground leading-relaxed space-y-2">
                   <p>OGL to be Forwarders first choice for :</p>
-                  <p>FCL, LCL, Air Freight</p>
-                  <p>Freight Management Services</p>
+                  <p>FCL, LCL, Air Freight, Freight Management Services</p>
                 </div>
               </motion.div>
 
