@@ -134,7 +134,7 @@ const AboutPage = () => {
                 <p className="text-muted-foreground">
                   OGL to be Forwarders first choice for :
                 </p>
-                <p className="mt-2">FCL, LCL, Air Freight</p>
+               <p className="text-muted-foreground">FCL, LCL, Air Freight</p>
                 <p>Freight Management Services</p>
               </div>
 
