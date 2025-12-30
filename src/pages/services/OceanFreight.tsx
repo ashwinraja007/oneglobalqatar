@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import ServiceSidebar from '@/components/ServiceSidebar';
 import { Ship, Container, Package, Globe } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -34,26 +35,27 @@ const OceanFreight = () => {
       <Header />
       <main>
         {/* Hero Section */}
-        <section className="relative h-[300px] md:h-[400px] overflow-hidden">
+        <section className="relative h-[400px] md:h-[500px] overflow-hidden">
           <img 
             src="/seafreight.jpg" 
             alt="Ocean Freight Services" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary/40 flex items-center">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/50 flex items-center">
             <div className="container mx-auto px-4">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
+                className="max-w-2xl"
               >
                 <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">Ocean Freight Solutions</h1>
-                <p className="text-white/90 text-lg max-w-xl mb-6">
+                <p className="text-white/90 text-lg md:text-xl mb-8">
                   Connecting you globally with comprehensive ocean freight services
                 </p>
                 <Button 
-                  onClick={() => navigate('/#contact')}
-                  className="bg-accent hover:bg-accent/90 text-white"
+                  onClick={() => navigate('/contact')}
+                  className="bg-accent hover:bg-accent/90 text-white px-8 py-3 text-lg"
                 >
                   Get a Quote
                 </Button>
@@ -62,37 +64,52 @@ const OceanFreight = () => {
           </div>
         </section>
 
-        {/* Content Section */}
+        {/* Content Section with Sidebar */}
         <section className="py-16 md:py-24">
-          <div className="container mx-auto px-4 max-w-4xl">
-            <div className="text-center mb-12">
-              <h2 className="text-2xl md:text-4xl font-bold text-primary mb-4">
-                Reliable & Tailored Ocean Freight Services
-              </h2>
-              <div className="w-20 h-1 bg-accent mx-auto mb-8" />
-            </div>
+          <div className="container mx-auto px-4">
+            <div className="grid lg:grid-cols-3 gap-12">
+              {/* Main Content - 2/3 width */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="lg:col-span-2"
+              >
+                <h2 className="text-2xl md:text-4xl font-bold text-primary mb-6">
+                  Reliable & Tailored Ocean Freight Services
+                </h2>
+                <div className="w-20 h-1 bg-accent mb-8" />
 
-            <div className="prose prose-lg max-w-none text-muted-foreground mb-12">
-              <p>
-                At <strong className="text-primary">One Global Logistics</strong>, we specialize in delivering comprehensive ocean freight solutions tailored to meet the diverse requirements of our clients. Whether you're shipping bulk cargo or small consignments, our services are built for <strong>efficiency, reliability, and cost-effectiveness</strong>.
-              </p>
-            </div>
+                <div className="prose prose-lg max-w-none text-muted-foreground mb-12">
+                  <p>
+                    At <strong className="text-primary">One Global Logistics</strong>, we specialize in delivering comprehensive ocean freight solutions tailored to meet the diverse requirements of our clients. Whether you're shipping bulk cargo or small consignments, our services are built for <strong>efficiency, reliability, and cost-effectiveness</strong>.
+                  </p>
+                </div>
 
-            {/* Service Cards */}
-            <div className="space-y-6">
-              {services.map((service, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.2 }}
-                  className="bg-blue-50 border-l-4 border-primary p-6 rounded-r-lg"
-                >
-                  <h3 className="text-xl font-bold text-primary mb-3">{service.title}</h3>
-                  <p className="text-muted-foreground">{service.description}</p>
-                </motion.div>
-              ))}
+                {/* Service Cards */}
+                <div className="space-y-6">
+                  {services.map((service, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.2 }}
+                      className="bg-accent/5 border-l-4 border-accent p-6 rounded-r-lg"
+                    >
+                      <h3 className="text-xl font-bold text-primary mb-3">{service.title}</h3>
+                      <p className="text-muted-foreground">{service.description}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+
+              {/* Sidebar - 1/3 width */}
+              <ServiceSidebar 
+                image="/seafreight.jpg" 
+                imageAlt="Ocean Freight Service" 
+              />
             </div>
           </div>
         </section>
@@ -110,10 +127,10 @@ const OceanFreight = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow text-center"
+                    className="bg-card rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow text-center border border-border"
                   >
-                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4 mx-auto">
-                      <Icon className="w-6 h-6 text-primary" />
+                    <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4 mx-auto">
+                      <Icon className="w-6 h-6 text-accent" />
                     </div>
                     <h3 className="font-bold text-primary mb-2">{feature.title}</h3>
                     <p className="text-sm text-muted-foreground">{feature.desc}</p>
@@ -125,17 +142,26 @@ const OceanFreight = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 bg-primary">
+        <section className="py-16 md:py-24 bg-primary">
           <div className="container mx-auto px-4 text-center">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to Ship Your Cargo?</h3>
-            <p className="text-white/80 mb-6">Contact our team today for tailored ocean freight solutions.</p>
-            <Button 
-              onClick={() => navigate('/#contact')}
-              variant="outline"
-              className="bg-transparent border-white text-white hover:bg-white hover:text-primary"
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
             >
-              Get a Quote
-            </Button>
+              <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">
+                Ready to Ship Your Cargo?
+              </h2>
+              <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
+                Contact our team today for tailored ocean freight solutions.
+              </p>
+              <Button 
+                onClick={() => navigate('/contact')}
+                className="bg-accent hover:bg-accent/90 text-white px-8 py-3 text-lg"
+              >
+                Get a Quote
+              </Button>
+            </motion.div>
           </div>
         </section>
       </main>

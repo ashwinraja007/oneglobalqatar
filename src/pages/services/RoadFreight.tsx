@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import ServiceSidebar from '@/components/ServiceSidebar';
 import { Truck, MapPin, Package, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -64,72 +65,49 @@ const RoadFreight = () => {
           </div>
         </section>
 
-        {/* Content Section */}
+        {/* Content Section with Sidebar */}
         <section className="py-16 md:py-24">
-          <div className="container mx-auto px-4 max-w-4xl">
-            <div className="text-center mb-12">
-              <h2 className="text-2xl md:text-4xl font-bold text-primary mb-4">
-                TRANSPORTATION & DISTRIBUTION
-              </h2>
-              <div className="w-20 h-1 bg-accent mx-auto mb-8" />
-            </div>
+          <div className="container mx-auto px-4">
+            <div className="grid lg:grid-cols-3 gap-12">
+              {/* Main Content */}
+              <div className="lg:col-span-2">
+                <h2 className="text-2xl md:text-4xl font-bold text-primary mb-4">
+                  TRANSPORTATION & DISTRIBUTION
+                </h2>
+                <div className="w-20 h-1 bg-accent mb-8" />
 
-            <div className="prose prose-lg max-w-none text-muted-foreground mb-12">
-              <p>
-                At <strong className="text-primary">One Global Logistics</strong>, we understand that efficient transportation and distribution are the backbone of a seamless supply chain. Our dedicated fleet and robust infrastructure ensure that your goods reach their destination on time, every time.
-              </p>
+                <div className="prose prose-lg max-w-none text-muted-foreground mb-8">
+                  <p>
+                    At <strong className="text-primary">One Global Logistics</strong>, we understand that efficient transportation and distribution are the backbone of a seamless supply chain.
+                  </p>
+                </div>
 
-              <h3 className="text-xl font-bold text-primary mt-8 mb-4">Domestic Distribution Network</h3>
-              <p>
-                With a strategically located network of offices in Mumbai, New Delhi, Kolkata, Bangalore, and Chennai, One Global Logistics offers comprehensive domestic transportation solutions. Our fleet is equipped to handle various cargo types, ensuring safe and timely deliveries across the country.
-              </p>
+                {/* Fleet Types */}
+                <div className="bg-accent/5 rounded-xl p-6 mb-8">
+                  <h3 className="text-xl font-bold text-primary mb-4">Our Fleet</h3>
+                  <ul className="space-y-3">
+                    {fleetTypes.map((type, index) => (
+                      <li key={index} className="flex items-center gap-3 text-muted-foreground">
+                        <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0" />
+                        {type}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-              <h3 className="text-xl font-bold text-primary mt-8 mb-4">Fleet & Operational Excellence</h3>
-              <p>Our fleet comprises a diverse range of vehicles, including:</p>
-            </div>
+                {/* Distribution Services */}
+                <div className="space-y-4">
+                  {distributionServices.map((service, index) => (
+                    <div key={index} className="bg-accent/5 border-l-4 border-accent p-4 rounded-r-lg">
+                      <span className="font-bold text-primary">{service.title}:</span>{' '}
+                      <span className="text-muted-foreground">{service.description}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
 
-            {/* Fleet Types */}
-            <div className="bg-blue-50 rounded-xl p-6 mb-8">
-              <ul className="space-y-3">
-                {fleetTypes.map((type, index) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className="flex items-center gap-3 text-muted-foreground"
-                  >
-                    <div className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0" />
-                    {type}
-                  </motion.li>
-                ))}
-              </ul>
-              <p className="mt-4 text-muted-foreground">
-                Each vehicle is maintained to the highest standards, ensuring reliability and safety during transit.
-              </p>
-            </div>
-
-            {/* Distribution Services */}
-            <div className="prose prose-lg max-w-none text-muted-foreground mb-8">
-              <h3 className="text-xl font-bold text-primary mb-4">Distribution Services</h3>
-              <p>We offer a range of distribution services tailored to meet the specific needs of our clients:</p>
-            </div>
-
-            <div className="space-y-4">
-              {distributionServices.map((service, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-blue-50 border-l-4 border-primary p-4 rounded-r-lg"
-                >
-                  <span className="font-bold text-primary">{service.title}:</span>{' '}
-                  <span className="text-muted-foreground">{service.description}</span>
-                </motion.div>
-              ))}
+              {/* Sidebar */}
+              <ServiceSidebar image="/roadfreight.jpg" imageAlt="Road Freight Service" />
             </div>
           </div>
         </section>

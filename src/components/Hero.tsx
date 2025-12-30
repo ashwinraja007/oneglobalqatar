@@ -109,7 +109,7 @@ const Hero = () => {
             {/* Services Page */}
             <Button
               size="lg"
-              className="bg-accent hover:bg-red-hover text-accent-foreground font-semibold px-8"
+              className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-8"
               onClick={() => navigate('/services')}
             >
               Our Services
@@ -120,7 +120,7 @@ const Hero = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-white text-black hover:bg-white hover:text-black"
+              className="border-white text-white hover:bg-white hover:text-primary"
               onClick={() => navigate('/contact')}
             >
               Contact Us

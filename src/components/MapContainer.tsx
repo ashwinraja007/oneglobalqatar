@@ -32,19 +32,19 @@ const MapContainer = () => {
 
   return (
     <div className="w-full h-full flex justify-center">
-      <div className={`bg-white rounded-2xl shadow-lg overflow-hidden relative w-full transition-all duration-300 ease-in-out ${isFullScreen ? 'max-w-full' : 'max-w-6xl'} my-3`}>
+      <div className={`bg-card rounded-2xl shadow-lg overflow-hidden relative w-full transition-all duration-300 ease-in-out ${isFullScreen ? 'max-w-full' : 'max-w-6xl'}`}>
         {/* Map Header */}
-        <div className="flex justify-between items-center p-3 border-b border-amber-100 bg-gradient-to-r from-amber-50 to-white">
-          <h3 className="font-medium text-amber-700 flex items-center">
+        <div className="flex justify-between items-center p-3 border-b border-border bg-gradient-to-r from-accent/5 to-card">
+          <h3 className="font-medium text-primary flex items-center">
             <span className="hidden sm:inline">Interactive Global Presence Map</span>
             <span className="sm:hidden">Global Map</span>
           </h3>
           <div className="flex items-center gap-2">
-            <Button variant="outline" size="sm" onClick={handleReload} className="text-amber-600 border-amber-200 hover:bg-amber-50">
+            <Button variant="outline" size="sm" onClick={handleReload} className="text-primary border-border hover:bg-accent/10">
               <RefreshCw className="h-3.5 w-3.5 mr-1" />
               <span className="hidden sm:inline">Refresh</span>
             </Button>
-            <Button variant="outline" size="sm" onClick={toggleFullScreen} className="text-amber-600 border-amber-200 hover:bg-amber-50">
+            <Button variant="outline" size="sm" onClick={toggleFullScreen} className="text-primary border-border hover:bg-accent/10">
               {isFullScreen ? <>
                   <Minimize2 className="h-3.5 w-3.5 mr-1" />
                   <span className="hidden sm:inline">Compact</span>
@@ -59,7 +59,7 @@ const MapContainer = () => {
         {/* Map Container */}
         <div className={`relative transition-all duration-300 ${isFullScreen ? 'aspect-[16/9]' : 'aspect-[4/3]'}`}>
           {/* Mask the top black Google bar */}
-          <div className="absolute top-0 left-0 w-full h-[50px] bg-white z-10 pointer-events-none" />
+          <div className="absolute top-0 left-0 w-full h-[50px] bg-card z-10 pointer-events-none" />
           
           <iframe 
             ref={iframeRef} 
@@ -77,18 +77,18 @@ const MapContainer = () => {
           
           {/* Loading Spinner */}
           {!isLoaded && (
-            <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-80 z-10">
+            <div className="absolute inset-0 flex items-center justify-center bg-card bg-opacity-80 z-10">
               <div className="flex flex-col items-center">
-                <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-amber-500"></div>
-                <p className="mt-3 text-sm text-gray-600">Loading map...</p>
+                <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-accent"></div>
+                <p className="mt-3 text-sm text-muted-foreground">Loading map...</p>
               </div>
             </div>
           )}
         </div>
         
         {/* Map Footer */}
-        <div className="py-2 px-4 border-t border-amber-100 bg-gradient-to-r from-white to-amber-50 text-xs text-gray-500 text-center">
-          <p>© 2025 GGL Global Presence Map | Data updated quarterly</p>
+        <div className="py-2 px-4 border-t border-border bg-gradient-to-r from-card to-accent/5 text-xs text-muted-foreground text-center">
+          <p>© 2025 OGL Global Presence Map | Data updated quarterly</p>
         </div>
       </div>
     </div>
