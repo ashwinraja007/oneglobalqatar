@@ -141,22 +141,6 @@ const AboutPage = () => {
             </div>
           </div>
         </section>
-
-        {/* CTA */}
-        <section className="py-20 bg-primary text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Partner with Us Today
-          </h2>
-          <p className="text-white/80 mb-8">
-            Experience reliable and transparent global logistics solutions.
-          </p>
-          <a
-            href="/contact"
-            className="inline-block px-8 py-3 bg-accent text-white font-semibold rounded-lg"
-          >
-            Contact Us
-          </a>
-        </section>
       </main>
 
       <Footer />
