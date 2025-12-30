@@ -1,6 +1,5 @@
 import React from 'react';
 import { Laptop, Bell, FileBarChart2 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
 const ValuePropositions = () => {
   const propositions = [
@@ -18,16 +17,6 @@ const ValuePropositions = () => {
     },
   ];
 
-  const handleScrollToContact = () => {
-    const section = document.getElementById('contact');
-    if (section) {
-      section.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-    }
-  };
-
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
@@ -41,7 +30,7 @@ const ValuePropositions = () => {
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           {propositions.map((prop, index) => {
             const Icon = prop.icon;
             return (
@@ -60,21 +49,6 @@ const ValuePropositions = () => {
               </div>
             );
           })}
-        </div>
-
-        {/* CTA Section */}
-        <div className="bg-primary rounded-xl p-8 md:p-10 text-center shadow-lg">
-          <p className="font-body text-primary-foreground/90 mb-6 text-lg">
-            Our commitment to excellence makes us the industry leader
-          </p>
-
-          <Button
-            size="lg"
-            onClick={handleScrollToContact}
-            className="bg-accent hover:bg-accent/90 text-accent-foreground font-body font-semibold px-10"
-          >
-            TALK TO OUR LOGISTICS EXPERT
-          </Button>
         </div>
 
       </div>
