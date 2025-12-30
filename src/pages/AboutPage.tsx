@@ -2,15 +2,7 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import {
-  CheckCircle,
-  Target,
-  Eye,
-  Heart,
-  Shield,
-  Lightbulb,
-  Users,
-} from 'lucide-react';
+import { CheckCircle, Target, Eye } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const AboutPage = () => {
@@ -24,33 +16,6 @@ const AboutPage = () => {
     'Dedicated Trade Lanes',
     'Secured End-to-End Services',
     'Trusted Agent Network',
-  ];
-
-  const coreValues = [
-    {
-      icon: Shield,
-      title: 'Integrity',
-      description:
-        'We conduct business with honesty and transparency, building lasting trust with our partners.',
-    },
-    {
-      icon: Heart,
-      title: 'Reliability',
-      description:
-        'Consistent, dependable service delivery that our clients can count on every time.',
-    },
-    {
-      icon: Lightbulb,
-      title: 'Innovation',
-      description:
-        'Continuously improving our processes and adopting new technologies to serve you better.',
-    },
-    {
-      icon: Users,
-      title: 'Partnership',
-      description:
-        'We believe in building strong, long-term relationships with our clients and agents.',
-    },
   ];
 
   return (
@@ -88,25 +53,21 @@ const AboutPage = () => {
         <section className="py-20 bg-background overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
 
-            {/* IMAGE – FULL BLEED LEFT */}
+            {/* IMAGE */}
             <motion.div
               initial={{ x: -120, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.9, ease: 'easeOut' }}
-              className="relative w-full h-full"
+              transition={{ duration: 0.9 }}
             >
               <img
                 src="/cargo-ship.png"
                 alt="One Global Logistics"
                 className="w-full h-auto object-cover"
-                style={{
-                  filter: 'drop-shadow(0px 10px 30px rgba(0,0,0,0.15))',
-                }}
               />
             </motion.div>
 
-            {/* TEXT – CONTAINED RIGHT */}
+            {/* TEXT */}
             <div className="container mx-auto px-6 lg:px-12">
               <motion.div
                 initial={{ opacity: 0, x: 40 }}
@@ -114,22 +75,34 @@ const AboutPage = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">
                   Drive Your Business <br />
                   Forward with <span className="text-accent">OGL</span>
                 </h2>
 
-                <p className="font-body text-base md:text-lg text-muted-foreground leading-relaxed mb-8">
-                  One Global Logistics services W.L.L is a Qatar based global NVOCC (Non-vessel owned common carrier) operator providing LCL consolidation services worldwide markets. We at OGL has a well experienced and established team with relevant experience in their own dedicated trade lanes supports our customers with all their special requirements with complete dedication and transparency.Our commitment to honest, transparent business practice and pricing, backed by a network of experienced and trusted agents, from around the world, makes us one of the fast-growing consolidators based at Qatar. We are well positioned to manage your LCL business with full attention. We aimed at providing the secured end to end LCL services to the Freight Forwarding /Logistics Companies in Qatar, whereas we ensure to maintain the trust and not entertain direct customer business.
+                <p className="text-muted-foreground leading-relaxed mb-8">
+                  One Global Logistics services W.L.L is a Qatar based global NVOCC
+                  (Non-vessel owned common carrier) operator providing LCL
+                  consolidation services worldwide markets. We at OGL has a well
+                  experienced and established team with relevant experience in
+                  their own dedicated trade lanes supports our customers with all
+                  their special requirements with complete dedication and
+                  transparency.Our commitment to honest, transparent business
+                  practice and pricing, backed by a network of experienced and
+                  trusted agents, from around the world, makes us one of the
+                  fast-growing consolidators based at Qatar. We are well
+                  positioned to manage your LCL business with full attention. We
+                  aimed at providing the secured end to end LCL services to the
+                  Freight Forwarding /Logistics Companies in Qatar, whereas we
+                  ensure to maintain the trust and not entertain direct customer
+                  business.
                 </p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {features.map((item, index) => (
                     <div key={index} className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-accent fill-accent/10" />
-                      <span className="font-body text-foreground font-medium">
-                        {item}
-                      </span>
+                      <CheckCircle className="w-5 h-5 text-accent" />
+                      <span className="font-medium">{item}</span>
                     </div>
                   ))}
                 </div>
@@ -138,114 +111,52 @@ const AboutPage = () => {
           </div>
         </section>
 
-        {/* VISION & MISSION – ORIGINAL CONTENT */}
+        {/* VISION & MISSION */}
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 gap-8">
 
               {/* Vision */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="bg-card rounded-2xl p-8 shadow-lg border border-border"
-              >
-                <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-6">
-                  <Eye className="w-8 h-8 text-accent" />
-                </div>
-                <h3 className="text-2xl font-bold text-primary mb-4">
-                  Our Vision
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  OGL to be the leading global logistics solution provider
-                  through our most advanced systems combined with well
-                  experienced logistics professionals.
+              <div className="bg-card rounded-2xl p-8 shadow border">
+                <Eye className="w-10 h-10 text-accent mb-4" />
+                <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
+                <p className="text-muted-foreground">
+                  OGL to be the leading global logistics solution provider through
+                  our most advanced systems combined with well experienced
+                  logistics professionals.
                 </p>
-              </motion.div>
+              </div>
 
               {/* Mission */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="bg-card rounded-2xl p-8 shadow-lg border border-border"
-              >
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
-                  <Target className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="text-2xl font-bold text-primary mb-4">
-                  Our Mission
-                </h3>
-                <div className="text-muted-foreground leading-relaxed space-y-2">
-                  <p>OGL to be Forwarders first choice for :</p>
-                  <p>FCL, LCL, Air Freight, Freight Management Services</p>
-                </div>
-              </motion.div>
+              <div className="bg-card rounded-2xl p-8 shadow border">
+                <Target className="w-10 h-10 text-primary mb-4" />
+                <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
+                <p className="text-muted-foreground">
+                  OGL to be Forwarders first choice for :
+                </p>
+                <p className="mt-2">FCL, LCL, Air Freight</p>
+                <p>Freight Management Services</p>
+              </div>
 
-            </div>
-          </div>
-        </section>
-
-        {/* CORE VALUES */}
-        <section className="py-16 md:py-24">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-2xl md:text-4xl font-bold text-primary mb-4">
-                Our Core Values
-              </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                The principles that guide everything we do
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {coreValues.map((value, index) => {
-                const Icon = value.icon;
-                return (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className="bg-card rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow border border-border text-center"
-                  >
-                    <div className="w-14 h-14 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Icon className="w-7 h-7 text-accent" />
-                    </div>
-                    <h3 className="font-bold text-primary text-lg mb-2">
-                      {value.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      {value.description}
-                    </p>
-                  </motion.div>
-                );
-              })}
             </div>
           </div>
         </section>
 
         {/* CTA */}
-        <section className="py-16 md:py-24 bg-primary">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">
-              Partner with Us Today
-            </h2>
-            <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
-              Join our network of trusted partners and experience the OGL difference.
-            </p>
-            <a
-              href="/contact"
-              className="inline-flex items-center justify-center px-8 py-3 bg-accent hover:bg-accent/90 text-white font-semibold rounded-lg transition-colors"
-            >
-              Contact Us
-            </a>
-          </div>
+        <section className="py-20 bg-primary text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Partner with Us Today
+          </h2>
+          <p className="text-white/80 mb-8">
+            Experience reliable and transparent global logistics solutions.
+          </p>
+          <a
+            href="/contact"
+            className="inline-block px-8 py-3 bg-accent text-white font-semibold rounded-lg"
+          >
+            Contact Us
+          </a>
         </section>
-
       </main>
 
       <Footer />
