@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ServiceBreadcrumb from '@/components/ServiceBreadcrumb';
+import ServiceSidebar from '@/components/ServiceSidebar';
 import { FileCheck, Shield, MessageCircle, Globe } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -74,20 +75,26 @@ const CustomsClearance = () => {
           </div>
         </section>
 
-        {/* Content Section */}
+        {/* Content Section with Sidebar */}
         <section className="py-12 md:py-16">
-          <div className="container mx-auto px-4 max-w-4xl">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3">
-                Seamless Customs Clearance Solutions
-              </h2>
-              <div className="w-16 h-1 bg-accent mx-auto mb-6" />
-            </div>
+          <div className="container mx-auto px-4">
+            <div className="grid lg:grid-cols-[1fr_280px] gap-8">
+              {/* Main Content */}
+              <div>
+                <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3">
+                  Seamless Customs Clearance Solutions
+                </h2>
+                <div className="w-16 h-1 bg-accent mb-6" />
 
-            <div className="prose prose-lg max-w-none text-muted-foreground mb-8">
-              <p>
-                Navigating the complexities of global trade is simplified with our expert customs clearance services. We ensure your shipments move smoothly across borders, handling all aspects of the process from accurate documentation and tariff classification to regulatory compliance.
-              </p>
+                <div className="prose prose-lg max-w-none text-muted-foreground mb-8">
+                  <p>
+                    Navigating the complexities of global trade is simplified with our expert customs clearance services. We ensure your shipments move smoothly across borders, handling all aspects of the process from accurate documentation and tariff classification to regulatory compliance.
+                  </p>
+                </div>
+              </div>
+
+              {/* Sidebar */}
+              <ServiceSidebar />
             </div>
           </div>
         </section>

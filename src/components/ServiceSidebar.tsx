@@ -1,66 +1,51 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
 
-interface ServiceSidebarProps {
-  image: string;
-  imageAlt: string;
-}
+const services = [
+  { name: 'Air Freight', path: '/services/air-freight' },
+  { name: 'Ocean Freight', path: '/services/ocean-freight' },
+  { name: 'Road Freight', path: '/services/road-freight' },
+  { name: 'Customs Clearance', path: '/services/customs-clearance' },
+  { name: 'Warehousing', path: '/services/warehousing' },
+  { name: 'Project Logistics', path: '/services/project-logistics' },
+];
 
-const ServiceSidebar = ({ image, imageAlt }: ServiceSidebarProps) => {
+const ServiceSidebar = () => {
+  const location = useLocation();
+  const currentPath = location.pathname;
+
   return (
     <motion.div
       initial={{ opacity: 0, x: 20 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="lg:sticky lg:top-8"
+      className="lg:sticky lg:top-24"
     >
-      {/* Service Image */}
-      <div className="relative mb-6">
-        <img 
-          src={image} 
-          alt={imageAlt} 
-          className="rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]"
-        />
-        <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-accent/20 rounded-2xl -z-10"></div>
-        <div className="absolute -top-4 -right-4 w-16 h-16 bg-primary/20 rounded-2xl -z-10"></div>
-      </div>
-
       {/* Other Services Links */}
-      <div className="bg-card rounded-2xl p-6 border border-border">
-        <h4 className="font-bold text-primary mb-4">Other Services</h4>
-        <ul className="space-y-2">
-          <li>
-            <a href="/services/air-freight" className="text-muted-foreground hover:text-accent transition-colors text-sm flex items-center gap-2">
-              <ArrowRight className="w-3 h-3" /> Air Freight
-            </a>
-          </li>
-          <li>
-            <a href="/services/ocean-freight" className="text-muted-foreground hover:text-accent transition-colors text-sm flex items-center gap-2">
-              <ArrowRight className="w-3 h-3" /> Ocean Freight
-            </a>
-          </li>
-          <li>
-            <a href="/services/road-freight" className="text-muted-foreground hover:text-accent transition-colors text-sm flex items-center gap-2">
-              <ArrowRight className="w-3 h-3" /> Road Freight
-            </a>
-          </li>
-          <li>
-            <a href="/services/customs-clearance" className="text-muted-foreground hover:text-accent transition-colors text-sm flex items-center gap-2">
-              <ArrowRight className="w-3 h-3" /> Customs Clearance
-            </a>
-          </li>
-          <li>
-            <a href="/services/warehousing" className="text-muted-foreground hover:text-accent transition-colors text-sm flex items-center gap-2">
-              <ArrowRight className="w-3 h-3" /> Warehousing
-            </a>
-          </li>
-          <li>
-            <a href="/services/project-logistics" className="text-muted-foreground hover:text-accent transition-colors text-sm flex items-center gap-2">
-              <ArrowRight className="w-3 h-3" /> Project Logistics
-            </a>
-          </li>
+      <div className="bg-card rounded-2xl p-6 border border-border shadow-lg">
+        <h4 className="font-bold text-primary mb-4 text-lg">Our Services</h4>
+        <ul className="space-y-3">
+          {services.map((service) => {
+            const isActive = currentPath === service.path;
+            return (
+              <li key={service.path}>
+                <a 
+                  href={service.path} 
+                  className={`flex items-center gap-3 text-sm transition-colors p-2 rounded-lg ${
+                    isActive 
+                      ? 'bg-primary/10 text-primary font-semibold' 
+                      : 'text-muted-foreground hover:text-primary hover:bg-muted/50'
+                  }`}
+                >
+                  <ArrowRight className={`w-4 h-4 ${isActive ? 'text-primary' : ''}`} />
+                  {service.name}
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </motion.div>
