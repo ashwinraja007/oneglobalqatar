@@ -75,14 +75,13 @@ const AirFreight = () => {
         {/* Content Section with Sidebar */}
         <section className="py-12 md:py-16">
           <div className="container mx-auto px-4">
-            <div className="grid lg:grid-cols-3 gap-8">
-              {/* Main Content - 2/3 width */}
+            <div className="grid lg:grid-cols-[1fr_280px] gap-8">
+              {/* Main Content */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="lg:col-span-2"
               >
                 <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
                   Comprehensive Air Freight Services
@@ -116,11 +115,8 @@ const AirFreight = () => {
                 </div>
               </motion.div>
 
-              {/* Sidebar - 1/3 width */}
-              <ServiceSidebar 
-                image="/airfreight.jpg" 
-                imageAlt="Air Freight Service" 
-              />
+              {/* Sidebar */}
+              <ServiceSidebar />
             </div>
           </div>
         </section>

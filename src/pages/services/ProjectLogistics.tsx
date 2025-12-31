@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ServiceBreadcrumb from '@/components/ServiceBreadcrumb';
+import ServiceSidebar from '@/components/ServiceSidebar';
 import { Package, Settings, ClipboardCheck, Shield } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -73,43 +74,49 @@ const ProjectLogistics = () => {
           </div>
         </section>
 
-        {/* Intro Section */}
+        {/* Intro Section with Sidebar */}
         <section className="py-12 md:py-16">
-          <div className="container mx-auto px-4 max-w-4xl">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3">
-                Specialized Project Cargo Handling
-              </h2>
-              <div className="w-16 h-1 bg-accent mx-auto mb-6" />
-            </div>
+          <div className="container mx-auto px-4">
+            <div className="grid lg:grid-cols-[1fr_280px] gap-8">
+              {/* Main Content */}
+              <div>
+                <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3">
+                  Specialized Project Cargo Handling
+                </h2>
+                <div className="w-16 h-1 bg-accent mb-6" />
 
-            <div className="prose prose-lg max-w-none text-muted-foreground mb-8">
-              <p>
-                At <strong className="text-primary">One Global Logistics</strong>, we specialize in handling complex project cargo that requires specialized expertise, equipment, and planning.
-              </p>
-            </div>
+                <div className="prose prose-lg max-w-none text-muted-foreground mb-8">
+                  <p>
+                    At <strong className="text-primary">One Global Logistics</strong>, we specialize in handling complex project cargo that requires specialized expertise, equipment, and planning.
+                  </p>
+                </div>
 
-            {/* Capabilities */}
-            <div className="bg-accent/5 rounded-xl p-5">
-              <h3 className="text-lg font-bold text-primary mb-3">Our Project Logistics Capabilities</h3>
-              <ul className="space-y-2">
-                {capabilities.map((cap, index) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className="flex items-start gap-3"
-                  >
-                    <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
-                    <div>
-                      <span className="font-semibold text-primary text-sm">{cap.title}:</span>{' '}
-                      <span className="text-muted-foreground text-sm">{cap.description}</span>
-                    </div>
-                  </motion.li>
-                ))}
-              </ul>
+                {/* Capabilities */}
+                <div className="bg-accent/5 rounded-xl p-5">
+                  <h3 className="text-lg font-bold text-primary mb-3">Our Project Logistics Capabilities</h3>
+                  <ul className="space-y-2">
+                    {capabilities.map((cap, index) => (
+                      <motion.li
+                        key={index}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.1 }}
+                        className="flex items-start gap-3"
+                      >
+                        <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
+                        <div>
+                          <span className="font-semibold text-primary text-sm">{cap.title}:</span>{' '}
+                          <span className="text-muted-foreground text-sm">{cap.description}</span>
+                        </div>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              {/* Sidebar */}
+              <ServiceSidebar />
             </div>
           </div>
         </section>

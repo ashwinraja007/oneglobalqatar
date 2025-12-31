@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ServiceBreadcrumb from '@/components/ServiceBreadcrumb';
+import ServiceSidebar from '@/components/ServiceSidebar';
 import { Warehouse, Thermometer, Package, ClipboardList } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -71,30 +72,36 @@ const WarehousingPage = () => {
           </div>
         </section>
 
-        {/* Storage Types Section */}
+        {/* Storage Types Section with Sidebar */}
         <section className="py-12 md:py-16">
-          <div className="container mx-auto px-4 max-w-4xl">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3">
-                Tailored Warehousing Services
-              </h2>
-              <div className="w-16 h-1 bg-accent mx-auto mb-6" />
-            </div>
+          <div className="container mx-auto px-4">
+            <div className="grid lg:grid-cols-[1fr_280px] gap-8">
+              {/* Main Content */}
+              <div>
+                <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3">
+                  Tailored Warehousing Services
+                </h2>
+                <div className="w-16 h-1 bg-accent mb-6" />
 
-            <div className="space-y-3">
-              {storageTypes.map((type, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-accent/5 border-l-4 border-primary p-4 rounded-r-lg"
-                >
-                  <span className="font-bold text-primary text-sm">{type.title}:</span>{' '}
-                  <span className="text-muted-foreground text-sm">{type.description}</span>
-                </motion.div>
-              ))}
+                <div className="space-y-3">
+                  {storageTypes.map((type, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1 }}
+                      className="bg-accent/5 border-l-4 border-primary p-4 rounded-r-lg"
+                    >
+                      <span className="font-bold text-primary text-sm">{type.title}:</span>{' '}
+                      <span className="text-muted-foreground text-sm">{type.description}</span>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Sidebar */}
+              <ServiceSidebar />
             </div>
           </div>
         </section>

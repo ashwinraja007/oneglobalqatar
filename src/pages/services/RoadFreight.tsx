@@ -66,9 +66,9 @@ const RoadFreight = () => {
         {/* Content Section with Sidebar */}
         <section className="py-12 md:py-16">
           <div className="container mx-auto px-4">
-            <div className="grid lg:grid-cols-3 gap-8">
+            <div className="grid lg:grid-cols-[1fr_280px] gap-8">
               {/* Main Content */}
-              <div className="lg:col-span-2">
+              <div>
                 <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3">
                   TRANSPORTATION & DISTRIBUTION
                 </h2>
@@ -105,7 +105,7 @@ const RoadFreight = () => {
               </div>
 
               {/* Sidebar */}
-              <ServiceSidebar image="/roadfreight.jpg" imageAlt="Road Freight Service" />
+              <ServiceSidebar />
             </div>
           </div>
         </section>
