@@ -70,7 +70,7 @@ const WarehousingPage = () => {
         {/* CONTENT + SIDEBAR */}
         <section className="py-12 md:py-16">
           <div className="container mx-auto px-4">
-            <div className="grid lg:grid-cols-[280px_1fr] gap-8">
+            <div className="grid lg:grid-cols-[280px_1fr] gap-12">
 
               {/* SIDEBAR - LEFT */}
               <ServiceSidebar />
@@ -81,81 +81,48 @@ const WarehousingPage = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
+                className="space-y-12"
               >
-                <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6">
-                  Tailored Warehousing Services
-                </h2>
+                {/* SECTION 1: TAILORED SERVICES */}
+                <div className="text-center md:text-left">
+                  <h2 className="text-2xl md:text-3xl font-bold text-primary mb-2">
+                    Tailored Warehousing Services
+                  </h2>
+                  <div className="w-20 h-1 bg-[#D4AF37] mx-auto md:mx-0 mb-8" />
+                  
+                  <div className="space-y-4 text-muted-foreground">
+                    <p className="text-sm md:text-base">
+                      <strong className="text-primary">General Cargo Storage:</strong> Secure and organized storage solutions for various types of goods.
+                    </p>
+                    <p className="text-sm md:text-base">
+                      <strong className="text-primary">Temperature-Controlled Storage:</strong> Specialized facilities for perishable and sensitive items.
+                    </p>
+                    <p className="text-sm md:text-base">
+                      <strong className="text-primary">Bonded Warehousing:</strong> Storage solutions that allow goods to be stored without the payment of customs duties until they are released.
+                    </p>
+                  </div>
+                </div>
 
-                <div className="prose prose-lg max-w-none text-muted-foreground space-y-6">
-                  <p>
-                    At <strong className="text-primary">One Global Logistics</strong>, we provide strategically located warehousing facilities that serve as critical hubs for your distribution network. Our solutions are designed to provide maximum flexibility and security for your inventory.
-                  </p>
-
-                  <div className="grid md:grid-cols-2 gap-6 mt-10">
-                    
-                    {/* Tailored Warehousing Services Box */}
-                    <div className="bg-card rounded-xl p-6 shadow-sm border border-border">
-                      <h3 className="text-xl font-bold text-primary mb-4">Tailored Warehousing Services</h3>
-                      <ul className="space-y-4 list-none pl-0">
-                        <li className="flex items-start gap-3">
-                          <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0" />
-                          <div className="text-sm">
-                            <strong className="text-primary block">General Cargo Storage:</strong>
-                            Secure and organized storage solutions for various types of goods.
-                          </div>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0" />
-                          <div className="text-sm">
-                            <strong className="text-primary block">Temperature-Controlled Storage:</strong>
-                            Specialized facilities for perishable and sensitive items.
-                          </div>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0" />
-                          <div className="text-sm">
-                            <strong className="text-primary block">Bonded Warehousing:</strong>
-                            Storage solutions that allow goods to be stored without the payment of customs duties until they are released.
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-
-                    {/* Value-Added Services Box */}
-                    <div className="bg-card rounded-xl p-6 shadow-sm border border-border">
-                      <h3 className="text-xl font-bold text-primary mb-4">Value-Added Services</h3>
-                      <ul className="space-y-4 list-none pl-0">
-                        <li className="flex items-start gap-3">
-                          <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0" />
-                          <div className="text-sm">
-                            <strong className="text-primary block">Inventory Management:</strong>
-                            Real-time tracking and management of stock levels.
-                          </div>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0" />
-                          <div className="text-sm">
-                            <strong className="text-primary block">Pick & Pack:</strong>
-                            Efficient order fulfilment services to meet customer demands.
-                          </div>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0" />
-                          <div className="text-sm">
-                            <strong className="text-primary block">Consolidation & Deconsolidation:</strong>
-                            Combining or separating shipments to optimize logistics.
-                          </div>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0" />
-                          <div className="text-sm">
-                            <strong className="text-primary block">Order Processing:</strong>
-                            Streamlined handling of orders from receipt to dispatch.
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-
+                {/* SECTION 2: VALUE-ADDED SERVICES */}
+                <div className="text-center md:text-left">
+                  <h2 className="text-2xl md:text-3xl font-bold text-primary mb-2">
+                    Value-Added Services
+                  </h2>
+                  <div className="w-20 h-1 bg-[#D4AF37] mx-auto md:mx-0 mb-8" />
+                  
+                  <div className="space-y-4 text-muted-foreground">
+                    <p className="text-sm md:text-base">
+                      <strong className="text-primary">Inventory Management:</strong> Real-time tracking and management of stock levels.
+                    </p>
+                    <p className="text-sm md:text-base">
+                      <strong className="text-primary">Pick & Pack:</strong> Efficient order fulfilment services to meet customer demands.
+                    </p>
+                    <p className="text-sm md:text-base">
+                      <strong className="text-primary">Consolidation & Deconsolidation:</strong> Combining or separating shipments to optimize logistics.
+                    </p>
+                    <p className="text-sm md:text-base">
+                      <strong className="text-primary">Order Processing:</strong> Streamlined handling of orders from receipt to dispatch.
+                    </p>
                   </div>
                 </div>
               </motion.div>
