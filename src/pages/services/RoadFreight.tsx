@@ -8,9 +8,9 @@ import { motion } from 'framer-motion';
 
 const features = [
   { icon: Truck, title: 'Diverse Fleet', description: 'FTL, LTL, refrigerated & flatbed options' },
-  { icon: MapPin, title: 'Pan-India Coverage', description: 'Nationwide distribution network' },
-  { icon: Package, title: 'Safe Handling', description: 'Secure cargo management' },
-  { icon: Clock, title: 'On-Time Delivery', description: 'Reliable scheduling and tracking' },
+  { icon: MapPin, title: 'Pan-India Coverage', description: 'Strategically located network across major hubs' },
+  { icon: Package, title: 'Safe Handling', description: 'Secure cargo management and operational excellence' },
+  { icon: Clock, title: 'On-Time Delivery', description: 'Reliable domestic distribution network' },
 ];
 
 const RoadFreight = () => {
@@ -56,7 +56,7 @@ const RoadFreight = () => {
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-[280px_1fr] gap-8">
 
-              {/* SIDEBAR - LEFT (Matches Ocean Freight) */}
+              {/* SIDEBAR - LEFT */}
               <ServiceSidebar />
 
               {/* MAIN CONTENT - RIGHT */}
@@ -66,47 +66,66 @@ const RoadFreight = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6">
-                  Reliable Road Freight Solutions
+                <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 uppercase">
+                  Transportation & Distribution
                 </h2>
 
                 <div className="prose prose-lg max-w-none text-muted-foreground space-y-6">
                   <p>
-                    At <strong className="text-primary">One Global Logistics</strong>, we understand that efficient transportation and distribution are the backbone of a seamless supply chain. Our road freight services are designed to bridge the gap between production and consumption with speed and safety.
+                    At <strong className="text-primary">One Global Logistics</strong>, we understand that efficient transportation and distribution are the backbone of a seamless supply chain. Our dedicated fleet and robust infrastructure ensure that your goods reach their destination on time, every time.
                   </p>
 
-                  <div className="mt-4">
+                  <div>
                     <h3 className="text-xl font-bold text-primary mb-3">
-                      Our Fleet Capabilities:
+                      Domestic Distribution Network
                     </h3>
+                    <p>
+                      With a strategically located network of offices in <strong>Mumbai, New Delhi, Kolkata, Bangalore, and Chennai</strong>, One Global Logistics offers comprehensive domestic transportation solutions. Our fleet is equipped to handle various cargo types, ensuring safe and timely deliveries across the country.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl font-bold text-primary mb-3">
+                      Fleet & Operational Excellence
+                    </h3>
+                    <p className="mb-4">Our fleet comprises a diverse range of vehicles, including:</p>
                     <ul className="space-y-2 list-none pl-0">
                       <li className="flex items-start gap-3">
                         <span className="w-2 h-2 bg-accent rounded-full mt-2"></span>
-                        <span><strong className="text-primary">Full Truck Load (FTL):</strong> Dedicated vehicles for large, time-sensitive shipments.</span>
+                        <span><strong className="text-primary">Full Truck Load (FTL)</strong></span>
                       </li>
                       <li className="flex items-start gap-3">
                         <span className="w-2 h-2 bg-accent rounded-full mt-2"></span>
-                        <span><strong className="text-primary">Less than Truck Load (LTL):</strong> Cost-effective shipping for smaller cargo volumes.</span>
+                        <span><strong className="text-primary">Less than Truck Load (LTL)</strong></span>
                       </li>
                       <li className="flex items-start gap-3">
                         <span className="w-2 h-2 bg-accent rounded-full mt-2"></span>
-                        <span><strong className="text-primary">Refrigerated Vehicles:</strong> Specialized transport for temperature-sensitive goods.</span>
+                        <span><strong className="text-primary">Refrigerated Vehicles</strong> (for temperature-sensitive goods)</span>
                       </li>
                       <li className="flex items-start gap-3">
                         <span className="w-2 h-2 bg-accent rounded-full mt-2"></span>
-                        <span><strong className="text-primary">Flatbed Trucks:</strong> Heavy-duty solutions for oversized or industrial cargo.</span>
+                        <span><strong className="text-primary">Flatbed Trucks</strong> (for oversized cargo)</span>
                       </li>
                     </ul>
+                    <p className="mt-4">
+                      Each vehicle is maintained to the highest standards, ensuring reliability and safety during transit.
+                    </p>
                   </div>
 
-                  <div className="grid md:grid-cols-2 gap-4 mt-8">
-                    <div className="bg-accent/5 border-l-4 border-accent p-4 rounded-r-lg">
-                      <h4 className="font-bold text-primary text-sm mb-1">Last-Mile Delivery</h4>
-                      <p className="text-sm">Ensuring timely deliveries to end customers and retail points.</p>
-                    </div>
-                    <div className="bg-accent/5 border-l-4 border-accent p-4 rounded-r-lg">
-                      <h4 className="font-bold text-primary text-sm mb-1">Cross-Docking</h4>
-                      <p className="text-sm">Minimizing storage time and speeding up your distribution cycle.</p>
+                  <div>
+                    <h3 className="text-xl font-bold text-primary mb-3">
+                      Distribution Services
+                    </h3>
+                    <div className="space-y-4">
+                      <div className="bg-accent/5 border-l-4 border-accent p-4 rounded-r-lg">
+                        <span className="font-bold text-primary">Last-Mile Delivery:</span> Ensuring timely deliveries to end customers.
+                      </div>
+                      <div className="bg-accent/5 border-l-4 border-accent p-4 rounded-r-lg">
+                        <span className="font-bold text-primary">Cross-Docking:</span> Minimizing storage time and speeding up the distribution process.
+                      </div>
+                      <div className="bg-accent/5 border-l-4 border-accent p-4 rounded-r-lg">
+                        <span className="font-bold text-primary">Milk Run Services:</span> Efficient collection and delivery from multiple suppliers to a single destination.
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -115,7 +134,7 @@ const RoadFreight = () => {
           </div>
         </section>
 
-        {/* FEATURES (Matches Ocean Freight Cards) */}
+        {/* FEATURES GRID */}
         <section className="py-12 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
