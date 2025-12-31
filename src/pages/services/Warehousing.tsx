@@ -88,7 +88,8 @@ const WarehousingPage = () => {
                   <h2 className="text-2xl md:text-3xl font-bold text-primary mb-2">
                     Tailored Warehousing Services
                   </h2>
-                  <div className="w-20 h-1 bg-[#D4AF37] mx-auto md:mx-0 mb-8" />
+                  {/* CHANGED TO BLUE UNDERLINE */}
+                  <div className="w-20 h-1 bg-primary mx-auto md:mx-0 mb-8" />
                   
                   <div className="space-y-4 text-muted-foreground">
                     <p className="text-sm md:text-base">
@@ -108,7 +109,8 @@ const WarehousingPage = () => {
                   <h2 className="text-2xl md:text-3xl font-bold text-primary mb-2">
                     Value-Added Services
                   </h2>
-                  <div className="w-20 h-1 bg-[#D4AF37] mx-auto md:mx-0 mb-8" />
+                  {/* CHANGED TO BLUE UNDERLINE */}
+                  <div className="w-20 h-1 bg-primary mx-auto md:mx-0 mb-8" />
                   
                   <div className="space-y-4 text-muted-foreground">
                     <p className="text-sm md:text-base">
