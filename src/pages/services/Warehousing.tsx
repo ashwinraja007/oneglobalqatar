@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import ServiceSidebar from '@/components/ServiceSidebar';
+import ServiceBreadcrumb from '@/components/ServiceBreadcrumb';
 import { Warehouse, Thermometer, Package, ClipboardList } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -18,7 +18,7 @@ const storageTypes = [
   },
   {
     title: 'Bonded Warehousing',
-    description: 'Storage solutions that allow goods to be stored without the payment of customs duties until they are released.',
+    description: 'Storage solutions that allow goods to be stored without customs duties until released.',
   },
 ];
 
@@ -45,6 +45,9 @@ const WarehousingPage = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <main>
+        {/* Breadcrumb */}
+        <ServiceBreadcrumb serviceName="Warehousing" />
+
         {/* Hero Section */}
         <section className="relative h-[300px] md:h-[400px] overflow-hidden">
           <img 
@@ -60,31 +63,25 @@ const WarehousingPage = () => {
                 transition={{ duration: 0.6 }}
               >
                 <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">Warehousing Solutions</h1>
-                <p className="text-white/90 text-lg max-w-xl mb-6">
-                  At One Global Logistics, we offer comprehensive warehousing services designed to streamline your supply chain operations
+                <p className="text-white/90 text-lg max-w-xl">
+                  Comprehensive warehousing services designed to streamline your supply chain
                 </p>
-                <Button 
-                  onClick={() => navigate('/#contact')}
-                  className="bg-accent hover:bg-accent/90 text-white"
-                >
-                  Get a Quote
-                </Button>
               </motion.div>
             </div>
           </div>
         </section>
 
         {/* Storage Types Section */}
-        <section className="py-16 md:py-24">
+        <section className="py-12 md:py-16">
           <div className="container mx-auto px-4 max-w-4xl">
-            <div className="text-center mb-12">
-              <h2 className="text-2xl md:text-4xl font-bold text-primary mb-4">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3">
                 Tailored Warehousing Services
               </h2>
-              <div className="w-20 h-1 bg-accent mx-auto mb-8" />
+              <div className="w-16 h-1 bg-accent mx-auto mb-6" />
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               {storageTypes.map((type, index) => (
                 <motion.div
                   key={index}
@@ -92,10 +89,10 @@ const WarehousingPage = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-blue-50 border-l-4 border-primary p-4 rounded-r-lg"
+                  className="bg-accent/5 border-l-4 border-primary p-4 rounded-r-lg"
                 >
-                  <span className="font-bold text-primary">{type.title}:</span>{' '}
-                  <span className="text-muted-foreground">{type.description}</span>
+                  <span className="font-bold text-primary text-sm">{type.title}:</span>{' '}
+                  <span className="text-muted-foreground text-sm">{type.description}</span>
                 </motion.div>
               ))}
             </div>
@@ -103,16 +100,16 @@ const WarehousingPage = () => {
         </section>
 
         {/* Value Added Services */}
-        <section className="py-16 bg-muted/30">
+        <section className="py-12 bg-muted/30">
           <div className="container mx-auto px-4 max-w-4xl">
-            <div className="text-center mb-12">
-              <h2 className="text-2xl md:text-4xl font-bold text-primary mb-4">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3">
                 Value-Added Services
               </h2>
-              <div className="w-20 h-1 bg-accent mx-auto mb-8" />
+              <div className="w-16 h-1 bg-accent mx-auto mb-6" />
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               {valueAddedServices.map((service, index) => (
                 <motion.div
                   key={index}
@@ -120,10 +117,10 @@ const WarehousingPage = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-white rounded-lg p-4 shadow-sm"
+                  className="bg-card rounded-lg p-4 shadow-sm border border-border"
                 >
-                  <span className="font-bold text-primary">{service.title}:</span>{' '}
-                  <span className="text-muted-foreground">{service.description}</span>
+                  <span className="font-bold text-primary text-sm">{service.title}:</span>{' '}
+                  <span className="text-muted-foreground text-sm">{service.description}</span>
                 </motion.div>
               ))}
             </div>
@@ -131,9 +128,9 @@ const WarehousingPage = () => {
         </section>
 
         {/* Features Grid */}
-        <section className="py-16">
+        <section className="py-12">
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {features.map((feature, index) => {
                 const Icon = feature.icon;
                 return (
@@ -143,13 +140,13 @@ const WarehousingPage = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow text-center"
+                    className="bg-card rounded-xl p-5 shadow-md hover:shadow-lg transition-shadow text-center border border-border"
                   >
-                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4 mx-auto">
-                      <Icon className="w-6 h-6 text-primary" />
+                    <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mb-3 mx-auto">
+                      <Icon className="w-5 h-5 text-primary" />
                     </div>
-                    <h3 className="font-bold text-primary mb-2">{feature.title}</h3>
-                    <p className="text-sm text-muted-foreground">{feature.desc}</p>
+                    <h3 className="font-bold text-primary mb-2 text-sm">{feature.title}</h3>
+                    <p className="text-xs text-muted-foreground">{feature.desc}</p>
                   </motion.div>
                 );
               })}
@@ -158,14 +155,13 @@ const WarehousingPage = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 bg-primary">
+        <section className="py-12 bg-primary">
           <div className="container mx-auto px-4 text-center">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to Optimize Your Storage?</h3>
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">Ready to Optimize Your Storage?</h3>
             <p className="text-white/80 mb-6">Contact our team today for tailored warehousing solutions.</p>
             <Button 
-              onClick={() => navigate('/#contact')}
-              variant="outline"
-              className="bg-transparent border-white text-white hover:bg-white hover:text-primary"
+              onClick={() => navigate('/contact')}
+              className="bg-accent hover:bg-accent/90 text-white px-8 py-3"
             >
               Get a Quote
             </Button>

@@ -1,8 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { useNavigate } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 
 interface ServiceSidebarProps {
   image: string;
@@ -10,8 +8,6 @@ interface ServiceSidebarProps {
 }
 
 const ServiceSidebar = ({ image, imageAlt }: ServiceSidebarProps) => {
-  const navigate = useNavigate();
-
   return (
     <motion.div
       initial={{ opacity: 0, x: 20 }}
@@ -31,39 +27,8 @@ const ServiceSidebar = ({ image, imageAlt }: ServiceSidebarProps) => {
         <div className="absolute -top-4 -right-4 w-16 h-16 bg-primary/20 rounded-2xl -z-10"></div>
       </div>
 
-      {/* Quick Contact Card */}
-      <div className="bg-primary rounded-2xl p-6 text-white">
-        <h4 className="font-bold text-lg mb-4">Need a Quote?</h4>
-        <p className="text-white/80 text-sm mb-6">
-          Contact our experts for customized logistics solutions.
-        </p>
-        
-        <div className="space-y-3 mb-6">
-          <div className="flex items-center gap-3 text-sm">
-            <Phone className="w-4 h-4 text-accent" />
-            <span>+974 4442 1116</span>
-          </div>
-          <div className="flex items-center gap-3 text-sm">
-            <Mail className="w-4 h-4 text-accent" />
-            <span>info@onegloballogistics.co</span>
-          </div>
-          <div className="flex items-center gap-3 text-sm">
-            <MapPin className="w-4 h-4 text-accent" />
-            <span>Doha, Qatar</span>
-          </div>
-        </div>
-
-        <Button 
-          onClick={() => navigate('/contact')}
-          className="w-full bg-accent hover:bg-accent/90 text-white"
-        >
-          Get a Quote
-          <ArrowRight className="w-4 h-4 ml-2" />
-        </Button>
-      </div>
-
       {/* Other Services Links */}
-      <div className="mt-6 bg-card rounded-2xl p-6 border border-border">
+      <div className="bg-card rounded-2xl p-6 border border-border">
         <h4 className="font-bold text-primary mb-4">Other Services</h4>
         <ul className="space-y-2">
           <li>

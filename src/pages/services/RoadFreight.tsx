@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ServiceSidebar from '@/components/ServiceSidebar';
+import ServiceBreadcrumb from '@/components/ServiceBreadcrumb';
 import { Truck, MapPin, Package, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -16,8 +17,8 @@ const fleetTypes = [
 
 const distributionServices = [
   { title: 'Last-Mile Delivery', description: 'Ensuring timely deliveries to end customers.' },
-  { title: 'Cross-Docking', description: 'Minimizing storage time and speeding up the distribution process.' },
-  { title: 'Milk Run Services', description: 'Efficient collection and delivery from multiple suppliers to a single destination.' },
+  { title: 'Cross-Docking', description: 'Minimizing storage time and speeding up distribution.' },
+  { title: 'Milk Run Services', description: 'Efficient collection and delivery from multiple suppliers.' },
 ];
 
 const features = [
@@ -36,6 +37,9 @@ const RoadFreight = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <main>
+        {/* Breadcrumb */}
+        <ServiceBreadcrumb serviceName="Road Freight" />
+
         {/* Hero Section */}
         <section className="relative h-[300px] md:h-[400px] overflow-hidden">
           <img 
@@ -51,43 +55,37 @@ const RoadFreight = () => {
                 transition={{ duration: 0.6 }}
               >
                 <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">Transportation & Distribution</h1>
-                <p className="text-white/90 text-lg max-w-xl mb-6">
+                <p className="text-white/90 text-lg max-w-xl">
                   Reliable domestic and international transportation services
                 </p>
-                <Button 
-                  onClick={() => navigate('/#contact')}
-                  className="bg-accent hover:bg-accent/90 text-white"
-                >
-                  Get a Quote
-                </Button>
               </motion.div>
             </div>
           </div>
         </section>
 
         {/* Content Section with Sidebar */}
-        <section className="py-16 md:py-24">
+        <section className="py-12 md:py-16">
           <div className="container mx-auto px-4">
-            <div className="grid lg:grid-cols-3 gap-12">
+            <div className="grid lg:grid-cols-3 gap-8">
               {/* Main Content */}
               <div className="lg:col-span-2">
-                <h2 className="text-2xl md:text-4xl font-bold text-primary mb-4">
+                <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3">
                   TRANSPORTATION & DISTRIBUTION
                 </h2>
-                <div className="w-20 h-1 bg-accent mb-8" />
+                <div className="w-16 h-1 bg-accent mb-6" />
 
-                <div className="prose prose-lg max-w-none text-muted-foreground mb-8">
+                <div className="prose prose-lg max-w-none text-muted-foreground mb-6">
                   <p>
                     At <strong className="text-primary">One Global Logistics</strong>, we understand that efficient transportation and distribution are the backbone of a seamless supply chain.
                   </p>
                 </div>
 
                 {/* Fleet Types */}
-                <div className="bg-accent/5 rounded-xl p-6 mb-8">
-                  <h3 className="text-xl font-bold text-primary mb-4">Our Fleet</h3>
-                  <ul className="space-y-3">
+                <div className="bg-accent/5 rounded-xl p-5 mb-6">
+                  <h3 className="text-lg font-bold text-primary mb-3">Our Fleet</h3>
+                  <ul className="space-y-2">
                     {fleetTypes.map((type, index) => (
-                      <li key={index} className="flex items-center gap-3 text-muted-foreground">
+                      <li key={index} className="flex items-center gap-3 text-muted-foreground text-sm">
                         <div className="w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0" />
                         {type}
                       </li>
@@ -96,11 +94,11 @@ const RoadFreight = () => {
                 </div>
 
                 {/* Distribution Services */}
-                <div className="space-y-4">
+                <div className="space-y-3">
                   {distributionServices.map((service, index) => (
                     <div key={index} className="bg-accent/5 border-l-4 border-accent p-4 rounded-r-lg">
-                      <span className="font-bold text-primary">{service.title}:</span>{' '}
-                      <span className="text-muted-foreground">{service.description}</span>
+                      <span className="font-bold text-primary text-sm">{service.title}:</span>{' '}
+                      <span className="text-muted-foreground text-sm">{service.description}</span>
                     </div>
                   ))}
                 </div>
@@ -113,9 +111,9 @@ const RoadFreight = () => {
         </section>
 
         {/* Features Grid */}
-        <section className="py-16 bg-muted/30">
+        <section className="py-12 bg-muted/30">
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {features.map((feature, index) => {
                 const Icon = feature.icon;
                 return (
@@ -125,13 +123,13 @@ const RoadFreight = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow text-center"
+                    className="bg-card rounded-xl p-5 shadow-md hover:shadow-lg transition-shadow text-center border border-border"
                   >
-                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4 mx-auto">
-                      <Icon className="w-6 h-6 text-primary" />
+                    <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mb-3 mx-auto">
+                      <Icon className="w-5 h-5 text-primary" />
                     </div>
-                    <h3 className="font-bold text-primary mb-2">{feature.title}</h3>
-                    <p className="text-sm text-muted-foreground">{feature.desc}</p>
+                    <h3 className="font-bold text-primary mb-2 text-sm">{feature.title}</h3>
+                    <p className="text-xs text-muted-foreground">{feature.desc}</p>
                   </motion.div>
                 );
               })}
@@ -140,14 +138,13 @@ const RoadFreight = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 bg-primary">
+        <section className="py-12 bg-primary">
           <div className="container mx-auto px-4 text-center">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to Transport Your Cargo?</h3>
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">Ready to Transport Your Cargo?</h3>
             <p className="text-white/80 mb-6">Contact our team today for reliable transportation solutions.</p>
             <Button 
-              onClick={() => navigate('/#contact')}
-              variant="outline"
-              className="bg-transparent border-white text-white hover:bg-white hover:text-primary"
+              onClick={() => navigate('/contact')}
+              className="bg-accent hover:bg-accent/90 text-white px-8 py-3"
             >
               Get a Quote
             </Button>
