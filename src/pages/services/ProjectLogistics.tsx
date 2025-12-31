@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ServiceSidebar from '@/components/ServiceSidebar';
+import ServiceBreadcrumb from '@/components/ServiceBreadcrumb'; // Ensure this is imported
 import { Package, Settings, ClipboardCheck, Shield } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -27,6 +28,9 @@ const ProjectLogistics = () => {
       <Header />
 
       <main>
+        {/* BREADCRUMB - Styled like Warehousing page */}
+        <ServiceBreadcrumb serviceName="Project Logistics" />
+
         {/* HERO SECTION */}
         <section className="relative h-[300px] md:h-[500px] overflow-hidden">
           <img
@@ -46,6 +50,12 @@ const ProjectLogistics = () => {
                 <p className="text-lg md:text-xl mb-8 text-white/90">
                   Specialized solutions for oversized and complex cargo movements
                 </p>
+                <Button 
+                  onClick={() => navigate('/contact')}
+                  className="bg-[#002147] hover:bg-[#003366] text-white px-8 py-6 text-lg rounded-sm"
+                >
+                  Get a Quote
+                </Button>
               </motion.div>
             </div>
           </div>
