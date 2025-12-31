@@ -82,53 +82,31 @@ const OceanFreight = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
-                  Comprehensive Ocean Freight Services
+                <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6">
+                  Ocean Freight Services
                 </h2>
 
-                <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
+                <div className="prose prose-lg max-w-none text-muted-foreground space-y-6">
                   <p>
-                    At <strong className="text-primary">One Global Logistics</strong>, we provide
-                    comprehensive ocean freight solutions designed to meet diverse shipping needs.
-                    Whether FCL or LCL, our services ensure efficiency and reliability.
+                    At <strong className="text-primary">One Global Logistics</strong>, we specialize in delivering comprehensive ocean freight solutions tailored to meet the diverse requirements of our clients. Whether you’re shipping bulk cargo or small consignments, our services are built for <span className="text-primary font-medium">efficiency, reliability, and cost-effectiveness.</span>
                   </p>
 
-                  <p>
-                    <strong className="text-primary">Worldwide Connectivity:</strong> With access to
-                    major ports and strategic global hubs, we ensure seamless ocean freight
-                    transportation across continents.
-                  </p>
-
-                  <div className="mt-4">
-                    <h3 className="text-xl font-bold text-primary mb-3">
-                      Our Ocean Freight Capabilities:
+                  <div>
+                    <h3 className="text-xl font-bold text-primary mb-2">
+                      Full Container Load (FCL)
                     </h3>
+                    <p>
+                      For businesses with substantial cargo volumes, our FCL services offer dedicated container space, ensuring direct and secure transportation from port to port. This option is ideal for shipments that require exclusive container space, providing flexibility and control over delivery schedules.
+                    </p>
+                  </div>
 
-                    <ul className="space-y-2 list-none pl-0">
-                      <li className="flex items-start gap-3">
-                        <span className="w-2 h-2 bg-accent rounded-full mt-2"></span>
-                        <span>
-                          <strong className="text-primary">Full Container Load (FCL):</strong>
-                          Dedicated container solutions for large cargo volumes.
-                        </span>
-                      </li>
-
-                      <li className="flex items-start gap-3">
-                        <span className="w-2 h-2 bg-accent rounded-full mt-2"></span>
-                        <span>
-                          <strong className="text-primary">Less than Container Load (LCL):</strong>
-                          Cost-effective consolidation for smaller shipments.
-                        </span>
-                      </li>
-
-                      <li className="flex items-start gap-3">
-                        <span className="w-2 h-2 bg-accent rounded-full mt-2"></span>
-                        <span>
-                          <strong className="text-primary">Breakbulk & Project Cargo:</strong>
-                          Handling oversized and specialized cargo.
-                        </span>
-                      </li>
-                    </ul>
+                  <div>
+                    <h3 className="text-xl font-bold text-primary mb-2">
+                      Less than Container Load (LCL) Consolidation
+                    </h3>
+                    <p>
+                      Recognizing the need for cost-effective solutions for smaller shipments, we offer LCL consolidation services. This service allows multiple shippers to share container space, reducing costs while maintaining the safety and integrity of each shipment. Our strategic presence in key transshipment hubs ensures timely and efficient consolidation services.
+                    </p>
                   </div>
                 </div>
               </motion.div>
