@@ -95,58 +95,51 @@ const CustomsClearance = () => {
                     Our experienced team stays abreast of evolving regulations, leverages advanced technology for expedited clearance, and maintains strong relationships with customs authorities worldwide. We prioritize transparency and open communication, providing real-time updates and peace of mind, allowing you to focus on your core business.
                   </p>
 
-                  <div className="grid md:grid-cols-2 gap-8 mt-10">
-                    {/* Import Clearance */}
-                    <div>
+                  {/* TWO SEPARATE BOXES FOR IMPORT & EXPORT */}
+                  <div className="grid md:grid-cols-2 gap-6 mt-10">
+                    
+                    {/* Import Clearance Box */}
+                    <div className="bg-card rounded-xl p-6 shadow-sm border border-border">
                       <h3 className="text-xl font-bold text-primary mb-3">Import Clearance</h3>
-                      <p className="text-sm mb-4">
+                      <p className="text-sm mb-6 leading-relaxed">
                         Our import clearance services streamline the process of bringing goods into the country, ensuring compliance with local regulations and minimizing delays.
                       </p>
-                      <ul className="space-y-2 list-none pl-0">
-                        <li className="flex items-start gap-3">
-                          <span className="w-2 h-2 bg-accent rounded-full mt-2"></span>
-                          <span className="text-sm">Duty and tax calculation</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <span className="w-2 h-2 bg-accent rounded-full mt-2"></span>
-                          <span className="text-sm">Entry preparation and filing</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <span className="w-2 h-2 bg-accent rounded-full mt-2"></span>
-                          <span className="text-sm">Tariff classification</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <span className="w-2 h-2 bg-accent rounded-full mt-2"></span>
-                          <span className="text-sm">Customs examination support</span>
-                        </li>
+                      <ul className="space-y-3 list-none pl-0">
+                        {[
+                          'Duty and tax calculation',
+                          'Entry preparation and filing',
+                          'Tariff classification',
+                          'Customs examination support'
+                        ].map((item, idx) => (
+                          <li key={idx} className="flex items-center gap-3">
+                            <div className="w-1.5 h-1.5 bg-blue-600 rounded-full flex-shrink-0" />
+                            <span className="text-sm text-muted-foreground">{item}</span>
+                          </li>
+                        ))}
                       </ul>
                     </div>
 
-                    {/* Export Clearance */}
-                    <div>
+                    {/* Export Clearance Box */}
+                    <div className="bg-card rounded-xl p-6 shadow-sm border border-border">
                       <h3 className="text-xl font-bold text-primary mb-3">Export Clearance</h3>
-                      <p className="text-sm mb-4">
+                      <p className="text-sm mb-6 leading-relaxed">
                         Our export clearance services ensure your goods leave the country efficiently, with all necessary documentation and compliance requirements met.
                       </p>
-                      <ul className="space-y-2 list-none pl-0">
-                        <li className="flex items-start gap-3">
-                          <span className="w-2 h-2 bg-accent rounded-full mt-2"></span>
-                          <span className="text-sm">Export documentation preparation</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <span className="w-2 h-2 bg-accent rounded-full mt-2"></span>
-                          <span className="text-sm">License and permit management</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <span className="w-2 h-2 bg-accent rounded-full mt-2"></span>
-                          <span className="text-sm">Security filing and compliance</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <span className="w-2 h-2 bg-accent rounded-full mt-2"></span>
-                          <span className="text-sm">Electronic export information filing</span>
-                        </li>
+                      <ul className="space-y-3 list-none pl-0">
+                        {[
+                          'Export documentation preparation',
+                          'License and permit management',
+                          'Security filing and compliance',
+                          'Electronic export information filing'
+                        ].map((item, idx) => (
+                          <li key={idx} className="flex items-center gap-3">
+                            <div className="w-1.5 h-1.5 bg-blue-600 rounded-full flex-shrink-0" />
+                            <span className="text-sm text-muted-foreground">{item}</span>
+                          </li>
+                        ))}
                       </ul>
                     </div>
+
                   </div>
                 </div>
               </motion.div>
