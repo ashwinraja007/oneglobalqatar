@@ -25,14 +25,16 @@ const ProjectLogistics = () => {
       <Header />
 
       <main>
-        {/* HERO SECTION — Styled like Warehousing */}
+        {/* HERO SECTION */}
         <section className="relative h-[300px] md:h-[400px] overflow-hidden">
           <img
             src="/Projectlogistics.jpg"
             alt="Project Logistics"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/50 flex items-center">
+
+          {/* Deep blue overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#22365B]/90 via-[#22365B]/75 to-transparent flex items-center">
             <div className="container mx-auto px-4">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -71,6 +73,7 @@ const ProjectLogistics = () => {
                   <h2 className="text-3xl font-bold text-primary mb-6 text-center">
                     Specialized Project Cargo Handling
                   </h2>
+
                   <p className="text-muted-foreground mb-8 text-center max-w-4xl mx-auto">
                     At <strong className="text-primary">One Global Logistics</strong>, we specialize in handling complex project cargo that requires specialized expertise, equipment, and planning. Our project logistics services are designed for oversized, heavy-lift, and out-of-gauge cargo, serving industries such as oil & gas, construction, energy, mining, and manufacturing.
                   </p>
@@ -79,21 +82,22 @@ const ProjectLogistics = () => {
                     <h3 className="text-xl font-bold text-primary mb-6">
                       Our Project Logistics Capabilities
                     </h3>
-                    <ul className="space-y-4">
-                      <li className="text-sm"><strong className="text-primary">Heavy Lift Cargo:</strong> Specialized equipment and expertise for moving exceptionally heavy equipment and machinery.</li>
-                      <li className="text-sm"><strong className="text-primary">Oversized Cargo:</strong> Handling of out-of-gauge shipments requiring special permits, route surveys, and custom solutions.</li>
-                      <li className="text-sm"><strong className="text-primary">Break Bulk Cargo:</strong> Management of cargo that cannot be containerized and requires individual piece handling.</li>
-                      <li className="text-sm"><strong className="text-primary">Multimodal Transportation:</strong> Seamless coordination across ocean, air, road, and rail to optimize routes.</li>
-                      <li className="text-sm"><strong className="text-primary">On-site Services:</strong> Loading, unloading, positioning, and installation support at project sites.</li>
+                    <ul className="space-y-4 text-sm text-muted-foreground">
+                      <li><strong className="text-primary">Heavy Lift Cargo:</strong> Specialized equipment and expertise for moving exceptionally heavy equipment and machinery.</li>
+                      <li><strong className="text-primary">Oversized Cargo:</strong> Handling of out-of-gauge shipments requiring special permits, route surveys, and custom solutions.</li>
+                      <li><strong className="text-primary">Break Bulk Cargo:</strong> Management of cargo that cannot be containerized and requires individual piece handling.</li>
+                      <li><strong className="text-primary">Multimodal Transportation:</strong> Seamless coordination across ocean, air, road, and rail to optimize routes.</li>
+                      <li><strong className="text-primary">On-site Services:</strong> Loading, unloading, positioning, and installation support at project sites.</li>
                     </ul>
                   </div>
                 </div>
 
-                {/* INDUSTRIES GRID */}
+                {/* INDUSTRIES */}
                 <div>
                   <h3 className="text-2xl font-bold text-primary mb-8">
                     Industries We Serve
                   </h3>
+
                   <div className="grid md:grid-cols-3 gap-4">
                     {[
                       { title: 'Oil & Gas', desc: 'Offshore platforms, drilling equipment, pipelines, and refinery components.' },
@@ -118,6 +122,7 @@ const ProjectLogistics = () => {
                   <h3 className="text-2xl font-bold text-primary mb-8">
                     Our Project Management Approach
                   </h3>
+
                   <div className="space-y-6">
                     {[
                       { title: '1. Planning & Engineering', desc: 'Detailed feasibility studies, route surveys, and custom engineering solutions for complex movements.' },
