@@ -166,24 +166,6 @@ const AirFreight = () => {
             </div>
           </div>
         </section>
-
-        {/* CTA */}
-        <section className="py-12 bg-primary">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
-              Ready to Ship with Us?
-            </h2>
-            <p className="text-white/80 text-lg mb-6 max-w-2xl mx-auto">
-              Contact our team today for tailored air freight solutions.
-            </p>
-            <Button
-              onClick={() => navigate('/contact')}
-              className="bg-accent hover:bg-accent/90 text-white px-8 py-3"
-            >
-              Get a Quote
-            </Button>
-          </div>
-        </section>
       </main>
 
       <Footer />
