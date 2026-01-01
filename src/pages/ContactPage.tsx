@@ -14,8 +14,6 @@ import {
   Mail, 
   Globe, 
   Send,
-  Clock,
-  Building2
 } from 'lucide-react';
 
 const ContactPage = () => {
@@ -28,8 +26,6 @@ const ContactPage = () => {
     name: '',
     email: '',
     phone: '',
-    company: '',
-    subject: '',
     message: '',
   });
 
@@ -43,39 +39,36 @@ const ContactPage = () => {
       title: "Message Sent!",
       description: "We'll get back to you as soon as possible.",
     });
-    setFormData({ name: '', email: '', phone: '', company: '', subject: '', message: '' });
+    setFormData({ name: '', email: '', phone: '', message: '' });
   };
 
   const contactInfo = [
     {
-      icon: Building2,
-      title: 'Head Office',
-      lines: ['One Global Logistics Services W.L.L', 'Doha, Qatar'],
-    },
-    {
       icon: MapPin,
       title: 'Address',
-      lines: ['P.O. Box: 37233', 'Doha, Qatar'],
+      lines: [
+        'One Global Logistics Services W.L.L',
+        'Office no: 48, 2nd Floor',
+        'Al matar Centre, Old Airport Road',
+        'Doha, Qatar',
+      ],
     },
     {
       icon: Phone,
       title: 'Phone',
-      lines: ['+974 558 558 36', '+974 4442 7742'],
+      lines: [
+        'International: +974 558 558 36, 446 79 444, 446 79 400'
+      ],
     },
     {
       icon: Mail,
       title: 'Email',
-      lines: ['info@oneglobalqatar.com', 'sales@oneglobalqatar.com'],
+      lines: ['info@oneglobalqatar.com'],
     },
     {
       icon: Globe,
       title: 'Website',
       lines: ['www.oneglobalqatar.com'],
-    },
-    {
-      icon: Clock,
-      title: 'Working Hours',
-      lines: ['Sunday - Thursday', '8:00 AM - 6:00 PM'],
     },
   ];
 
@@ -103,7 +96,7 @@ const ContactPage = () => {
                   Contact Us
                 </h1>
                 <p className="text-primary-foreground/90 text-lg md:text-xl">
-                  Get in touch with our logistics experts for personalized solutions
+                  Get in touch with our team for inquiries, quotes, or any questions about our services.
                 </p>
               </motion.div>
             </div>
@@ -113,7 +106,7 @@ const ContactPage = () => {
         {/* Contact Content */}
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
-            <div className="grid lg:grid-cols-2 gap-12">
+            <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
               
               {/* Contact Form */}
               <motion.div
@@ -123,81 +116,52 @@ const ContactPage = () => {
                 transition={{ duration: 0.6 }}
               >
                 <div className="bg-card rounded-2xl p-8 shadow-lg border">
-                  <h2 className="text-2xl font-bold mb-2">Send us a Message</h2>
-                  <p className="text-muted-foreground mb-6">
-                    Fill out the form below and we'll respond within 24 hours.
-                  </p>
+                  <h2 className="font-heading text-2xl font-bold text-primary mb-6">
+                    Send us a Message
+                  </h2>
 
-                  <form onSubmit={handleSubmit} className="space-y-5">
-                    <div className="grid sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="text-sm font-medium mb-1.5 block">Full Name *</label>
-                        <Input
-                          name="name"
-                          value={formData.name}
-                          onChange={handleChange}
-                          placeholder="John Doe"
-                          required
-                        />
-                      </div>
-                      <div>
-                        <label className="text-sm font-medium mb-1.5 block">Email *</label>
-                        <Input
-                          type="email"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleChange}
-                          placeholder="john@example.com"
-                          required
-                        />
-                      </div>
-                    </div>
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <Input
+                      name="name"
+                      placeholder="Your Name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="font-body"
+                    />
 
-                    <div className="grid sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="text-sm font-medium mb-1.5 block">Phone</label>
-                        <Input
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleChange}
-                          placeholder="+974 XXXX XXXX"
-                        />
-                      </div>
-                      <div>
-                        <label className="text-sm font-medium mb-1.5 block">Company</label>
-                        <Input
-                          name="company"
-                          value={formData.company}
-                          onChange={handleChange}
-                          placeholder="Your Company"
-                        />
-                      </div>
-                    </div>
+                    <Input
+                      name="email"
+                      type="email"
+                      placeholder="Your Email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="font-body"
+                    />
 
-                    <div>
-                      <label className="text-sm font-medium mb-1.5 block">Subject *</label>
-                      <Input
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleChange}
-                        placeholder="How can we help?"
-                        required
-                      />
-                    </div>
+                    <Input
+                      name="phone"
+                      placeholder="Your Phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="font-body"
+                    />
 
-                    <div>
-                      <label className="text-sm font-medium mb-1.5 block">Message *</label>
-                      <Textarea
-                        name="message"
-                        value={formData.message}
-                        onChange={handleChange}
-                        placeholder="Tell us about your logistics needs..."
-                        rows={5}
-                        required
-                      />
-                    </div>
+                    <Textarea
+                      name="message"
+                      placeholder="Your Message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                      rows={5}
+                      className="font-body resize-none"
+                    />
 
-                    <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
+                    <Button
+                      type="submit"
+                      className="w-full bg-accent hover:bg-red-hover text-accent-foreground font-body font-semibold"
+                    >
                       <Send className="w-4 h-4 mr-2" />
                       Send Message
                     </Button>
@@ -211,43 +175,40 @@ const ContactPage = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="space-y-6"
               >
-                <div>
-                  <h2 className="text-2xl font-bold mb-2">Get in Touch</h2>
-                  <p className="text-muted-foreground">
-                    Our team is ready to assist you with all your logistics needs.
-                  </p>
-                </div>
+                <div className="bg-card rounded-2xl p-8 shadow-lg border h-fit">
+                  <h2 className="font-heading text-2xl font-bold text-primary mb-6">
+                    Our Office
+                  </h2>
 
-                <div className="grid sm:grid-cols-2 gap-4">
-                  {contactInfo.map((item, index) => (
-                    <div
-                      key={index}
-                      className="bg-card rounded-xl p-5 border shadow-sm hover:shadow-md transition-shadow"
-                    >
-                      <div className="flex items-start gap-4">
-                        <div className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                          <item.icon className="w-5 h-5 text-accent" />
-                        </div>
-                        <div>
-                          <h3 className="font-semibold mb-1">{item.title}</h3>
-                          {item.lines.map((line, i) => (
-                            <p key={i} className="text-sm text-muted-foreground">
-                              {line}
-                            </p>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                  <div className="space-y-8">
+                    {contactInfo.map((info, index) => {
+                      const Icon = info.icon;
 
-                {/* Map Placeholder */}
-                <div className="bg-muted rounded-xl h-[250px] flex items-center justify-center border">
-                  <div className="text-center text-muted-foreground">
-                    <MapPin className="w-10 h-10 mx-auto mb-2 opacity-50" />
-                    <p>Doha, Qatar</p>
+                      return (
+                        <div key={index} className="flex gap-4 items-start">
+                          {/* Icon Box */}
+                          <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center shrink-0">
+                            <Icon className="w-5 h-5 text-primary-foreground" />
+                          </div>
+                          
+                          {/* Text Details */}
+                          <div>
+                            <h4 className="font-heading font-semibold text-primary mb-1">
+                              {info.title}
+                            </h4>
+                            {info.lines.map((line, idx) => (
+                              <p
+                                key={idx}
+                                className="font-body text-muted-foreground text-sm leading-relaxed"
+                              >
+                                {line}
+                              </p>
+                            ))}
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               </motion.div>
