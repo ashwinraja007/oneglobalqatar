@@ -23,26 +23,22 @@ const KeyFeatures = () => {
     {
       icon: Package,
       title: "Optimize Orders",
-      description:
-        "Optimize orders into container shipments for efficient delivery.",
+      description: "Optimize orders into container shipments for efficient delivery.",
     },
     {
       icon: Boxes,
       title: "Consolidation Handling",
-      description:
-        "Expert consolidation handling for both LCL and FCL shipments.",
+      description: "Expert consolidation handling for both LCL and FCL shipments.",
     },
     {
       icon: FileCheck,
       title: "Comprehensive",
-      description:
-        "We offer comprehensive full container services worldwide.",
+      description: "We offer comprehensive full container services worldwide.",
     },
     {
       icon: DollarSign,
       title: "Cost Effective",
-      description:
-        "Cost-effective solutions tailored for your shipping needs.",
+      description: "Cost-effective solutions tailored for your shipping needs.",
     },
   ];
 
@@ -102,26 +98,29 @@ const KeyFeatures = () => {
 };
 
 /* ======================================================
-   CARD COMPONENT
+   CARD COMPONENT (HOVER FIXED)
 ====================================================== */
-const OneGlobalCard = ({ image, title, points, icon, link }: { 
-  image: string; 
-  title: string; 
-  points: string[]; 
+const OneGlobalCard = ({ image, title, points, icon, link }: {
+  image: string;
+  title: string;
+  points: string[];
   icon: React.ReactNode;
   link: string;
 }) => {
   const navigate = useNavigate();
-  
+
   return (
     <motion.div
       whileHover={{ y: -6 }}
       transition={{ type: "spring", stiffness: 220, damping: 20 }}
-      className="bg-white rounded-xl shadow-md hover:shadow-xl overflow-hidden group cursor-pointer"
-      onClick={() => navigate(link)}
+      className="bg-white rounded-xl shadow-md hover:shadow-xl overflow-hidden group"
     >
       <AspectRatio ratio={16 / 9}>
-        <img src={image} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+        />
       </AspectRatio>
 
       <div className="p-5">
@@ -136,12 +135,13 @@ const OneGlobalCard = ({ image, title, points, icon, link }: {
           ))}
         </ul>
 
-        <Button 
-          variant="ghost" 
-          className="text-accent hover:text-accent/80 p-0 h-auto font-medium group/btn"
+        <Button
+          variant="ghost"
+          onClick={() => navigate(link)}
+          className="text-accent hover:text-accent/80 p-0 h-auto font-medium flex items-center gap-1 group/btn"
         >
-          Learn More 
-          <ArrowRight className="w-4 h-4 ml-1 group-hover/btn:translate-x-1 transition-transform" />
+          Learn More
+          <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
         </Button>
       </div>
     </motion.div>
@@ -149,7 +149,7 @@ const OneGlobalCard = ({ image, title, points, icon, link }: {
 };
 
 /* ======================================================
-   NEW SECTION – GRID SERVICES (UPDATED BLUE)
+   SERVICES GRID
 ====================================================== */
 const ServicesScroll = () => {
   const services = [
@@ -158,66 +158,42 @@ const ServicesScroll = () => {
       title: "Air Freight",
       icon: <Plane size={16} />,
       link: "/services/air-freight",
-      points: [
-        "Express & deferred services",
-        "Airport-to-airport & door-to-door",
-        "DG & temperature-controlled cargo",
-      ],
+      points: ["Express & deferred services", "Airport-to-airport & door-to-door", "DG & temperature-controlled cargo"],
     },
     {
       image: "/seafreight.jpg",
       title: "Sea Freight",
       icon: <Ship size={16} />,
       link: "/services/ocean-freight",
-      points: [
-        "FCL & LCL solutions",
-        "Breakbulk & Ro-Ro cargo",
-        "Global consolidation network",
-      ],
+      points: ["FCL & LCL solutions", "Breakbulk & Ro-Ro cargo", "Global consolidation network"],
     },
     {
       image: "/roadfreight.jpg",
       title: "Road Freight",
       icon: <Truck size={16} />,
       link: "/services/road-freight",
-      points: [
-        "GCC distribution",
-        "Cross-border trucking",
-        "Last-mile delivery",
-      ],
+      points: ["GCC distribution", "Cross-border trucking", "Last-mile delivery"],
     },
     {
       image: "/Customsclearance.jpg",
       title: "Customs Clearance",
       icon: <Package size={16} />,
       link: "/services/customs-clearance",
-      points: [
-        "Import & export documentation",
-        "Free zone & mainland clearance",
-        "Compliance support",
-      ],
+      points: ["Import & export documentation", "Free zone & mainland clearance", "Compliance support"],
     },
     {
       image: "/Warehousing.jpg",
       title: "Warehousing",
       icon: <Warehouse size={16} />,
       link: "/services/warehousing",
-      points: [
-        "Bonded & non-bonded facilities",
-        "Inventory management",
-        "Value-added services",
-      ],
+      points: ["Bonded & non-bonded facilities", "Inventory management", "Value-added services"],
     },
     {
       image: "/Projectlogistics.jpg",
       title: "Project Logistics",
       icon: <Boxes size={16} />,
       link: "/services/project-logistics",
-      points: [
-        "Planning & coordination",
-        "Heavy & OOG cargo",
-        "End-to-end execution",
-      ],
+      points: ["Planning & coordination", "Heavy & OOG cargo", "End-to-end execution"],
     },
   ];
 
@@ -231,7 +207,7 @@ const ServicesScroll = () => {
           <h2 className="text-4xl font-bold mt-2 text-black">
             Explore Our Services
           </h2>
-          <p className="text-black-200 text-sm mt-3 max-w-xl mx-auto">
+          <p className="text-sm mt-3 max-w-xl mx-auto text-black/70">
             Reliable, scalable and technology-driven logistics solutions.
           </p>
         </div>
@@ -247,7 +223,7 @@ const ServicesScroll = () => {
 };
 
 /* ======================================================
-   FINAL PAGE EXPORT
+   FINAL EXPORT
 ====================================================== */
 const Services = () => {
   const location = useLocation();
