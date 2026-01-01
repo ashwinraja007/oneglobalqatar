@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound";
 import Services from "./pages/Services";
 import GlobalPresence from "./pages/GlobalPresence";
 import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
 import AirFreight from "./pages/services/AirFreight";
 import OceanFreight from "./pages/services/OceanFreight";
 import RoadFreight from "./pages/services/RoadFreight";
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/services" element={<Services />} />
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="/global-presence" element={<GlobalPresence />} />
           {/* Service detail pages */}
           <Route path="/services/air-freight" element={<AirFreight />} />

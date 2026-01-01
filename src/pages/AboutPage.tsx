@@ -50,32 +50,39 @@ const AboutPage = () => {
         </section>
 
         {/* ABOUT CONTENT */}
-        <section className="py-20 bg-background overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
+        <section className="py-16 bg-background overflow-hidden">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-            {/* IMAGE */}
-            <motion.div
-              initial={{ x: -120, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.9 }}
-            >
-              <img
-                src="/cargo-ship.png"
-                alt="One Global Logistics"
-                className="w-full h-auto object-cover"
-              />
-            </motion.div>
+              {/* IMAGE */}
+              <motion.div
+                initial={{ x: -80, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="relative"
+              >
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                  <img
+                    src="/About01.png"
+                    alt="One Global Logistics Operations"
+                    className="w-full h-auto object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
+                </div>
+                {/* Decorative element */}
+                <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-accent/20 rounded-2xl -z-10" />
+                <div className="absolute -top-6 -left-6 w-24 h-24 bg-primary/10 rounded-2xl -z-10" />
+              </motion.div>
 
-            {/* TEXT */}
-            <div className="container mx-auto px-6 lg:px-12">
+              {/* TEXT */}
               <motion.div
                 initial={{ opacity: 0, x: 40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-                <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">
                   Drive Your Business <br />
                   Forward with <span className="text-accent">OGL</span>
                 </h2>
@@ -87,7 +94,7 @@ const AboutPage = () => {
                   experienced and established team with relevant experience in
                   their own dedicated trade lanes supports our customers with all
                   their special requirements with complete dedication and
-                  transparency.Our commitment to honest, transparent business
+                  transparency. Our commitment to honest, transparent business
                   practice and pricing, backed by a network of experienced and
                   trusted agents, from around the world, makes us one of the
                   fast-growing consolidators based at Qatar. We are well
