@@ -98,7 +98,7 @@ const KeyFeatures = () => {
 };
 
 /* ======================================================
-   CARD COMPONENT (HOVER FIXED)
+   CARD COMPONENT (UPDATED HOVER EFFECT)
 ====================================================== */
 const OneGlobalCard = ({ image, title, points, icon, link }: {
   image: string;
@@ -129,19 +129,30 @@ const OneGlobalCard = ({ image, title, points, icon, link }: {
           <h3>{title}</h3>
         </div>
 
-        <ul className="list-disc pl-5 text-sm text-muted-foreground space-y-1 mb-4">
+        <ul className="list-disc pl-5 text-sm text-muted-foreground space-y-1 mb-5">
           {points.map((pt, i) => (
             <li key={i}>{pt}</li>
           ))}
         </ul>
 
+        {/* Premium Learn More Button */}
         <Button
-          variant="ghost"
           onClick={() => navigate(link)}
-          className="text-accent hover:text-accent/80 p-0 h-auto font-medium flex items-center gap-1 group/btn"
+          className="relative overflow-hidden px-5 py-2 rounded-full border border-accent text-accent bg-transparent
+                     transition-all duration-300 ease-out
+                     hover:text-white hover:border-accent
+                     group"
         >
-          Learn More
-          <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+          <span className="relative z-10 flex items-center gap-2 font-medium">
+            Learn More
+            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-2" />
+          </span>
+
+          <span
+            className="absolute inset-0 bg-accent translate-x-[-100%]
+                       transition-transform duration-300 ease-out
+                       group-hover:translate-x-0"
+          />
         </Button>
       </div>
     </motion.div>
