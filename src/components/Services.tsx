@@ -16,7 +16,7 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Button } from "@/components/ui/button";
 
 /* ======================================================
-   OLD SECTION – KEY FEATURES
+   KEY FEATURES
 ====================================================== */
 const KeyFeatures = () => {
   const features = [
@@ -98,28 +98,22 @@ const KeyFeatures = () => {
 };
 
 /* ======================================================
-   CARD COMPONENT (UPDATED HOVER EFFECT)
+   SERVICE CARD
 ====================================================== */
-const OneGlobalCard = ({ image, title, points, icon, link }: {
-  image: string;
-  title: string;
-  points: string[];
-  icon: React.ReactNode;
-  link: string;
-}) => {
+const OneGlobalCard = ({ image, title, points, icon, link }) => {
   const navigate = useNavigate();
 
   return (
     <motion.div
       whileHover={{ y: -6 }}
-      transition={{ type: "spring", stiffness: 220, damping: 20 }}
-      className="bg-white rounded-xl shadow-md hover:shadow-xl overflow-hidden group"
+      transition={{ type: "spring", stiffness: 200, damping: 18 }}
+      className="bg-white rounded-xl shadow-md hover:shadow-xl overflow-hidden"
     >
       <AspectRatio ratio={16 / 9}>
         <img
           src={image}
           alt={title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
         />
       </AspectRatio>
 
@@ -135,24 +129,16 @@ const OneGlobalCard = ({ image, title, points, icon, link }: {
           ))}
         </ul>
 
-        {/* Premium Learn More Button */}
         <Button
           onClick={() => navigate(link)}
-          className="relative overflow-hidden px-5 py-2 rounded-full border border-accent text-accent bg-transparent
-                     transition-all duration-300 ease-out
-                     hover:text-white hover:border-accent
-                     group"
+          className="relative overflow-hidden px-6 py-2 rounded-full border border-accent text-accent bg-transparent
+                     transition-all duration-300 ease-out hover:text-white"
         >
+          <span className="absolute inset-0 bg-accent translate-x-[-100%] transition-transform duration-300 ease-out hover:translate-x-0" />
           <span className="relative z-10 flex items-center gap-2 font-medium">
             Learn More
-            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-2" />
+            <ArrowRight className="w-4 h-4 transition-transform duration-300 hover:translate-x-2" />
           </span>
-
-          <span
-            className="absolute inset-0 bg-accent translate-x-[-100%]
-                       transition-transform duration-300 ease-out
-                       group-hover:translate-x-0"
-          />
         </Button>
       </div>
     </motion.div>
