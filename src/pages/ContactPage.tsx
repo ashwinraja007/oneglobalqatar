@@ -224,13 +224,7 @@ const ContactPage = () => {
               className="bg-card rounded-2xl shadow-lg border overflow-hidden"
             >
                 <div className="w-full h-[400px]">
-                <iframe
-                  title="One Global Logistics Location"
-                  src="https://www.google.com/maps?q=Al%20Matar%20Centre%20Doha%20Qatar&output=embed"
-                  className="w-full h-full border-0"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
+                <iframe src="https://www.google.com/maps/d/embed?mid=1x7_4LJ6dtdf7j5_wLKodrqPKOdjmUlw&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
               </div>
             </motion.div>
           </div>
