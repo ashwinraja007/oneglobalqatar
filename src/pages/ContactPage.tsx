@@ -7,13 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { motion } from 'framer-motion';
-import { 
-  MapPin, 
-  Phone, 
-  Mail, 
-  Globe, 
-  Send,
-} from 'lucide-react';
+import { MapPin, Phone, Mail, Globe, Send } from 'lucide-react';
 
 const ContactPage = () => {
   const location = useLocation();
@@ -59,9 +53,7 @@ const ContactPage = () => {
     {
       icon: Phone,
       title: 'Phone',
-      lines: [
-        'International: +974 558 558 36, 446 79 444, 446 79 400',
-      ],
+      lines: ['International: +974 558 558 36, 446 79 444, 446 79 400'],
     },
     {
       icon: Mail,
@@ -108,7 +100,7 @@ const ContactPage = () => {
         </section>
 
         {/* Contact Content */}
-        <section className="py-16 bg-background">
+        <section className="py-16">
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
 
@@ -120,48 +112,19 @@ const ContactPage = () => {
                 transition={{ duration: 0.6 }}
               >
                 <div className="bg-card rounded-2xl p-8 shadow-lg border">
-                  <h2 className="font-heading text-2xl font-bold text-primary mb-6">
+                  <h2 className="text-2xl font-bold text-primary mb-6">
                     Send us a Message
                   </h2>
 
                   <form onSubmit={handleSubmit} className="space-y-4">
-                    <Input
-                      name="name"
-                      placeholder="Your Name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                    />
-
-                    <Input
-                      name="email"
-                      type="email"
-                      placeholder="Your Email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                    />
-
-                    <Input
-                      name="phone"
-                      placeholder="Your Phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                    />
-
-                    <Textarea
-                      name="message"
-                      placeholder="Your Message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      rows={5}
-                      className="resize-none"
-                    />
+                    <Input name="name" placeholder="Your Name" value={formData.name} onChange={handleChange} required />
+                    <Input name="email" type="email" placeholder="Your Email" value={formData.email} onChange={handleChange} required />
+                    <Input name="phone" placeholder="Your Phone" value={formData.phone} onChange={handleChange} />
+                    <Textarea name="message" placeholder="Your Message" value={formData.message} onChange={handleChange} required rows={5} className="resize-none" />
 
                     <Button
                       type="submit"
-                      className="w-full bg-accent hover:bg-red-hover text-accent-foreground font-semibold"
+                      className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold"
                     >
                       <Send className="w-4 h-4 mr-2" />
                       Send Message
@@ -178,7 +141,7 @@ const ContactPage = () => {
                 transition={{ duration: 0.6 }}
               >
                 <div className="bg-card rounded-2xl p-8 shadow-lg border h-fit">
-                  <h2 className="font-heading text-2xl font-bold text-primary mb-6">
+                  <h2 className="text-2xl font-bold text-primary mb-6">
                     Our Office
                   </h2>
 
@@ -191,16 +154,9 @@ const ContactPage = () => {
                             <Icon className="w-5 h-5 text-primary-foreground" />
                           </div>
                           <div>
-                            <h4 className="font-semibold text-primary mb-1">
-                              {info.title}
-                            </h4>
+                            <h4 className="font-semibold text-primary mb-1">{info.title}</h4>
                             {info.lines.map((line, idx) => (
-                              <p
-                                key={idx}
-                                className="text-muted-foreground text-sm leading-relaxed"
-                              >
-                                {line}
-                              </p>
+                              <p key={idx} className="text-muted-foreground text-sm leading-relaxed">{line}</p>
                             ))}
                           </div>
                         </div>
@@ -214,7 +170,7 @@ const ContactPage = () => {
         </section>
 
         {/* Map Section */}
-        <section className="pb-20 bg-background">
+        <section className="pb-20">
           <div className="container mx-auto px-4 max-w-6xl">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -223,9 +179,11 @@ const ContactPage = () => {
               transition={{ duration: 0.6 }}
               className="bg-card rounded-2xl shadow-lg border overflow-hidden"
             >
-                <div className="w-full h-[400px]">
-                <iframe src="https://www.google.com/maps/d/embed?mid=1x7_4LJ6dtdf7j5_wLKodrqPKOdjmUlw&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
-              </div>
+              <iframe
+                className="w-full h-[400px] border-0"
+                loading="lazy"
+                src="https://www.google.com/maps/d/embed?mid=1x7_4LJ6dtdf7j5_wLKodrqPKOdjmUlw&ehbc=2E312F&noprof=1"
+              />
             </motion.div>
           </div>
         </section>
