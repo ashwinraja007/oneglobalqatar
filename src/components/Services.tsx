@@ -224,7 +224,7 @@ const ServicesScroll = () => {
 };
 
 /* ======================================================
-   FINAL EXPORT
+   FINAL EXPORT — ORDER UPDATED
 ====================================================== */
 const Services = () => {
   const location = useLocation();
@@ -232,8 +232,8 @@ const Services = () => {
 
   return (
     <>
-      <KeyFeatures />
       <ServicesScroll />
+      <KeyFeatures />
     </>
   );
 };
