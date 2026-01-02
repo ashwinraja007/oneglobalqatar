@@ -124,7 +124,7 @@ const ContactPage = () => {
 
                     <Button
                       type="submit"
-                      className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold"
+                      className="w-full bg-[#102A56] hover:bg-[#0c2144] text-white font-semibold"
                     >
                       <Send className="w-4 h-4 mr-2" />
                       Send Message
@@ -182,7 +182,8 @@ const ContactPage = () => {
               <iframe
                 className="w-full h-[400px] border-0"
                 loading="lazy"
-                src="https://www.google.com/maps/d/embed?mid=1x7_4LJ6dtdf7j5_wLKodrqPKOdjmUlw&ehbc=2E312F&noprof=1"
+                referrerPolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps?q=One+Global+Logistics+Services+W.L.L,+Doha&output=embed"
               />
             </motion.div>
           </div>
