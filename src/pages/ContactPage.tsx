@@ -171,18 +171,25 @@ const ContactPage = () => {
 
         {/* Map Section */}
         <section className="pb-20">
-          <div className="container mx-auto px-4 max-w-6xl">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="bg-card rounded-2xl shadow-lg border overflow-hidden"
-            >
-              <iframe src="https://www.google.com/maps/d/embed?mid=1x7_4LJ6dtdf7j5_wLKodrqPKOdjmUlw&ehbc=2E312F&noprof=1" width="1120" height="480"></iframe>
-            </motion.div>
-          </div>
-        </section>
+  <div className="container mx-auto px-4 max-w-6xl">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="bg-card rounded-2xl shadow-lg border overflow-hidden relative"
+    >
+      <div className="relative w-full h-[480px] overflow-hidden rounded-2xl">
+        <iframe
+          src="https://www.google.com/maps/d/embed?mid=1x7_4LJ6dtdf7j5_wLKodrqPKOdjmUlw&ehbc=2E312F&noprof=1"
+          className="absolute left-0 top-[-52px] w-full h-[540px] border-0"
+          loading="lazy"
+        />
+      </div>
+    </motion.div>
+  </div>
+</section>
+
       </main>
 
       <Footer />
