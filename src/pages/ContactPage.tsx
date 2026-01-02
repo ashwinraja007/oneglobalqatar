@@ -1,6 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -19,8 +18,10 @@ import {
 const ContactPage = () => {
   const location = useLocation();
   const { toast } = useToast();
-  
-  useEffect(() => window.scrollTo(0, 0), [location.pathname]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -29,14 +30,16 @@ const ContactPage = () => {
     message: '',
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
-      title: "Message Sent!",
+      title: 'Message Sent!',
       description: "We'll get back to you as soon as possible.",
     });
     setFormData({ name: '', email: '', phone: '', message: '' });
@@ -57,7 +60,7 @@ const ContactPage = () => {
       icon: Phone,
       title: 'Phone',
       lines: [
-        'International: +974 558 558 36, 446 79 444, 446 79 400'
+        'International: +974 558 558 36, 446 79 444, 446 79 400',
       ],
     },
     {
@@ -95,8 +98,9 @@ const ContactPage = () => {
                 <h1 className="text-3xl md:text-5xl font-bold text-primary-foreground mb-4">
                   Contact Us
                 </h1>
-                <p className="text-primary-foreground/90 text-lg md:text-xl">
-                  Get in touch with our team for inquiries, quotes, or any questions about our services.
+                <p className="text-primary-foreground/90 text-lg md:text-xl leading-relaxed">
+                  Get in touch with our team for inquiries, quotes, or any
+                  questions about our services.
                 </p>
               </motion.div>
             </div>
@@ -107,7 +111,7 @@ const ContactPage = () => {
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-              
+
               {/* Contact Form */}
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
@@ -127,7 +131,6 @@ const ContactPage = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="font-body"
                     />
 
                     <Input
@@ -137,7 +140,6 @@ const ContactPage = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="font-body"
                     />
 
                     <Input
@@ -145,7 +147,6 @@ const ContactPage = () => {
                       placeholder="Your Phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="font-body"
                     />
 
                     <Textarea
@@ -155,12 +156,12 @@ const ContactPage = () => {
                       onChange={handleChange}
                       required
                       rows={5}
-                      className="font-body resize-none"
+                      className="resize-none"
                     />
 
                     <Button
                       type="submit"
-                      className="w-full bg-accent hover:bg-red-hover text-accent-foreground font-body font-semibold"
+                      className="w-full bg-accent hover:bg-red-hover text-accent-foreground font-semibold"
                     >
                       <Send className="w-4 h-4 mr-2" />
                       Send Message
@@ -184,23 +185,19 @@ const ContactPage = () => {
                   <div className="space-y-8">
                     {contactInfo.map((info, index) => {
                       const Icon = info.icon;
-
                       return (
                         <div key={index} className="flex gap-4 items-start">
-                          {/* Icon Box */}
                           <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center shrink-0">
                             <Icon className="w-5 h-5 text-primary-foreground" />
                           </div>
-                          
-                          {/* Text Details */}
                           <div>
-                            <h4 className="font-heading font-semibold text-primary mb-1">
+                            <h4 className="font-semibold text-primary mb-1">
                               {info.title}
                             </h4>
                             {info.lines.map((line, idx) => (
                               <p
                                 key={idx}
-                                className="font-body text-muted-foreground text-sm leading-relaxed"
+                                className="text-muted-foreground text-sm leading-relaxed"
                               >
                                 {line}
                               </p>
@@ -213,6 +210,38 @@ const ContactPage = () => {
                 </div>
               </motion.div>
             </div>
+          </div>
+        </section>
+
+        {/* Map Section */}
+        <section className="pb-20 bg-background">
+          <div className="container mx-auto px-4 max-w-6xl">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-card rounded-2xl shadow-lg border overflow-hidden"
+            >
+              <div className="p-6 border-b">
+                <h2 className="font-heading text-2xl font-bold text-primary">
+                  Find Us On Map
+                </h2>
+                <p className="text-muted-foreground mt-1">
+                  Visit our office location in Doha, Qatar
+                </p>
+              </div>
+
+              <div className="w-full h-[400px]">
+                <iframe
+                  title="One Global Logistics Location"
+                  src="https://www.google.com/maps?q=Al%20Matar%20Centre%20Doha%20Qatar&output=embed"
+                  className="w-full h-full border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+            </motion.div>
           </div>
         </section>
       </main>
