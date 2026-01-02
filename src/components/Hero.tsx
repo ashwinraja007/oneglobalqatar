@@ -25,7 +25,6 @@ const HeroNavButtons = () => {
     <div className="absolute bottom-12 left-0 right-0 z-20 hidden lg:block">
       <div className="container mx-auto px-4">
         <div className="flex justify-center">
-          {/* Main Container with Glassmorphism */}
           <div className="flex items-center bg-[#0a192f]/60 backdrop-blur-lg border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
             {buttons.map((button, index) => (
               <a
@@ -33,18 +32,13 @@ const HeroNavButtons = () => {
                 href={button.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`
-                  group flex items-center gap-4 px-10 py-5 transition-all duration-300
-                  hover:bg-white/5 relative
-                  ${index !== buttons.length - 1 ? 'border-r border-white/10' : ''}
-                `}
+                className={`group flex items-center gap-4 px-10 py-5 transition-all duration-300 hover:bg-white/5 relative ${
+                  index !== buttons.length - 1 ? 'border-r border-white/10' : ''
+                }`}
               >
-                {/* Circular Icon Wrapper */}
                 <div className="flex items-center justify-center w-10 h-10 rounded-full bg-white/5 group-hover:bg-accent transition-all duration-300">
                   <button.icon className="w-5 h-5 text-white group-hover:text-accent-foreground" />
                 </div>
-                
-                {/* Label Text */}
                 <span className="text-white font-semibold text-sm tracking-wide whitespace-nowrap">
                   {button.label}
                 </span>
@@ -62,7 +56,6 @@ const Hero = () => {
   const [index, setIndex] = useState(0);
   const navigate = useNavigate();
 
-  // Rotate headline every 4s
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % HERO_MESSAGES.length);
@@ -72,21 +65,17 @@ const Hero = () => {
 
   return (
     <section id="home" className="relative h-[650px] md:h-[850px] overflow-hidden flex flex-col">
-
-      {/* Background Image & Overlays */}
       <div
         className="absolute inset-0 bg-cover bg-center transition-transform duration-1000"
         style={{ backgroundImage: `url('/Hero01.jpg')` }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-navy-dark/95 via-navy-dark/70 to-transparent" />
-        <div className="absolute inset-0 bg-black/20" /> {/* Subtle darkening for better text contrast */}
+        <div className="absolute inset-0 bg-black/20" />
       </div>
 
-      {/* Main Content Area */}
       <div className="relative container mx-auto px-4 flex-grow flex items-center">
         <div className="max-w-3xl pt-10">
-
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             className="text-accent font-bold mb-4 tracking-[0.2em] uppercase text-sm"
@@ -94,8 +83,7 @@ const Hero = () => {
             Trusted Logistics Partner
           </motion.p>
 
-          {/* Animated Headline */}
-          <div className="min-h-[160px] md:min-h-[220px] flex items-center mb-8">
+          <div className="min-h-[130px] md:min-h-[180px] flex items-center mb-8">
             <AnimatePresence mode="wait">
               <motion.h1
                 key={index}
@@ -103,14 +91,13 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1]"
+                className="text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.15]"
                 dangerouslySetInnerHTML={{ __html: HERO_MESSAGES[index] }}
               />
             </AnimatePresence>
           </div>
 
-          {/* CTA Buttons */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
@@ -137,7 +124,6 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Bottom Floating Navigation */}
       <HeroNavButtons />
     </section>
   );
