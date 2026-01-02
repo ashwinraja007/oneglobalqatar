@@ -166,7 +166,7 @@ const ServicesScroll = () => {
       points: ["FCL & LCL solutions", "Breakbulk & Ro-Ro cargo", "Global consolidation network"],
     },
     {
-      image: "/roadfreight.jpg",
+      image: "/roadfreight01.jpg",
       title: "Road Freight",
       icon: <Truck size={16} />,
       link: "/services/road-freight",
