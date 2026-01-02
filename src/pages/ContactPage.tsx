@@ -223,16 +223,7 @@ const ContactPage = () => {
               transition={{ duration: 0.6 }}
               className="bg-card rounded-2xl shadow-lg border overflow-hidden"
             >
-              <div className="p-6 border-b">
-                <h2 className="font-heading text-2xl font-bold text-primary">
-                  Find Us On Map
-                </h2>
-                <p className="text-muted-foreground mt-1">
-                  Visit our office location in Doha, Qatar
-                </p>
-              </div>
-
-              <div className="w-full h-[400px]">
+                <div className="w-full h-[400px]">
                 <iframe
                   title="One Global Logistics Location"
                   src="https://www.google.com/maps?q=Al%20Matar%20Centre%20Doha%20Qatar&output=embed"
