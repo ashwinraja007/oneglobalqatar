@@ -26,7 +26,7 @@ const AboutPage = () => {
         {/* HERO */}
         <section className="relative h-[400px] md:h-[500px] overflow-hidden">
           <img
-            src="/about-bg.webp"
+            src="/abouthero.jpg"
             alt="About One Global Logistics"
             className="w-full h-full object-cover"
           />
