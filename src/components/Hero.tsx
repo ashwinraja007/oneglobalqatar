@@ -12,7 +12,7 @@ const HERO_MESSAGES = [
   "Get the Best Logistics <span class='text-accent'>Service</span> at very competitive prices"
 ];
 
-// --- Navigation Buttons (The Floating Bar) ---
+// --- Navigation Buttons ---
 const HeroNavButtons = () => {
   const buttons = [
     { icon: User, label: 'Customer Portal', url: 'https://consolmate.com/auth/login/9' },
@@ -74,7 +74,8 @@ const Hero = () => {
       </div>
 
       <div className="relative container mx-auto px-4 flex-grow flex items-center">
-        <div className="max-w-3xl pt-10">
+        <div className="max-w-3xl pt-4">
+
           <motion.p
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -83,7 +84,7 @@ const Hero = () => {
             Trusted Logistics Partner
           </motion.p>
 
-          <div className="min-h-[130px] md:min-h-[180px] flex items-center mb-8">
+          <div className="min-h-[120px] md:min-h-[160px] flex items-center mb-8">
             <AnimatePresence mode="wait">
               <motion.h1
                 key={index}
@@ -91,7 +92,7 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.15]"
+                className="text-2xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.15]"
                 dangerouslySetInnerHTML={{ __html: HERO_MESSAGES[index] }}
               />
             </AnimatePresence>
