@@ -115,19 +115,6 @@ const countries = [{
     address: "Office no: 48, 2nd Floor, Al matar Centre, Old Airport Road Doha",
     contacts: ["0974 33622555"]
   }]
-},{
-  code: "cn",
-  name: "China",
-    lat: 22.54262,
-    lng: 114.11696,
-  cities: [{
-    name: "China",
-    lat: 22.54262,
-    lng: 114.11696,
-    address: "13C02, Block A, Zhaoxin Huijin Plaza 3085 Shennan East Road, Luohu, Shenzhen.",
-    contacts: ["+86 75582222447"],
-    email: "helen@haixun.co"
-  }]
 }, {
   code: "sa",
   name: "Saudi Arabia",
@@ -187,7 +174,7 @@ const countries = [{
   }]
 }, {
   code: "lk",
-  name: " Lanka",
+  name: "Sri Lanka",
   lat: 6.9271,
   lng: 79.8612,
   cities: [{
@@ -311,7 +298,6 @@ const countries = [{
   }]
 }];
 
-// Sort countries alphabetically by name
 const sortedCountries = [...countries].sort((a, b) => a.name.localeCompare(b.name));
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
@@ -325,7 +311,6 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
     iframeRef.current = document.querySelector('iframe');
   }, []);
 
-  // Set default selected location to the first city of the first country
   useEffect(() => {
     if (sortedCountries.length > 0 && sortedCountries[0].cities.length > 0) {
       const firstCountry = sortedCountries[0];
@@ -333,25 +318,21 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
       setSelectedLocation(firstCity);
       setExpandedCountry(firstCountry.name);
       
-      // Initialize selected city indexes for all countries to 0 (first city)
       const initialIndexes: { [countryName: string]: number } = {};
       sortedCountries.forEach(country => {
         initialIndexes[country.name] = 0;
       });
       setSelectedCityIndexes(initialIndexes);
       
-      // Navigate to the first location on map
       navigateToLocation(firstCity.lat, firstCity.lng, firstCity);
     }
   }, []);
 
   const navigateToLocation = (lat: number, lng: number, city: any = null) => {
-    // Find the iframe in the ContactMapContainer
     const iframe = document.querySelector('iframe[title="Interactive Map"]') as HTMLIFrameElement;
     if (iframe) {
       try {
-        // Use higher zoom level for city-specific locations
-        const zoomLevel = city ? 10 : 10;
+        const zoomLevel = 10;
         const baseUrl = "https://www.google.com/maps/d/u/0/embed?mid=1d5jZQlEjnKqnsGHvdJWR5wB_-fcQ_Zk&ehbc=2E312F";
         const newSrc = `${baseUrl}&z=${zoomLevel}&ll=${lat},${lng}&hl=en&ehbc=2E312F&output=embed`;
         iframe.src = newSrc;
@@ -380,7 +361,6 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
 
   return (
     <>
-      {/* Backdrop overlay for mobile */}
       {isOpen && isMobile && (
         <div 
           className="fixed inset-0 bg-black/50 z-40 backdrop-blur-sm transition-opacity duration-300" 
@@ -388,18 +368,15 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
         />
       )}
       
-      {/* Sidebar container */}
       <div className={`my-3 w-full ${isMobile ? 'max-w-[95%]' : 'max-w-[520px]'} mx-auto px-2 md:px-0`}>
-        {/* Header */}
-        <div className="flex justify-between items-center px-4 py-3 border-b bg-gradient-to-r from-amber-500 to-amber-400 text-white rounded-t-xl shadow-sm">
+        {/* Header - Changed from amber to blue */}
+        <div className="flex justify-between items-center px-4 py-3 border-b bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-t-xl shadow-sm">
           <div className="flex items-center gap-2">
             <Globe className="h-5 w-5" />
             <h2 className="font-bold text-lg">Global Locations</h2>
           </div>
-          {isMobile}
         </div>
 
-        {/* Content area */}
         <ScrollArea className={`h-[calc(100vh-10rem)] md:h-[calc(100vh-8rem)] bg-white rounded-b-xl shadow-md`}>
           <div className="p-4">
             <div className="mt-4 space-y-3">
@@ -409,14 +386,14 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                     <AccordionItem 
                       key={country.name} 
                       value={country.name} 
-                      className="border border-red-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all bg-white"
+                      className="border border-blue-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all bg-white"
                     >
                       <AccordionTrigger 
                         onClick={() => {
                           setExpandedCountry(expandedCountry === country.name ? null : country.name);
                           navigateToLocation(country.lat, country.lng);
                         }}
-                        className="rounded-t-md hover:bg-amber-50 transition-colors px-3 py-2"
+                        className="rounded-t-md hover:bg-blue-50 transition-colors px-3 py-2"
                       >
                         <div className="flex items-center gap-3">
                           <img 
@@ -428,9 +405,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                         </div>
                       </AccordionTrigger>
                       
-                      <AccordionContent className="bg-gradient-to-b from-red-50/30 to-white px-3 py-2">
+                      <AccordionContent className="bg-gradient-to-b from-blue-50/30 to-white px-3 py-2">
                         <div className="space-y-2">
-                          {/* All cities displayed as buttons */}
                           <div className="space-y-2">
                             {country.cities.map((city: any, index: number) => (
                               <div key={index} className="w-full">
@@ -439,8 +415,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                                   className={cn(
                                     "w-full justify-start text-sm p-2 h-auto rounded-md border transition-all shadow-sm",
                                     isSelectedCity(country.name, index) 
-                                      ? "bg-red-100 hover:bg-red-150 border-red-300 text-red-800" 
-                                      : "bg-white hover:bg-red-50 border-gray-100 hover:border-red-200"
+                                      ? "bg-blue-100 hover:bg-blue-150 border-blue-300 text-blue-800" 
+                                      : "bg-white hover:bg-blue-50 border-gray-100 hover:border-blue-200"
                                   )}
                                   onClick={() => {
                                     handleCitySelection(country, index);
@@ -449,26 +425,25 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                                     }
                                   }}
                                 >
-                                  <MapPin className="w-4 h-4 mr-2 text-red-600 flex-shrink-0" />
+                                  <MapPin className="w-4 h-4 mr-2 text-blue-600 flex-shrink-0" />
                                   <span className="font-medium truncate">{city.name}</span>
-                                  <ChevronRight className="w-4 h-4 ml-auto text-red-300" />
+                                  <ChevronRight className="w-4 h-4 ml-auto text-blue-300" />
                                 </Button>
                                 
-                                {/* Show address details for selected city */}
                                 {isSelectedCity(country.name, index) && city.address && (
-                                  <div className="mt-2 p-3 bg-gradient-to-br from-red-50 to-white rounded-lg border border-red-200 shadow text-sm animate-in fade-in duration-300 w-full">
-                                    <h4 className="font-semibold text-red-700 mb-2 pb-1 border-b border-red-100 flex items-center">
-                                      <span className="bg-gradient-to-r from-red-600 to-red-400 bg-clip-text text-transparent">{city.name} Office</span>
+                                  <div className="mt-2 p-3 bg-gradient-to-br from-blue-50 to-white rounded-lg border border-blue-200 shadow text-sm animate-in fade-in duration-300 w-full">
+                                    <h4 className="font-semibold text-blue-700 mb-2 pb-1 border-b border-blue-100 flex items-center">
+                                      <span className="bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">{city.name} Office</span>
                                     </h4>
                                     
-                                    <div className="flex items-start mb-2 group hover:bg-red-50/50 p-2 rounded-md transition-colors w-full">
-                                      <Home className="w-4 h-4 mr-2 text-red-500 mt-1 flex-shrink-0 group-hover:text-red-600 transition-colors" />
+                                    <div className="flex items-start mb-2 group hover:bg-blue-50/50 p-2 rounded-md transition-colors w-full">
+                                      <Home className="w-4 h-4 mr-2 text-blue-500 mt-1 flex-shrink-0 group-hover:text-blue-600 transition-colors" />
                                       <p className="text-gray-700 group-hover:text-gray-900 transition-colors text-sm break-words w-full overflow-hidden">{city.address}</p>
                                     </div>
                                     
                                     {city.contacts && city.contacts.length > 0 && (
-                                      <div className="flex items-start mb-2 group hover:bg-red-50/50 p-2 rounded-md transition-colors w-full">
-                                        <Phone className="w-4 h-4 mr-2 text-red-500 mt-1 flex-shrink-0 group-hover:text-red-600 transition-colors" />
+                                      <div className="flex items-start mb-2 group hover:bg-blue-50/50 p-2 rounded-md transition-colors w-full">
+                                        <Phone className="w-4 h-4 mr-2 text-blue-500 mt-1 flex-shrink-0 group-hover:text-blue-600 transition-colors" />
                                         <div className="space-y-1 w-full overflow-hidden">
                                           {city.contacts.map((contact: string, idx: number) => (
                                             <p key={idx} className="text-gray-700 group-hover:text-gray-900 transition-colors text-sm break-words">{contact}</p>
@@ -478,11 +453,11 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                                     )}
                                     
                                     {city.email && (
-                                      <div className="flex items-start group hover:bg-red-50/50 p-2 rounded-md transition-colors w-full">
-                                        <Mail className="w-4 h-4 mr-2 text-red-500 mt-1 flex-shrink-0 group-hover:text-red-600 transition-colors" />
+                                      <div className="flex items-start group hover:bg-blue-50/50 p-2 rounded-md transition-colors w-full">
+                                        <Mail className="w-4 h-4 mr-2 text-blue-500 mt-1 flex-shrink-0 group-hover:text-blue-600 transition-colors" />
                                         <a 
                                           href={`mailto:${city.email}`} 
-                                          className="text-red-600 hover:text-red-800 hover:underline flex items-center text-sm break-words w-full overflow-hidden"
+                                          className="text-blue-600 hover:text-blue-800 hover:underline flex items-center text-sm break-words w-full overflow-hidden"
                                         >
                                           {city.email}
                                           <ExternalLink className="ml-1 h-3 w-3" />
