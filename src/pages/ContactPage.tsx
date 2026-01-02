@@ -179,12 +179,7 @@ const ContactPage = () => {
               transition={{ duration: 0.6 }}
               className="bg-card rounded-2xl shadow-lg border overflow-hidden"
             >
-              <iframe
-                className="w-full h-[400px] border-0"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps?q=One+Global+Logistics+Services+W.L.L,+Doha&output=embed"
-              />
+              <iframe src="https://www.google.com/maps/d/embed?mid=1x7_4LJ6dtdf7j5_wLKodrqPKOdjmUlw&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
             </motion.div>
           </div>
         </section>
