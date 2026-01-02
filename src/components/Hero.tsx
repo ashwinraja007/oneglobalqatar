@@ -92,7 +92,7 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="text-2xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.15]"
+                className="text-2xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.3]"
                 dangerouslySetInnerHTML={{ __html: HERO_MESSAGES[index] }}
               />
             </AnimatePresence>
