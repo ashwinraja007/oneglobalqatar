@@ -70,7 +70,7 @@ const Hero = () => {
       <video
         className="absolute inset-0 w-full h-full object-cover 
                    brightness-125 contrast-110 saturate-110"
-        src="/HeroVideo.mp4"
+        src="/heroone.mp4"
         autoPlay
         loop
         muted
