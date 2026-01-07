@@ -22,7 +22,7 @@ const HeroNavButtons = () => {
   ];
 
   return (
-    <div className="absolute bottom-12 left-0 right-0 z-20 hidden lg:block">
+    <div className="absolute bottom-12 left-0 right-0 z-30 hidden lg:block">
       <div className="container mx-auto px-4">
         <div className="flex justify-center">
           <div className="flex items-center bg-[#0a192f]/60 backdrop-blur-lg border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
@@ -65,15 +65,23 @@ const Hero = () => {
 
   return (
     <section id="home" className="relative h-[650px] md:h-[850px] overflow-hidden flex flex-col">
-      <div
-        className="absolute inset-0 bg-cover bg-center transition-transform duration-1000"
-        style={{ backgroundImage: `url('/Hero01.jpg')` }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-dark/95 via-navy-dark/70 to-transparent" />
-        <div className="absolute inset-0 bg-black/20" />
-      </div>
+      
+      {/* Background Video */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        src="/heroone.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
 
-      <div className="relative container mx-auto px-4 flex-grow flex items-center">
+      {/* Overlays */}
+      <div className="absolute inset-0 bg-gradient-to-r from-navy-dark/95 via-navy-dark/70 to-transparent z-10" />
+      <div className="absolute inset-0 bg-black/20 z-10" />
+
+      {/* Content */}
+      <div className="relative z-20 container mx-auto px-4 flex-grow flex items-center">
         <div className="max-w-3xl pt-4">
 
           <motion.p
@@ -91,7 +99,7 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
+                transition={{ duration: 0.6, ease: 'easeOut' }}
                 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.3]"
                 dangerouslySetInnerHTML={{ __html: HERO_MESSAGES[index] }}
               />
@@ -122,6 +130,7 @@ const Hero = () => {
               Contact Us
             </Button>
           </motion.div>
+
         </div>
       </div>
 
