@@ -68,16 +68,17 @@ const Hero = () => {
       
       {/* Background Video */}
       <video
-        className="absolute inset-0 w-full h-full object-cover"
-        src="/heroone.mp4"
+        className="absolute inset-0 w-full h-full object-cover 
+                   brightness-125 contrast-110 saturate-110"
+        src="/HeroVideo.mp4"
         autoPlay
         loop
         muted
         playsInline
       />
 
-      {/* Single subtle overlay (no gradient) */}
-      <div className="absolute inset-0 bg-black/30 z-10" />
+      {/* Light overlay */}
+      <div className="absolute inset-0 bg-black/15 z-10" />
 
       {/* Content */}
       <div className="relative z-20 container mx-auto px-4 flex-grow flex items-center">
