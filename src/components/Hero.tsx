@@ -22,7 +22,7 @@ const HeroNavButtons = () => {
   ];
 
   return (
-    <div className="absolute bottom-12 left-0 right-0 z-30 hidden lg:block">
+    <div className="absolute bottom-12 left-0 right-0 z-20 hidden lg:block">
       <div className="container mx-auto px-4">
         <div className="flex justify-center">
           <div className="flex items-center bg-[#0a192f]/60 backdrop-blur-lg border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
@@ -32,14 +32,14 @@ const HeroNavButtons = () => {
                 href={button.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`group flex items-center gap-4 px-10 py-5 transition-all duration-300 hover:bg-white/5 relative ${
+                className={`group flex items-center gap-4 px-10 py-5 transition-all duration-300 hover:bg-white/5 ${
                   index !== buttons.length - 1 ? 'border-r border-white/10' : ''
                 }`}
               >
-                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-white/5 group-hover:bg-accent transition-all duration-300">
+                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-white/5 group-hover:bg-accent transition-all">
                   <button.icon className="w-5 h-5 text-white group-hover:text-accent-foreground" />
                 </div>
-                <span className="text-white font-semibold text-sm tracking-wide whitespace-nowrap">
+                <span className="text-white font-semibold text-sm whitespace-nowrap">
                   {button.label}
                 </span>
               </a>
@@ -65,23 +65,19 @@ const Hero = () => {
 
   return (
     <section id="home" className="relative h-[650px] md:h-[850px] overflow-hidden flex flex-col">
-      
-      {/* Background Video */}
+
+      {/* Background Video (NO overlay, NO filter) */}
       <video
-        className="absolute inset-0 w-full h-full object-cover 
-                   brightness-125 contrast-110 saturate-110"
-        src="/heroone.mp4"
+        className="absolute inset-0 w-full h-full object-cover"
+        src="/HeroVideo.mp4"
         autoPlay
         loop
         muted
         playsInline
       />
 
-      {/* Light overlay */}
-      <div className="absolute inset-0 bg-black/15 z-10" />
-
       {/* Content */}
-      <div className="relative z-20 container mx-auto px-4 flex-grow flex items-center">
+      <div className="relative z-10 container mx-auto px-4 flex-grow flex items-center">
         <div className="max-w-3xl pt-4">
 
           <motion.p
@@ -99,7 +95,7 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.6, ease: 'easeOut' }}
+                transition={{ duration: 0.6 }}
                 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.3]"
                 dangerouslySetInnerHTML={{ __html: HERO_MESSAGES[index] }}
               />
@@ -114,7 +110,7 @@ const Hero = () => {
           >
             <Button
               size="lg"
-              className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold px-10 h-14 rounded-full transition-transform hover:scale-105"
+              className="bg-accent text-accent-foreground font-bold px-10 h-14 rounded-full hover:scale-105 transition-transform"
               onClick={() => navigate('/services')}
             >
               Our Services
@@ -124,7 +120,7 @@ const Hero = () => {
             <Button
               size="lg"
               variant="outline"
-              className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-navy-dark font-bold px-10 h-14 rounded-full transition-all"
+              className="border-2 border-white text-white font-bold px-10 h-14 rounded-full hover:bg-white hover:text-navy-dark"
               onClick={() => navigate('/contact')}
             >
               Contact Us
