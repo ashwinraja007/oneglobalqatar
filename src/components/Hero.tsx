@@ -69,7 +69,7 @@ const Hero = () => {
       {/* Background Video (NO overlay, NO filter) */}
       <video
         className="absolute inset-0 w-full h-full object-cover"
-        src="/HeroVideo.mp4"
+        src="/herone.mp4"
         autoPlay
         loop
         muted
