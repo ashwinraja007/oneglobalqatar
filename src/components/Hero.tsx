@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 // --- Rotating Headlines ---
 const HERO_MESSAGES = [
-  "Cost Effective and Top Quality LCL & FCL Services>",
+  "Cost Effective and Top Quality LCL & FCL Services",
   "Top-notch Warehousing Services for all your shipments",
   "Get the Best LCL & FCL Services at Unbeatable Prices",
   "Get the Best Logistics Service at very competitive prices"
@@ -66,7 +66,7 @@ const Hero = () => {
   return (
     <section id="home" className="relative h-[650px] md:h-[850px] overflow-hidden flex flex-col">
 
-      {/* Background Video (NO overlay, NO filter) */}
+      {/* Background Video */}
       <video
         className="absolute inset-0 w-full h-full object-cover"
         src="/herone.mp4"
@@ -80,16 +80,18 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-4 flex-grow flex items-center">
         <div className="max-w-3xl pt-4">
 
+          {/* Navy Tag */}
           <motion.div
-  initial={{ opacity: 0, x: -20 }}
-  animate={{ opacity: 1, x: 0 }}
-  className="inline-block bg-[#0A1E3F] px-6 py-3 rounded-lg shadow-md mb-4"
->
-  <p className="text-white font-bold tracking-[0.2em] uppercase text-sm">
-    Trusted Logistics Partner
-  </p>
-</motion.div>
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="inline-block bg-[#0A1E3F] px-6 py-3 rounded-lg shadow-md mb-4"
+          >
+            <p className="text-white font-bold tracking-[0.2em] uppercase text-sm">
+              Trusted Logistics Partner
+            </p>
+          </motion.div>
 
+          {/* Rotating Headline */}
           <div className="min-h-[120px] md:min-h-[160px] flex items-center mb-8">
             <AnimatePresence mode="wait">
               <motion.h1
@@ -99,11 +101,13 @@ const Hero = () => {
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.6 }}
                 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.3]"
-                dangerouslySetInnerHTML={{ __html: HERO_MESSAGES[index] }}
-              />
+              >
+                {HERO_MESSAGES[index]}
+              </motion.h1>
             </AnimatePresence>
           </div>
 
+          {/* CTA */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -118,6 +122,7 @@ const Hero = () => {
               Our Services
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
+          </motion.div>
 
         </div>
       </div>
