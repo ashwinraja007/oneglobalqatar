@@ -6,10 +6,10 @@ import { useNavigate } from 'react-router-dom';
 
 // --- Rotating Headlines ---
 const HERO_MESSAGES = [
-  "Cost Effective and Top Quality LCL & FCL <span class='text-accent'>Services</span>",
-  "Top-notch Warehousing <span class='text-accent'>Services</span> for all your shipments",
-  "Get the Best LCL & FCL <span class='text-accent'>Services</span> at Unbeatable Prices",
-  "Get the Best Logistics <span class='text-accent'>Service</span> at very competitive prices"
+  "Cost Effective and Top Quality LCL & FCL Services>",
+  "Top-notch Warehousing Services for all your shipments",
+  "Get the Best LCL & FCL Services at Unbeatable Prices",
+  "Get the Best Logistics Service at very competitive prices"
 ];
 
 // --- Navigation Buttons ---
@@ -80,13 +80,15 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-4 flex-grow flex items-center">
         <div className="max-w-3xl pt-4">
 
-          <motion.p
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="text-accent font-bold mb-4 tracking-[0.2em] uppercase text-sm"
-          >
-            Trusted Logistics Partner
-          </motion.p>
+          <motion.div
+  initial={{ opacity: 0, x: -20 }}
+  animate={{ opacity: 1, x: 0 }}
+  className="inline-block bg-[#0A1E3F] px-6 py-3 rounded-lg shadow-md mb-4"
+>
+  <p className="text-white font-bold tracking-[0.2em] uppercase text-sm">
+    Trusted Logistics Partner
+  </p>
+</motion.div>
 
           <div className="min-h-[120px] md:min-h-[160px] flex items-center mb-8">
             <AnimatePresence mode="wait">
@@ -116,16 +118,6 @@ const Hero = () => {
               Our Services
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
-
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-2 border-white text-white font-bold px-10 h-14 rounded-full hover:bg-white hover:text-navy-dark"
-              onClick={() => navigate('/contact')}
-            >
-              Contact Us
-            </Button>
-          </motion.div>
 
         </div>
       </div>
