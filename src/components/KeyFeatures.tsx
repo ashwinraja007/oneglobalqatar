@@ -192,14 +192,6 @@ const KeyFeatures = () => {
             </div>
           ))}
         </div>
-
-        {/* CTA Button */}
-        <div className="mt-20 text-center">
-          <a href="/Services" className="inline-flex items-center justify-center px-10 py-4 text-base font-semibold text-white rounded-full bg-primary hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl">
-            View All Services
-          </a>
-        </div>
-
       </div>
     </section>
   );
