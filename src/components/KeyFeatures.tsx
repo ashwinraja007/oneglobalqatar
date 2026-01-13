@@ -8,57 +8,56 @@ import {
   Boxes, 
   FileCheck, 
   DollarSign,
-  ArrowRight
 } from 'lucide-react';
 
 const KeyFeatures = () => {
-  // 1. Services Data
+  // 1. New Services Data (Replaced with your content)
   const services = [
     {
       image: "/airfreight.jpg",
       title: "Air Freight",
-      icon: <Plane className="w-6 h-6" />,
+      icon: <Plane size={24} />, // Increased size slightly for visibility
       link: "/services/air-freight",
-      description: "Lorem ipsum dolor sit amet consectetur adipiscing elit dolor",
+      points: ["Express & deferred services", "Airport-to-airport & door-to-door", "DG & temperature-controlled cargo"],
     },
     {
       image: "/seafreight.jpg",
       title: "Sea Freight",
-      icon: <Ship className="w-6 h-6" />,
+      icon: <Ship size={24} />,
       link: "/services/ocean-freight",
-      description: "Lorem ipsum dolor sit amet consectetur adipiscing elit dolor",
+      points: ["FCL & LCL solutions", "Breakbulk & Ro-Ro cargo", "Global consolidation network"],
     },
     {
       image: "/roadfreight01.jpg",
       title: "Road Freight",
-      icon: <Truck className="w-6 h-6" />,
+      icon: <Truck size={24} />,
       link: "/services/road-freight",
-      description: "Lorem ipsum dolor sit amet consectetur adipiscing elit dolor",
+      points: ["GCC distribution", "Cross-border trucking", "Last-mile delivery"],
     },
     {
       image: "/Customsclearance.jpg",
       title: "Customs Clearance",
-      icon: <Package className="w-6 h-6" />,
+      icon: <Package size={24} />,
       link: "/services/customs-clearance",
-      description: "Lorem ipsum dolor sit amet consectetur adipiscing elit dolor",
+      points: ["Import & export documentation", "Free zone & mainland clearance", "Compliance support"],
     },
     {
       image: "/Warehousing.jpg",
       title: "Warehousing",
-      icon: <Warehouse className="w-6 h-6" />,
+      icon: <Warehouse size={24} />,
       link: "/services/warehousing",
-      description: "Lorem ipsum dolor sit amet consectetur adipiscing elit dolor",
+      points: ["Bonded & non-bonded facilities", "Inventory management", "Value-added services"],
     },
     {
       image: "/Projectlogistics.jpg",
       title: "Project Logistics",
-      icon: <Boxes className="w-6 h-6" />,
+      icon: <Boxes size={24} />,
       link: "/services/project-logistics",
-      description: "Lorem ipsum dolor sit amet consectetur adipiscing elit dolor",
+      points: ["Planning & coordination", "Heavy & OOG cargo", "End-to-end execution"],
     },
   ];
 
-  // 2. Old Features Data
+  // 2. Old Features Data (Kept as is)
   const features = [
     {
       icon: Package,
@@ -112,23 +111,30 @@ const KeyFeatures = () => {
                 />
               </div>
 
-              {/* Dark Overlay (Always visible to make text readable) */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              {/* Dark Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
 
               {/* Content Container */}
-              <div className="absolute bottom-0 left-0 w-full p-8 text-white flex flex-col justify-end min-h-[50%]">
+              <div className="absolute bottom-0 left-0 w-full p-8 text-white flex flex-col justify-end min-h-[60%]">
                 
                 {/* Icon & Title Wrapper (Moves up on hover) */}
                 <div className="transform transition-transform duration-500 group-hover:-translate-y-2">
-                  <div className="mb-3 text-white/90">
+                  <div className="mb-3 text-accent">
                     {service.icon}
                   </div>
-                  <h3 className="font-heading text-2xl font-bold mb-2">
+                  <h3 className="font-heading text-2xl font-bold mb-4">
                     {service.title}
                   </h3>
-                  <p className="text-gray-300 text-sm font-body leading-relaxed max-w-[90%]">
-                    {service.description}
-                  </p>
+                  
+                  {/* Bullet Points (Replacing Description) */}
+                  <ul className="space-y-1.5">
+                    {service.points.map((point, idx) => (
+                      <li key={idx} className="text-gray-200 text-sm font-body flex items-start gap-2">
+                        <span className="mt-1.5 w-1 h-1 bg-accent rounded-full shrink-0" />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
                 {/* 'Read More' Button (Hidden by default, slides up & fades in on hover) */}
