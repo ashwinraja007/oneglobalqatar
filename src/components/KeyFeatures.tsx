@@ -11,12 +11,12 @@ import {
 } from 'lucide-react';
 
 const KeyFeatures = () => {
-  // 1. New Services Data (Replaced with your content)
+  // 1. New Services Data (Cards)
   const services = [
     {
       image: "/airfreight.jpg",
       title: "Air Freight",
-      icon: <Plane size={24} />, // Increased size slightly for visibility
+      icon: <Plane size={24} />,
       link: "/services/air-freight",
       points: ["Express & deferred services", "Airport-to-airport & door-to-door", "DG & temperature-controlled cargo"],
     },
@@ -57,7 +57,7 @@ const KeyFeatures = () => {
     },
   ];
 
-  // 2. Old Features Data (Kept as is)
+  // 2. Old Features Data (Icons)
   const features = [
     {
       icon: Package,
@@ -86,7 +86,44 @@ const KeyFeatures = () => {
       <div className="container mx-auto px-4">
 
         {/* =========================================
-            PART 1: SERVICES (Hover Cards)
+            PART 1: KEY FEATURES (Moved to Top)
+           ========================================= */}
+
+        <div className="text-center mb-20">
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mb-4">
+            SEA (LCL & FCL) / AIR FREIGHT - KEY FEATURES
+          </h2>
+          <div className="w-20 h-1 bg-accent mx-auto" />
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 mb-32">
+          {features.map((feature, index) => {
+            const Icon = feature.icon;
+            return (
+              <div key={index} className="relative text-center group">
+                <div className="mx-auto w-20 h-20 bg-white shadow-lg rounded-full flex items-center justify-center border border-gray-200 relative z-10">
+                  <Icon className="w-8 h-8 text-primary" />
+                </div>
+                <div className="pt-6">
+                  <h3 className="font-heading font-bold text-xl text-primary mb-3">
+                    {feature.title}
+                  </h3>
+                  <p className="font-body text-muted-foreground text-sm leading-relaxed max-w-xs mx-auto">
+                    {feature.description}
+                  </p>
+                </div>
+                {/* Background Number */}
+                <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 text-6xl font-bold text-gray-200 opacity-40 select-none transition-all duration-300 group-hover:text-gray-800 group-hover:opacity-90 group-hover:scale-110">
+                  {`0${index + 1}`}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+
+        {/* =========================================
+            PART 2: SERVICES CARDS (Moved Below)
            ========================================= */}
         
         <div className="text-center mb-12">
@@ -96,7 +133,7 @@ const KeyFeatures = () => {
            <div className="w-20 h-1 bg-accent mx-auto" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <div
               key={index}
@@ -126,7 +163,7 @@ const KeyFeatures = () => {
                     {service.title}
                   </h3>
                   
-                  {/* Bullet Points (Replacing Description) */}
+                  {/* Bullet Points */}
                   <ul className="space-y-1.5">
                     {service.points.map((point, idx) => (
                       <li key={idx} className="text-gray-200 text-sm font-body flex items-start gap-2">
@@ -137,7 +174,7 @@ const KeyFeatures = () => {
                   </ul>
                 </div>
 
-                {/* 'Read More' Button (Hidden by default, slides up & fades in on hover) */}
+                {/* 'Read More' Button */}
                 <div className="
                   h-0 overflow-hidden opacity-0 
                   transition-all duration-500 ease-out
@@ -156,43 +193,8 @@ const KeyFeatures = () => {
           ))}
         </div>
 
-
-        {/* =========================================
-            PART 2: KEY FEATURES (Old Style)
-           ========================================= */}
-
-        <div className="text-center mb-20">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mb-4">
-            SEA (LCL & FCL) / AIR FREIGHT - KEY FEATURES
-          </h2>
-          <div className="w-20 h-1 bg-accent mx-auto" />
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20">
-          {features.map((feature, index) => {
-            const Icon = feature.icon;
-            return (
-              <div key={index} className="relative text-center group">
-                <div className="mx-auto w-20 h-20 bg-white shadow-lg rounded-full flex items-center justify-center border border-gray-200 relative z-10">
-                  <Icon className="w-8 h-8 text-primary" />
-                </div>
-                <div className="pt-6">
-                  <h3 className="font-heading font-bold text-xl text-primary mb-3">
-                    {feature.title}
-                  </h3>
-                  <p className="font-body text-muted-foreground text-sm leading-relaxed max-w-xs mx-auto">
-                    {feature.description}
-                  </p>
-                </div>
-                <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 text-6xl font-bold text-gray-200 opacity-40 select-none transition-all duration-300 group-hover:text-gray-800 group-hover:opacity-90 group-hover:scale-110">
-                  {`0${index + 1}`}
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        <div className="mt-28 text-center">
+        {/* CTA Button */}
+        <div className="mt-20 text-center">
           <a href="/Services" className="inline-flex items-center justify-center px-10 py-4 text-base font-semibold text-white rounded-full bg-primary hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl">
             View All Services
           </a>
