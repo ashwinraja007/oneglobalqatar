@@ -1,73 +1,52 @@
 import React from 'react';
-import { CheckCircle, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
 
 const About = () => {
-  const navigate = useNavigate();
-  const features = [
-    'Global NVOCC Operator',
-    'LCL Consolidation Experts',
-    'Transparent Pricing',
-    'Dedicated Trade Lanes',
-    'Secured End-to-End Services',
-    'Trusted Agent Network',
-  ];
-
   return (
-    <section id="about" className="py-20 bg-background overflow-hidden">
-      
-      <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
+    <section id="about" className="py-24 bg-background">
+      <div className="container mx-auto px-6 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-        {/* IMAGE – FULL BLEED LEFT */}
-        <motion.div
-          initial={{ x: -120, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.9, ease: 'easeOut' }}
-          viewport={{ once: true }}
-          className="relative w-full h-full"
-        >
-          <img
-            src="/cargo-ship.png"
-            alt="One Global Logistics Container Ship"
-            className="w-full h-auto object-cover"
-            style={{
-              filter: "drop-shadow(0px 10px 30px rgba(0,0,0,0.15))"
-            }}
-          />
-        </motion.div>
-
-        {/* TEXT – CONTAINED RIGHT */}
-        <div className="container mx-auto px-6 lg:px-12">
-          <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
-            Drive Your Business <br />
-            Forward with <span className="text-accent">OGL</span>
-          </h2>
-
-          <p className="font-body text-base md:text-lg text-muted-foreground leading-relaxed mb-6">
-            One Global Logistics services W.L.L is a Qatar based global NVOCC operator providing LCL consolidation services worldwide. Our commitment to transparent business practice makes us one of the fast-growing consolidators based in Qatar.
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 mb-8">
-            {features.map((item, index) => (
-              <div key={index} className="flex items-center gap-3">
-                <CheckCircle className="w-5 h-5 text-accent fill-accent/10" />
-                <span className="font-body text-foreground font-medium">
-                  {item}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          <button
-            onClick={() => navigate('/about')}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-accent hover:bg-accent/90 text-white font-semibold rounded-lg transition-colors"
+          {/* IMAGE – LEFT (HUBSPOT-STYLE CARD) */}
+          <motion.div
+            initial={{ opacity: 0, y: 48 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: 'easeOut' }}
+            viewport={{ once: true }}
+            className="relative"
           >
-            Read More
-            <ArrowRight className="w-4 h-4" />
-          </button>
-        </div>
+            <div className="relative overflow-hidden rounded-2xl shadow-xl">
+              <img
+                src="/cargo-ship.png"
+                alt="One Global Logistics Office Environment"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </motion.div>
 
+          {/* CONTENT – RIGHT */}
+          <motion.div
+            initial={{ opacity: 0, y: 48 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.1, ease: 'easeOut' }}
+            viewport={{ once: true }}
+            className="flex flex-col justify-center"
+          >
+            <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
+              Our Mission: Helping Businesses <br />
+              <span className="text-accent">Move Better</span>
+            </h2>
+
+            <p className="font-body text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
+              One Global Logistics Services W.L.L is a Qatar-based global NVOCC
+              operator specializing in LCL consolidation services worldwide.
+              We focus on transparency, reliability, and efficiency—aligning
+              our logistics expertise with the growth and success of our
+              customers.
+            </p>
+          </motion.div>
+
+        </div>
       </div>
     </section>
   );
