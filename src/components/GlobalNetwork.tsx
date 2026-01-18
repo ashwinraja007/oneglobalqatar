@@ -12,57 +12,52 @@ const GlobalNetwork = () => {
   ];
 
   return (
-    <section className="relative py-32 bg-[#0b2a4a] overflow-hidden">
-      
-      {/* Soft ambient light */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_60%)]" />
+    <section className="relative bg-[#0b2a4a] py-20 overflow-hidden">
+      {/* subtle light */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.06),transparent_65%)]" />
 
       <div className="relative container mx-auto px-6 lg:px-12">
 
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center max-w-5xl mx-auto mb-24"
+          className="text-center max-w-4xl mx-auto mb-14"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
             Our Global Network
           </h2>
 
-          <div className="mx-auto h-1 w-48 bg-gradient-to-r from-transparent via-red-500 to-transparent" />
+          <div className="mx-auto h-0.5 w-32 bg-gradient-to-r from-transparent via-red-500 to-transparent" />
 
-          <p className="mt-8 text-lg md:text-xl text-blue-100 leading-relaxed">
+          <p className="mt-5 text-base md:text-lg text-blue-100 leading-relaxed">
             One Global Logistics Services W.L.L operates with a strong, reliable worldwide
-            agent network. Driven by technology and transparency, we deliver secure,
-            schedule-driven LCL consolidation services backed by experienced professionals
-            and trusted global partners.
+            agent network, delivering secure, schedule-driven LCL consolidation services
+            supported by experienced professionals and trusted partners.
           </p>
         </motion.div>
 
-        {/* Feature Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
+        {/* Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.4, delay: index * 0.08 }}
                 viewport={{ once: true }}
-                className="group relative rounded-3xl p-10 bg-white/95 backdrop-blur shadow-xl hover:shadow-2xl transition-all duration-500"
+                className="group relative rounded-2xl bg-white/95 px-6 py-7 shadow-md hover:shadow-lg transition-all duration-300"
               >
-                {/* Hover glow */}
-                <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-blue-200/40 to-transparent" />
-
-                <div className="relative flex flex-col items-center text-center">
-                  <div className="w-18 h-18 mb-6 rounded-2xl flex items-center justify-center shadow-lg bg-gradient-to-br from-[#1e3a8a] to-[#2563eb] group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
-                    <Icon className="w-9 h-9 text-white" strokeWidth={2} />
+                <div className="flex flex-col items-center text-center">
+                  <div className="mb-4 w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-br from-[#1e3a8a] to-[#2563eb] group-hover:scale-105 transition-transform">
+                    <Icon className="w-6 h-6 text-white" />
                   </div>
 
-                  <h3 className="text-xl font-semibold text-[#0b2a4a]">
+                  <h3 className="text-base font-semibold text-[#0b2a4a] leading-tight">
                     {feature.name}
                   </h3>
                 </div>
