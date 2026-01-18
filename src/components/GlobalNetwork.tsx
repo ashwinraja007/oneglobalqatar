@@ -33,9 +33,7 @@ const GlobalNetwork = () => {
           <div className="mx-auto h-0.5 w-32 bg-gradient-to-r from-transparent via-red-500 to-transparent" />
 
           <p className="mt-5 text-base md:text-lg text-blue-100 leading-relaxed">
-            One Global Logistics Services W.L.L operates with a strong, reliable worldwide
-            agent network, delivering secure, schedule-driven LCL consolidation services
-            supported by experienced professionals and trusted partners.
+ONE Global Logistics services W.L.L has a strong & Reliable Worldwide Agent network . OGL believes in Technology driven Logistic solution to provide a transparent and hassle free service to its agents & Customers.The strength of any organization is its individuals, and we are no different. We have good number of staffs catering to the business needs of the market. The departments are headed by professionals who have many years of experience in the logistics field as a neutral Sea LCL Consolidation Service Provider to serve the QATAR our network guarantees schedule integrity that’s next to none. We have the best transit cycle, reliability, and rates you can find, along with the flexibility you want when it comes to smaller loads.Get in touch with our logistics team at Qatar – ONE GLOBAL LOGISTICS SERVICES now and we shall guarantee timely and professional services.
           </p>
         </motion.div>
 
