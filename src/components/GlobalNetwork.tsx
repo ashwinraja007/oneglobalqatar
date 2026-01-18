@@ -12,18 +12,10 @@ const GlobalNetwork = () => {
   ];
 
   return (
-    <section className="relative py-32 overflow-hidden bg-gradient-to-b from-[#081d33] via-[#0e345a] to-[#081d33]">
-
-      {/* Decorative background blobs */}
-      <div className="absolute -top-40 -left-40 w-[420px] h-[420px] bg-blue-500/20 rounded-full blur-3xl" />
-      <div className="absolute top-1/3 -right-40 w-[420px] h-[420px] bg-indigo-500/20 rounded-full blur-3xl" />
-
-      {/* Top wave / shape */}
-      <img
-        src="/shape8.png"
-        alt=""
-        className="absolute top-0 left-0 w-full pointer-events-none select-none opacity-90"
-      />
+    <section className="relative py-32 bg-[#0b2a4a] overflow-hidden">
+      
+      {/* Soft ambient light */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_60%)]" />
 
       <div className="relative container mx-auto px-6 lg:px-12">
 
@@ -60,7 +52,7 @@ const GlobalNetwork = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group relative rounded-3xl p-10 bg-white/95 backdrop-blur-xl shadow-xl hover:shadow-2xl transition-all duration-500"
+                className="group relative rounded-3xl p-10 bg-white/95 backdrop-blur shadow-xl hover:shadow-2xl transition-all duration-500"
               >
                 {/* Hover glow */}
                 <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-blue-200/40 to-transparent" />
