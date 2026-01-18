@@ -33,16 +33,12 @@ const About = () => {
             className="flex flex-col justify-center"
           >
             <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
-              Our Mission: Helping Businesses <br />
-              <span className="text-accent">Move Better</span>
+              About Us <br />
+              <span className="text-accent"></span>
             </h2>
 
             <p className="font-body text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
-              One Global Logistics Services W.L.L is a Qatar-based global NVOCC
-              operator specializing in LCL consolidation services worldwide.
-              We focus on transparency, reliability, and efficiency—aligning
-              our logistics expertise with the growth and success of our
-              customers.
+One Global Logistics services W.L.L is a Qatar based global NVOCC (Non-vessel owned common carrier) operator providing LCL consolidation services worldwide markets. We at OGL has a well experienced and established team with relevant experience in their own dedicated trade lanes supports our customers with all their special requirements with complete dedication and transparency.Our commitment to honest, transparent business practice and pricing, backed by a network of experienced and trusted agents, from around the world, makes us  one of the fast-growing consolidators based at Qatar. We are well positioned to manage your LCL business with full attention. We aimed at providing the secured end to end LCL services to the Freight Forwarding /Logistics Companies in Qatar, whereas we ensure to maintain the trust and not entertain direct customer business.
             </p>
           </motion.div>
 
