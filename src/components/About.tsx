@@ -17,7 +17,7 @@ const About = () => {
           >
             <div className="relative overflow-hidden rounded-2xl shadow-xl">
               <img
-                src="/ship.JPG"
+                src="/ship.png"
                 alt="One Global Logistics Office Environment"
                 className="w-full h-full object-cover"
               />
