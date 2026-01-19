@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Send, Globe } from 'lucide-react';
+import { MapPin, Phone, Mail, Send, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -19,7 +19,7 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
-      title: "Message Sent!",
+      title: 'Message Sent!',
       description: "We'll get back to you as soon as possible.",
     });
     setFormData({ name: '', email: '', phone: '', message: '' });
@@ -46,7 +46,9 @@ const Contact = () => {
       icon: Phone,
       title: 'Phone',
       lines: [
-        'International: +974 558 558 36, 446 79 444, 446 79 400'
+        '+974 558 558 36',
+        '+974 446 79 444',
+        '+974 446 79 400',
       ],
     },
     {
@@ -73,7 +75,7 @@ const Contact = () => {
           alt="Background"
           className="w-full h-full object-cover"
           onError={(e) => {
-            (e.target as HTMLImageElement).src = "/about-bg.jpg";
+            (e.target as HTMLImageElement).src = '/about-bg.jpg';
           }}
         />
       </div>
@@ -92,90 +94,91 @@ const Contact = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {/* Left Column: Form Box */}
+          {/* Form Box */}
           <div className="bg-white/90 p-8 rounded-xl shadow-md backdrop-blur-sm animate-slide-in-left">
             <h3 className="font-heading text-xl font-bold text-primary mb-6">
               Send us a Message
             </h3>
 
             <form onSubmit={handleSubmit} className="space-y-4">
-              <Input
-                name="name"
-                placeholder="Your Name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="font-body"
-              />
+              <Input name="name" placeholder="Your Name" value={formData.name} onChange={handleChange} required />
+              <Input name="email" type="email" placeholder="Your Email" value={formData.email} onChange={handleChange} required />
+              <Input name="phone" placeholder="Your Phone" value={formData.phone} onChange={handleChange} />
+              <Textarea name="message" placeholder="Your Message" value={formData.message} onChange={handleChange} required rows={5} className="resize-none" />
 
-              <Input
-                name="email"
-                type="email"
-                placeholder="Your Email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="font-body"
-              />
-
-              <Input
-                name="phone"
-                placeholder="Your Phone"
-                value={formData.phone}
-                onChange={handleChange}
-                className="font-body"
-              />
-
-              <Textarea
-                name="message"
-                placeholder="Your Message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                rows={5}
-                className="font-body resize-none"
-              />
-
-              <Button
-                type="submit"
-                className="w-full bg-accent hover:bg-red-hover text-accent-foreground font-body font-semibold"
-              >
+              <Button type="submit" className="w-full bg-accent hover:bg-red-hover text-accent-foreground font-semibold">
                 <Send className="w-4 h-4 mr-2" />
                 Send Message
               </Button>
             </form>
           </div>
 
-          {/* Right Column: Contact Info Box (Unified) */}
-          <div className="bg-white/90 p-8 rounded-xl shadow-md backdrop-blur-sm animate-slide-in-right h-fit">
+          {/* Contact Info */}
+          <div className="bg-white/90 p-8 rounded-xl shadow-md backdrop-blur-sm animate-slide-in-right">
             <h3 className="font-heading text-xl font-bold text-primary mb-6">
               Our Office
             </h3>
 
-            <div className="space-y-8"> 
+            <div className="space-y-8">
               {contactInfo.map((info, index) => {
                 const Icon = info.icon;
 
                 return (
                   <div key={index} className="flex gap-4 items-start">
-                    {/* Icon Box */}
                     <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center shrink-0">
                       <Icon className="w-5 h-5 text-primary-foreground" />
                     </div>
-                    
-                    {/* Text Details */}
+
                     <div>
                       <h4 className="font-heading font-semibold text-primary mb-1">
                         {info.title}
                       </h4>
-                      {info.lines.map((line, idx) => (
-                        <p
-                          key={idx}
-                          className="font-body text-muted-foreground text-sm leading-relaxed"
-                        >
-                          {line}
-                        </p>
-                      ))}
+
+                      {info.lines.map((line, idx) => {
+                        if (info.title === 'Phone') {
+                          return (
+                            <a
+                              key={idx}
+                              href={`tel:${line.replace(/[^+\d]/g, '')}`}
+                              className="block text-blue-600 text-sm font-medium hover:underline hover:text-blue-800 transition"
+                            >
+                              {line}
+                            </a>
+                          );
+                        }
+
+                        if (info.title === 'Email') {
+                          return (
+                            <a
+                              key={idx}
+                              href={`mailto:${line}`}
+                              className="block text-blue-600 text-sm font-medium hover:underline hover:text-blue-800 transition"
+                            >
+                              {line}
+                            </a>
+                          );
+                        }
+
+                        if (info.title === 'Website') {
+                          return (
+                            <a
+                              key={idx}
+                              href={`https://${line}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="block text-blue-600 text-sm font-medium hover:underline hover:text-blue-800 transition"
+                            >
+                              {line}
+                            </a>
+                          );
+                        }
+
+                        return (
+                          <p key={idx} className="text-muted-foreground text-sm leading-relaxed">
+                            {line}
+                          </p>
+                        );
+                      })}
                     </div>
                   </div>
                 );
