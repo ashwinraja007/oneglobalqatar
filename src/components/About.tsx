@@ -32,14 +32,14 @@ const About = () => {
             viewport={{ once: true }}
             className="flex flex-col justify-center"
           >
-            {/* Title – same size as body */}
-            <h2 className="font-heading text-sm md:text-base font-semibold text-foreground mb-4 leading-relaxed">
+            {/* BIG TITLE */}
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-5 leading-tight">
               About Us
             </h2>
 
-            {/* Description – same size */}
+            {/* COMPACT BODY TEXT */}
             <p className="font-body text-sm md:text-base text-black leading-relaxed max-w-xl">
-              <strong>One Global Logistics Services W.L.L</strong> is a Qatar based global <strong>NVOCC</strong> (Non-vessel owned common carrier) operator providing LCL consolidation services worldwide. OGL is supported by an experienced team managing dedicated trade lanes with complete transparency and commitment. Backed by a trusted global agent network, we are positioned as one of the fast-growing consolidators based in Qatar. We provide secured end-to-end LCL services exclusively to Freight Forwarding and Logistics companies, ensuring trust and avoiding direct customer business.
+              <strong>One Global Logistics Services W.L.L</strong> is a Qatar based global <strong>NVOCC</strong> (Non-vessel owned common carrier) operator providing LCL consolidation services worldwide. OGL is supported by an experienced team managing dedicated trade lanes with transparency and commitment. Backed by a trusted global agent network, we are positioned as one of the fast-growing consolidators based in Qatar. We provide secured end-to-end LCL services exclusively to Freight Forwarding and Logistics companies, ensuring trust and avoiding direct customer business.
             </p>
           </motion.div>
 
