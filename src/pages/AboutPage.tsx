@@ -119,35 +119,39 @@ const AboutPage = () => {
         </section>
 
         {/* VISION & MISSION */}
-        <section className="py-16 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 gap-8">
+<section className="py-16 bg-[#0B1C3D]">
+  <div className="container mx-auto px-4">
+    <div className="grid md:grid-cols-2 gap-8">
 
-              {/* Vision */}
-              <div className="bg-card rounded-2xl p-8 shadow border">
-                <Eye className="w-10 h-10 text-accent mb-4" />
-                <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
-                <p className="text-muted-foreground">
-                  OGL to be the leading global logistics solution provider through
-                  our most advanced systems combined with well experienced
-                  logistics professionals.
-                </p>
-              </div>
+      {/* Vision */}
+      <div className="bg-[#0B1C3D] rounded-2xl p-8 shadow-lg border border-white/10">
+        <Eye className="w-10 h-10 text-white mb-4" />
+        <h3 className="text-2xl font-bold mb-4 text-white">
+          Our Vision
+        </h3>
+        <p className="text-white/90">
+          OGL to be the leading global logistics solution provider through
+          our most advanced systems combined with well experienced
+          logistics professionals.
+        </p>
+      </div>
 
-              {/* Mission */}
-              <div className="bg-card rounded-2xl p-8 shadow border">
-                <Target className="w-10 h-10 text-primary mb-4" />
-                <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
-                <p className="text-muted-foreground">
-                  OGL to be Forwarders first choice for :
-                </p>
-               <p className="text-muted-foreground">FCL, LCL, Air Freight</p>
-                <p className="text-muted-foreground">Freight Management Services</p>
-              </div>
+      {/* Mission */}
+      <div className="bg-[#0B1C3D] rounded-2xl p-8 shadow-lg border border-white/10">
+        <Target className="w-10 h-10 text-white mb-4" />
+        <h3 className="text-2xl font-bold mb-4 text-white">
+          Our Mission
+        </h3>
+        <p className="text-white/90">
+          OGL to be Forwarders first choice for:
+        </p>
+        <p className="text-white/90">FCL, LCL, Air Freight</p>
+        <p className="text-white/90">Freight Management Services</p>
+      </div>
 
-            </div>
-          </div>
-        </section>
+    </div>
+  </div>
+</section>
       </main>
 
       <Footer />
