@@ -33,7 +33,7 @@ const VisionMission = () => {
           {/* Mission Card */}
           <div className="bg-[#0B1C3D] p-10 rounded-2xl border border-white/10 shadow-2xl animate-slide-in-right hover:scale-[1.03] transition-all duration-300">
             <div className="flex items-center gap-4 mb-6">
-              <div className="w-14 h-14 bg-[#0B1C3D] rounded-xl flex items-center justify-center border border-white/20">
+              <div className="w-14 h-14 bg-[#FFFFFF] rounded-xl flex items-center justify-center border border-white/20">
                 <Target className="w-7 h-7 text-white" />
               </div>
               <h3 className="font-heading text-2xl font-bold text-white">
@@ -41,7 +41,7 @@ const VisionMission = () => {
               </h3>
             </div>
             <p className="font-body text-white/90 leading-relaxed text-lg">
-              OGL to be Forwarders first choice for: FCL, LCL, Air Freight, Freight Management Services.
+              OGL to be Forwarders first choice for:FCL, LCL, Air Freight, Freight Management Services.
             </p>
           </div>
 
