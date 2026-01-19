@@ -119,7 +119,7 @@ const AboutPage = () => {
         </section>
 
         {/* VISION & MISSION */}
-<section className="py-16 bg-[#0B1C3D]">
+<section className="py-16 bg-[#FFFFFF]">
   <div className="container mx-auto px-4">
     <div className="grid md:grid-cols-2 gap-8">
 
@@ -137,7 +137,7 @@ const AboutPage = () => {
       </div>
 
       {/* Mission */}
-      <div className="bg-[#FFFFFF] rounded-2xl p-8 shadow-lg border border-white/10">
+      <div className="bg-[#0B1C3D] rounded-2xl p-8 shadow-lg border border-white/10">
         <Target className="w-10 h-10 text-white mb-4" />
         <h3 className="text-2xl font-bold mb-4 text-white">
           Our Mission
