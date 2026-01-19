@@ -255,13 +255,13 @@ const ContactPage = () => {
               transition={{ duration: 0.6 }}
               className="bg-card rounded-2xl shadow-lg border overflow-hidden"
             >
-              <div className="relative w-full h-[480px]">
-                <iframe
-                  src="https://www.google.com/maps/d/embed?mid=1x7_4LJ6dtdf7j5_wLKodrqPKOdjmUlw&ehbc=2E312F&noprof=1"
-                  className="absolute inset-0 w-full h-full border-0"
-                  loading="lazy"
-                />
-              </div>
+      <div className="relative w-full h-[480px] overflow-hidden rounded-2xl">
+        <iframe
+          src="https://www.google.com/maps/d/embed?mid=1x7_4LJ6dtdf7j5_wLKodrqPKOdjmUlw&ehbc=2E312F&noprof=1"
+          className="absolute left-0 top-[-52px] w-full h-[540px] border-0"
+          loading="lazy"
+        />
+      </div>
             </motion.div>
           </div>
         </section>
