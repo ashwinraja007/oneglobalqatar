@@ -53,7 +53,7 @@ const ContactPage = () => {
     {
       icon: Phone,
       title: 'Phone',
-      lines: ['International: +974 558 558 36, 446 79 444, 446 79 400'],
+      lines: ['+974 558 558 36', '+974 446 79 444', '+974 446 79 400'],
     },
     {
       icon: Mail,
@@ -90,7 +90,7 @@ const ContactPage = () => {
                 <h1 className="text-3xl md:text-5xl font-bold text-primary-foreground mb-4">
                   Contact Us
                 </h1>
-                <p className="text-primary-foreground/90 text-lg md:text-xl leading-relaxed">
+                <p className="text-primary-foreground/90 text-base md:text-lg leading-relaxed">
                   Get in touch with our team for inquiries, quotes, or any
                   questions about our services.
                 </p>
@@ -117,10 +117,36 @@ const ContactPage = () => {
                   </h2>
 
                   <form onSubmit={handleSubmit} className="space-y-4">
-                    <Input name="name" placeholder="Your Name" value={formData.name} onChange={handleChange} required />
-                    <Input name="email" type="email" placeholder="Your Email" value={formData.email} onChange={handleChange} required />
-                    <Input name="phone" placeholder="Your Phone" value={formData.phone} onChange={handleChange} />
-                    <Textarea name="message" placeholder="Your Message" value={formData.message} onChange={handleChange} required rows={5} className="resize-none" />
+                    <Input
+                      name="name"
+                      placeholder="Your Name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                    />
+                    <Input
+                      name="email"
+                      type="email"
+                      placeholder="Your Email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                    />
+                    <Input
+                      name="phone"
+                      placeholder="Your Phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                    />
+                    <Textarea
+                      name="message"
+                      placeholder="Your Message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                      rows={5}
+                      className="resize-none"
+                    />
 
                     <Button
                       type="submit"
@@ -148,16 +174,66 @@ const ContactPage = () => {
                   <div className="space-y-8">
                     {contactInfo.map((info, index) => {
                       const Icon = info.icon;
+
                       return (
                         <div key={index} className="flex gap-4 items-start">
                           <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center shrink-0">
                             <Icon className="w-5 h-5 text-primary-foreground" />
                           </div>
+
                           <div>
-                            <h4 className="font-semibold text-primary mb-1">{info.title}</h4>
-                            {info.lines.map((line, idx) => (
-                              <p key={idx} className="text-muted-foreground text-sm leading-relaxed">{line}</p>
-                            ))}
+                            <h4 className="font-semibold text-primary mb-1">
+                              {info.title}
+                            </h4>
+
+                            {info.lines.map((line, idx) => {
+                              if (info.title === 'Phone') {
+                                return (
+                                  <a
+                                    key={idx}
+                                    href={`tel:${line.replace(/[^+\d]/g, '')}`}
+                                    className="block text-muted-foreground text-sm hover:text-primary transition"
+                                  >
+                                    {line}
+                                  </a>
+                                );
+                              }
+
+                              if (info.title === 'Email') {
+                                return (
+                                  <a
+                                    key={idx}
+                                    href={`mailto:${line}`}
+                                    className="block text-muted-foreground text-sm hover:text-primary transition"
+                                  >
+                                    {line}
+                                  </a>
+                                );
+                              }
+
+                              if (info.title === 'Website') {
+                                return (
+                                  <a
+                                    key={idx}
+                                    href={`https://${line}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="block text-muted-foreground text-sm hover:text-primary transition"
+                                  >
+                                    {line}
+                                  </a>
+                                );
+                              }
+
+                              return (
+                                <p
+                                  key={idx}
+                                  className="text-muted-foreground text-sm leading-relaxed"
+                                >
+                                  {line}
+                                </p>
+                              );
+                            })}
                           </div>
                         </div>
                       );
@@ -171,25 +247,24 @@ const ContactPage = () => {
 
         {/* Map Section */}
         <section className="pb-20">
-  <div className="container mx-auto px-4 max-w-6xl">
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      className="bg-card rounded-2xl shadow-lg border overflow-hidden relative"
-    >
-      <div className="relative w-full h-[480px] overflow-hidden rounded-2xl">
-        <iframe
-          src="https://www.google.com/maps/d/embed?mid=1x7_4LJ6dtdf7j5_wLKodrqPKOdjmUlw&ehbc=2E312F&noprof=1"
-          className="absolute left-0 top-[-52px] w-full h-[540px] border-0"
-          loading="lazy"
-        />
-      </div>
-    </motion.div>
-  </div>
-</section>
-
+          <div className="container mx-auto px-4 max-w-6xl">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-card rounded-2xl shadow-lg border overflow-hidden"
+            >
+              <div className="relative w-full h-[480px]">
+                <iframe
+                  src="https://www.google.com/maps/d/embed?mid=1x7_4LJ6dtdf7j5_wLKodrqPKOdjmUlw&ehbc=2E312F&noprof=1"
+                  className="absolute inset-0 w-full h-full border-0"
+                  loading="lazy"
+                />
+              </div>
+            </motion.div>
+          </div>
+        </section>
       </main>
 
       <Footer />
