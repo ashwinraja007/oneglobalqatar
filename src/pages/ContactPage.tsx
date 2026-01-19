@@ -72,7 +72,7 @@ const ContactPage = () => {
       <Header />
 
       <main>
-        {/* Hero Section */}
+        {/* Hero */}
         <section className="relative h-[350px] md:h-[450px] overflow-hidden">
           <img
             src="/port.jpg"
@@ -91,18 +91,18 @@ const ContactPage = () => {
                   Contact Us
                 </h1>
                 <p className="text-primary-foreground/90 text-base md:text-lg leading-relaxed">
-                  Get in touch with our team for inquiries, quotes, or any
-                  questions about our services.
+                  Get in touch with our team for inquiries, quotes, or service
+                  information.
                 </p>
               </motion.div>
             </div>
           </div>
         </section>
 
-        {/* Contact Content */}
+        {/* Content */}
         <section className="py-16">
           <div className="container mx-auto px-4">
-            <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto items-stretch">
 
               {/* Contact Form */}
               <motion.div
@@ -110,13 +110,14 @@ const ContactPage = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
+                className="h-full"
               >
-                <div className="bg-card rounded-2xl p-8 shadow-lg border">
+                <div className="bg-card rounded-2xl p-8 shadow-lg border h-full flex flex-col">
                   <h2 className="text-2xl font-bold text-primary mb-6">
                     Send us a Message
                   </h2>
 
-                  <form onSubmit={handleSubmit} className="space-y-4">
+                  <form onSubmit={handleSubmit} className="space-y-4 flex-1">
                     <Input
                       name="name"
                       placeholder="Your Name"
@@ -150,7 +151,7 @@ const ContactPage = () => {
 
                     <Button
                       type="submit"
-                      className="w-full bg-[#102A56] hover:bg-[#0c2144] text-white font-semibold"
+                      className="w-full bg-[#102A56] hover:bg-[#0c2144] text-white font-semibold mt-2"
                     >
                       <Send className="w-4 h-4 mr-2" />
                       Send Message
@@ -165,8 +166,9 @@ const ContactPage = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
+                className="h-full"
               >
-                <div className="bg-card rounded-2xl p-8 shadow-lg border h-fit">
+                <div className="bg-card rounded-2xl p-8 shadow-lg border h-full flex flex-col">
                   <h2 className="text-2xl font-bold text-primary mb-6">
                     Our Office
                   </h2>
@@ -192,7 +194,7 @@ const ContactPage = () => {
                                   <a
                                     key={idx}
                                     href={`tel:${line.replace(/[^+\d]/g, '')}`}
-                                    className="block text-muted-foreground text-sm hover:text-primary transition"
+                                    className="block text-blue-600 font-medium text-sm hover:text-blue-800 hover:underline transition"
                                   >
                                     {line}
                                   </a>
@@ -204,7 +206,7 @@ const ContactPage = () => {
                                   <a
                                     key={idx}
                                     href={`mailto:${line}`}
-                                    className="block text-muted-foreground text-sm hover:text-primary transition"
+                                    className="block text-blue-600 font-medium text-sm hover:text-blue-800 hover:underline transition"
                                   >
                                     {line}
                                   </a>
@@ -218,7 +220,7 @@ const ContactPage = () => {
                                     href={`https://${line}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="block text-muted-foreground text-sm hover:text-primary transition"
+                                    className="block text-blue-600 font-medium text-sm hover:text-blue-800 hover:underline transition"
                                   >
                                     {line}
                                   </a>
@@ -241,11 +243,12 @@ const ContactPage = () => {
                   </div>
                 </div>
               </motion.div>
+
             </div>
           </div>
         </section>
 
-        {/* Map Section */}
+        {/* Map */}
         <section className="pb-20">
           <div className="container mx-auto px-4 max-w-6xl">
             <motion.div
@@ -261,7 +264,7 @@ const ContactPage = () => {
           className="absolute left-0 top-[-52px] w-full h-[540px] border-0"
           loading="lazy"
         />
-      </div>
+              </div>
             </motion.div>
           </div>
         </section>
