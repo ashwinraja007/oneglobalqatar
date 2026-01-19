@@ -137,16 +137,13 @@ const AboutPage = () => {
       </div>
 
       {/* Mission */}
-      <div className="bg-[#0B1C3D] rounded-2xl p-8 shadow-lg border border-white/10">
+      <div className="bg-[#FFFFFF] rounded-2xl p-8 shadow-lg border border-white/10">
         <Target className="w-10 h-10 text-white mb-4" />
         <h3 className="text-2xl font-bold mb-4 text-white">
           Our Mission
         </h3>
         <p className="text-white/90">
-          OGL to be Forwarders first choice for:
-        </p>
-        <p className="text-white/90">FCL, LCL, Air Freight</p>
-        <p className="text-white/90">Freight Management Services</p>
+          OGL to be Forwarders first choice for: FCL, LCL, Air Freight, Freight Management Services</p>
       </div>
 
     </div>
