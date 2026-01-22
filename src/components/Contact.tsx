@@ -9,6 +9,7 @@ import bgImage from '/about-bg.webp';
 
 const Contact = () => {
   const { toast } = useToast();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -16,19 +17,58 @@ const Contact = () => {
     message: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: 'Message Sent!',
-      description: "We'll get back to you as soon as possible.",
-    });
-    setFormData({ name: '', email: '', phone: '', message: '' });
-  };
-
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch(
+        'https://formsubmit.co/ajax/info@oneglobalqatar.com',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            message: formData.message,
+
+            _subject: 'New Contact Form Submission – One Global Qatar',
+            _captcha: 'false',
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error('Failed');
+      }
+
+      toast({
+        title: 'Message Sent!',
+        description: "We'll get back to you as soon as possible.",
+      });
+
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        message: '',
+      });
+    } catch (error) {
+      toast({
+        title: 'Submission Failed',
+        description: 'Please try again later.',
+        variant: 'destructive',
+      });
+    }
   };
 
   const contactInfo = [
@@ -80,7 +120,7 @@ const Contact = () => {
         />
       </div>
 
-      {/* Main Content */}
+      {/* Content */}
       <div className="relative z-10 container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary mb-4 drop-shadow-md">
@@ -94,19 +134,48 @@ const Contact = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {/* Form Box */}
+          {/* Form */}
           <div className="bg-white/90 p-8 rounded-xl shadow-md backdrop-blur-sm animate-slide-in-left">
             <h3 className="font-heading text-xl font-bold text-primary mb-6">
               Send us a Message
             </h3>
 
             <form onSubmit={handleSubmit} className="space-y-4">
-              <Input name="name" placeholder="Your Name" value={formData.name} onChange={handleChange} required />
-              <Input name="email" type="email" placeholder="Your Email" value={formData.email} onChange={handleChange} required />
-              <Input name="phone" placeholder="Your Phone" value={formData.phone} onChange={handleChange} />
-              <Textarea name="message" placeholder="Your Message" value={formData.message} onChange={handleChange} required rows={5} className="resize-none" />
+              <Input
+                name="name"
+                placeholder="Your Name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+              <Input
+                name="email"
+                type="email"
+                placeholder="Your Email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+              <Input
+                name="phone"
+                placeholder="Your Phone"
+                value={formData.phone}
+                onChange={handleChange}
+              />
+              <Textarea
+                name="message"
+                placeholder="Your Message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                rows={5}
+                className="resize-none"
+              />
 
-              <Button type="submit" className="w-full bg-accent hover:bg-red-hover text-accent-foreground font-semibold">
+              <Button
+                type="submit"
+                className="w-full bg-accent hover:bg-red-hover text-accent-foreground font-semibold"
+              >
                 <Send className="w-4 h-4 mr-2" />
                 Send Message
               </Button>
@@ -174,7 +243,10 @@ const Contact = () => {
                         }
 
                         return (
-                          <p key={idx} className="text-muted-foreground text-sm leading-relaxed">
+                          <p
+                            key={idx}
+                            className="text-muted-foreground text-sm leading-relaxed"
+                          >
                             {line}
                           </p>
                         );
