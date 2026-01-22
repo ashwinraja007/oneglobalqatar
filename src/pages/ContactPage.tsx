@@ -30,13 +30,49 @@ const ContactPage = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: 'Message Sent!',
-      description: "We'll get back to you as soon as possible.",
-    });
-    setFormData({ name: '', email: '', phone: '', message: '' });
+
+    try {
+      const response = await fetch(
+        'https://formsubmit.co/ajax/info@oneglobalqatar.com',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            message: formData.message,
+            _subject: 'New Contact Form Submission – One Global Qatar',
+            _captcha: 'false',
+          }),
+        }
+      );
+
+      if (!response.ok) throw new Error('Failed');
+
+      toast({
+        title: 'Message Sent!',
+        description: "We'll get back to you as soon as possible.",
+      });
+
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        message: '',
+      });
+    } catch (error) {
+      toast({
+        title: 'Submission Failed',
+        description: 'Please try again later.',
+        variant: 'destructive',
+      });
+    }
   };
 
   const contactInfo = [
@@ -258,12 +294,12 @@ const ContactPage = () => {
               transition={{ duration: 0.6 }}
               className="bg-card rounded-2xl shadow-lg border overflow-hidden"
             >
-      <div className="relative w-full h-[480px] overflow-hidden rounded-2xl">
-        <iframe
-          src="https://www.google.com/maps/d/embed?mid=1x7_4LJ6dtdf7j5_wLKodrqPKOdjmUlw&ehbc=2E312F&noprof=1"
-          className="absolute left-0 top-[-52px] w-full h-[540px] border-0"
-          loading="lazy"
-        />
+              <div className="relative w-full h-[480px] overflow-hidden rounded-2xl">
+                <iframe
+                  src="https://www.google.com/maps/d/embed?mid=1x7_4LJ6dtdf7j5_wLKodrqPKOdjmUlw&ehbc=2E312F&noprof=1"
+                  className="absolute left-0 top-[-52px] w-full h-[540px] border-0"
+                  loading="lazy"
+                />
               </div>
             </motion.div>
           </div>
