@@ -11,7 +11,7 @@ const HERO_MESSAGES = ["Cost Effective and Top Quality LCL & FCL Services", "Top
 const HeroNavButtons = () => {
   const buttons = [{
     icon: User,
-    label: 'Customer Portal',
+    label: 'Consolmate',
     url: 'https://consolmate.com/auth/login/9'
   }, {
     icon: Users,
